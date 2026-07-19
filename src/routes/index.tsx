@@ -1,24 +1,351 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { ArrowRight, Sparkles, Waves, Zap, Heart, Instagram } from "lucide-react";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { storefrontApiRequest, STOREFRONT_QUERY, formatINR, type ShopifyProduct } from "@/lib/shopify";
+import hero from "@/assets/hero-portrait.jpg";
+import drVindhya from "@/assets/dr-vindhya.jpg";
+import clinic from "@/assets/clinic-interior.jpg";
+import ig1 from "@/assets/ig-1.jpg";
+import ig2 from "@/assets/ig-2.jpg";
+import ig3 from "@/assets/ig-3.jpg";
+import ig4 from "@/assets/ig-4.jpg";
+import ig5 from "@/assets/ig-5.jpg";
+import ig6 from "@/assets/ig-6.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Tha Skin Clinic — Dermatology & Formula V | Mangalore" },
+      {
+        name: "description",
+        content:
+          "Quiet confidence in your skin. Advanced dermatology, laser and Formula V medical skincare, led by Dr. Vindhya A. Pai in Mangalore since 2018.",
+      },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const SERVICES = [
+  { icon: Sparkles, title: "Acne & Scar Therapy", body: "Micro-needling, TCA cross, and layered laser protocols for lasting clarity." },
+  { icon: Waves, title: "Laser Hair Reduction", body: "US-FDA cleared diode laser tailored to Indian skin tones and hormones." },
+  { icon: Zap, title: "Pigmentation & Melasma", body: "Q-Switched Nd:YAG with prescription-grade home care for even, radiant tone." },
+  { icon: Heart, title: "Aesthetic Medicine", body: "Botox, fillers, PRP and thread-lift — always subtle, always your face." },
+];
+
+const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
+
+function Home() {
+  const { data } = useQuery({
+    queryKey: ["home-products"],
+    queryFn: async () => {
+      const res = await storefrontApiRequest(STOREFRONT_QUERY, { first: 4, query: null });
+      return (res?.data?.products?.edges ?? []) as ShopifyProduct[];
+    },
+  });
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-ivory text-navy overflow-x-hidden">
+      <SiteHeader />
+
+      {/* HERO */}
+      <section className="relative min-h-[92vh] flex items-center">
+        <div className="absolute inset-0 grid md:grid-cols-2">
+          <div className="bg-mist/30" />
+          <div className="relative overflow-hidden hidden md:block">
+            <img
+              src={hero}
+              alt="Portrait of confident skin"
+              className="w-full h-full object-cover animate-soft-zoom"
+              fetchPriority="high"
+            />
+          </div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 py-32">
+          <div className="animate-fade-up">
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-60 mb-8">
+              Since 2018 — Mangalore
+            </p>
+            <h1 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
+              Quiet confidence,<br />
+              <em className="text-sage">worn as skin.</em>
+            </h1>
+            <div className="h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.6s" }} />
+            <p className="mt-10 text-lg max-w-md leading-relaxed opacity-75">
+              A dermatology practice for people who prefer results that whisper —
+              not shout. Board-certified care, medical-grade lasers, and Formula V —
+              our in-house apothecary of clinical skincare.
+            </p>
+            <div className="mt-12 flex flex-wrap gap-4">
+              <Link
+                to="/contact"
+                className="group bg-navy text-ivory px-10 py-4 text-[11px] uppercase tracking-[0.25em] flex items-center gap-3 hover:bg-sage-dark transition-colors"
+              >
+                Book a consultation
+                <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/shop"
+                className="px-10 py-4 text-[11px] uppercase tracking-[0.25em] border border-navy/20 hover:bg-navy hover:text-ivory transition-all"
+              >
+                Explore Formula V
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MARQUEE OF PROMISES */}
+      <section className="border-y border-navy/10 py-8 overflow-hidden">
+        <div className="flex items-center justify-around gap-16 text-[10px] uppercase tracking-[0.35em] opacity-60 whitespace-nowrap flex-wrap px-6">
+          <span>Board-Certified Dermatologist</span>
+          <span className="hidden md:inline">•</span>
+          <span>Medical-Grade Lasers</span>
+          <span className="hidden md:inline">•</span>
+          <span>Coastal-Climate Formulations</span>
+          <span className="hidden md:inline">•</span>
+          <span>7,000+ Patients Cared For</span>
+        </div>
+      </section>
+
+      {/* PHILOSOPHY / DOCTOR */}
+      <section className="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-12 gap-12 items-center">
+        <div className="md:col-span-5">
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <img src={drVindhya} alt="Dr. Vindhya A. Pai" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+        <div className="md:col-span-6 md:col-start-7">
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">The Founder</p>
+          <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
+            Dr. Vindhya A. Pai
+            <br />
+            <em className="text-sage text-4xl md:text-5xl">MD, DNB Dermatology</em>
+          </h2>
+          <div className="h-px w-16 bg-sage my-8" />
+          <p className="text-lg leading-relaxed opacity-80 mb-6">
+            "Skin remembers everything. Kindness, most of all." — a phrase Dr. Vindhya
+            returns to in every consultation. Trained across some of India's leading
+            institutions, she built Tha Skin Clinic in 2018 as a place where evidence
+            meets empathy.
+          </p>
+          <p className="leading-relaxed opacity-70 mb-10">
+            Alongside a team of three fellow dermatologists — Dr. Punya Suvarna,
+            Dr. P. Suraksha and Dr. Ashwini Ashokan — the practice sees over 400
+            patients each month across acne, pigmentation, hair loss, and aesthetic
+            medicine.
+          </p>
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors"
+          >
+            Meet the team
+            <ArrowRight className="size-3" />
+          </Link>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="bg-mist/40 py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-end justify-between mb-20 flex-wrap gap-6">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">What we do</p>
+              <h2 className="font-display text-5xl md:text-6xl max-w-xl leading-[1.05]">
+                A quieter, more considered approach to skin.
+              </h2>
+            </div>
+            <Link to="/treatments" className="text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors">
+              All treatments →
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10">
+            {SERVICES.map((s) => (
+              <div
+                key={s.title}
+                className="bg-ivory p-10 group hover:bg-navy hover:text-ivory transition-colors duration-500"
+              >
+                <s.icon className="size-6 mb-8 text-sage group-hover:text-ivory transition-colors" strokeWidth={1} />
+                <h3 className="font-display text-2xl mb-4">{s.title}</h3>
+                <p className="text-sm opacity-70 leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FORMULA V FEATURED */}
+      <section className="max-w-7xl mx-auto px-6 py-32">
+        <div className="grid md:grid-cols-12 gap-12 mb-16">
+          <div className="md:col-span-5">
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Formula V</p>
+            <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
+              Clinic-tested.
+              <br />
+              <em className="text-sage">Coast-approved.</em>
+            </h2>
+          </div>
+          <div className="md:col-span-6 md:col-start-7 flex flex-col justify-end">
+            <p className="text-lg leading-relaxed opacity-75">
+              Formulations refined over years of clinical practice — dermatologist-
+              designed for the humidity, sun, and lifestyle of coastal Karnataka.
+              Now available to take home.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {data?.slice(0, 4).map((p) => (
+            <Link
+              key={p.node.id}
+              to="/product/$handle"
+              params={{ handle: p.node.handle }}
+              className="group block"
+            >
+              <div className="aspect-[4/5] bg-mist/40 overflow-hidden mb-5">
+                {p.node.images.edges[0] && (
+                  <img
+                    src={p.node.images.edges[0].node.url}
+                    alt={p.node.images.edges[0].node.altText ?? p.node.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                )}
+              </div>
+              <h4 className="font-display text-xl leading-tight">{p.node.title}</h4>
+              <p className="text-xs opacity-60 mt-2 uppercase tracking-widest">
+                {formatINR(p.node.priceRange.minVariantPrice.amount)}
+              </p>
+            </Link>
+          ))}
+          {!data && Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="aspect-[4/5] bg-mist/30 animate-pulse" />
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            to="/shop"
+            className="inline-flex items-center gap-3 bg-navy text-ivory px-10 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
+          >
+            Shop Formula V
+            <ArrowRight className="size-3" />
+          </Link>
+        </div>
+      </section>
+
+      {/* JOURNAL / EDUCATION */}
+      <section className="bg-navy text-ivory py-32">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div className="aspect-square overflow-hidden">
+            <img src={clinic} alt="Tha Skin Clinic interior" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin, understood</p>
+            <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-10">
+              Knowledge, generously shared.
+            </h2>
+            <div className="space-y-8">
+              <Fact q="Why does melasma worsen in monsoon?" a="Coastal humidity increases oxidative stress on melanocytes. Antioxidant-forward routines — Vitamin C, niacinamide — matter more than heavy actives." />
+              <Fact q="How often should I laser for hair reduction?" a="Every 6–8 weeks for facial, 8–10 weeks for body. Six sessions offer ~85% reduction on Fitzpatrick IV–V skin." />
+              <Fact q="Can I start retinol at 25?" a="Yes — a low-strength encapsulated retinol, twice weekly, remains the single most-studied ingredient for prevention." />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INSTAGRAM STRIP */}
+      <IGStrip />
+
+      {/* CTA */}
+      <section className="max-w-4xl mx-auto px-6 py-40 text-center">
+        <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">Begin</p>
+        <h2 className="font-display text-5xl md:text-7xl leading-[1.05]">
+          Skin that feels
+          <br />
+          <em className="text-sage">unmistakably yours.</em>
+        </h2>
+        <p className="mt-10 text-lg opacity-75 max-w-lg mx-auto">
+          Your first consultation is a conversation — no pressure, no protocol pushed on you.
+        </p>
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-3 bg-navy text-ivory px-12 py-4 mt-12 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
+        >
+          Book a consultation
+          <ArrowRight className="size-3" />
+        </Link>
+      </section>
+
+      <SiteFooter />
     </div>
+  );
+}
+
+function Fact({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <button
+      onClick={() => setOpen(!open)}
+      className="w-full text-left border-b border-ivory/15 pb-6 group"
+    >
+      <div className="flex justify-between items-center gap-6">
+        <span className="font-display text-2xl">{q}</span>
+        <span className="text-2xl font-light">{open ? "−" : "+"}</span>
+      </div>
+      <div
+        className={`overflow-hidden transition-all duration-500 ${
+          open ? "max-h-40 mt-4 opacity-70" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="text-sm leading-relaxed">{a}</p>
+      </div>
+    </button>
+  );
+}
+
+function IGStrip() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <section className="py-24 border-t border-navy/10">
+      <div className="max-w-7xl mx-auto px-6 flex items-end justify-between mb-12 flex-wrap gap-4">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-4">Journal</p>
+          <h3 className="font-display text-4xl">@theskinclinic_mangalore</h3>
+        </div>
+        <a
+          href="https://www.instagram.com/theskinclinic_mangalore/"
+          target="_blank"
+          rel="noreferrer"
+          className="text-[11px] uppercase tracking-[0.25em] flex items-center gap-2 hover:text-sage transition-colors"
+        >
+          <Instagram className="size-4" strokeWidth={1} />
+          Follow
+        </a>
+      </div>
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-6 gap-2">
+        {IG_TILES.map((src, i) => (
+          <a
+            key={i}
+            href="https://www.instagram.com/theskinclinic_mangalore/"
+            target="_blank"
+            rel="noreferrer"
+            className={`aspect-square overflow-hidden bg-mist/30 transition-all duration-1000 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            <img src={src} alt="Instagram post" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" />
+          </a>
+        ))}
+      </div>
+    </section>
   );
 }
