@@ -58,7 +58,12 @@ export async function handleConcern(request: Request) {
     return withLovableAiGatewayRunIdHeader(Response.json(output, { headers: noCache }), runIdFetch);
   } catch (error) {
     if (request.signal.aborted) return Response.json({ error: "Request cancelled." }, { status: 499, headers: noCache });
-    const status = APICallError.isInstance(error) ? error.statusCode ?? 502 : 502;
+    let cause: unknown = error;
+    for (let i = 0; i < 6 && !APICallError.isInstance(cause); i++) {
+      if (!cause || typeof cause !== "object" || !("cause" in cause)) break;
+      cause = cause.cause;
+    }
+    const status = APICallError.isInstance(cause) ? cause.statusCode ?? 502 : 502;
     const message = messages[status] ?? "We couldn't prepare guidance right now. Please try again later, browse the guides or contact the clinic.";
     if ([401, 402, 403].includes(status)) {
       await supabaseAdmin.from("ai_guidance_access_state").upsert({ id: accessId, status, message, blocked_at: new Date().toISOString() });
