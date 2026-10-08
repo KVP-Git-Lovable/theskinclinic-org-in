@@ -13,11 +13,13 @@ import { Route as TreatmentsRouteImport } from './routes/treatments'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as PortalRouteImport } from './routes/portal'
+import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
+import { Route as FacilitiesSlugRouteImport } from './routes/facilities.$slug'
 import { Route as ApiConcernRouteImport } from './routes/api.concern'
 
 const TreatmentsRoute = TreatmentsRouteImport.update({
@@ -38,6 +40,11 @@ const ShopRoute = ShopRouteImport.update({
 const PortalRoute = PortalRouteImport.update({
   id: '/portal',
   path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilitiesRoute = FacilitiesRouteImport.update({
+  id: '/facilities',
+  path: '/facilities',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -65,6 +72,11 @@ const ProductHandleRoute = ProductHandleRouteImport.update({
   path: '/product/$handle',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FacilitiesSlugRoute = FacilitiesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => FacilitiesRoute,
+} as any)
 const ApiConcernRoute = ApiConcernRouteImport.update({
   id: '/api/concern',
   path: '/api/concern',
@@ -75,11 +87,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/facilities': typeof FacilitiesRouteWithChildren
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -87,11 +101,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/facilities': typeof FacilitiesRouteWithChildren
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -100,11 +116,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/facilities': typeof FacilitiesRouteWithChildren
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -114,11 +132,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/facilities'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
     | '/treatments'
     | '/api/concern'
+    | '/facilities/$slug'
     | '/product/$handle'
     | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -126,11 +146,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/facilities'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
     | '/treatments'
     | '/api/concern'
+    | '/facilities/$slug'
     | '/product/$handle'
     | '/services/$slug'
   id:
@@ -138,11 +160,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/facilities'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
     | '/treatments'
     | '/api/concern'
+    | '/facilities/$slug'
     | '/product/$handle'
     | '/services/$slug'
   fileRoutesById: FileRoutesById
@@ -151,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  FacilitiesRoute: typeof FacilitiesRouteWithChildren
   PortalRoute: typeof PortalRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -190,6 +215,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/facilities': {
+      id: '/facilities'
+      path: '/facilities'
+      fullPath: '/facilities'
+      preLoaderRoute: typeof FacilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -225,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductHandleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/facilities/$slug': {
+      id: '/facilities/$slug'
+      path: '/$slug'
+      fullPath: '/facilities/$slug'
+      preLoaderRoute: typeof FacilitiesSlugRouteImport
+      parentRoute: typeof FacilitiesRoute
+    }
     '/api/concern': {
       id: '/api/concern'
       path: '/api/concern'
@@ -235,10 +274,23 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface FacilitiesRouteChildren {
+  FacilitiesSlugRoute: typeof FacilitiesSlugRoute
+}
+
+const FacilitiesRouteChildren: FacilitiesRouteChildren = {
+  FacilitiesSlugRoute: FacilitiesSlugRoute,
+}
+
+const FacilitiesRouteWithChildren = FacilitiesRoute._addFileChildren(
+  FacilitiesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  FacilitiesRoute: FacilitiesRouteWithChildren,
   PortalRoute: PortalRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

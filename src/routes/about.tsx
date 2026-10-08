@@ -1,10 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import vindhyaPhoto from "@/assets/dr-vindhya-pai.jpeg.asset.json";
-import punyaPhoto from "@/assets/dr-punya.png.asset.json";
-import surakshaPhoto from "@/assets/dr-suraksha.jpg.asset.json";
-import ashwiniPhoto from "@/assets/dr-ashwini.jpg.asset.json";
+import { clinicTeam } from "@/lib/clinic-team";
 import clinic from "@/assets/clinic-interior.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -25,14 +22,9 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const TEAM = [
-  { name: "Dr. Vindhya A. Pai", role: "Founder & Chief Dermatologist — MBBS, MD, DNB", photo: vindhyaPhoto.url },
-  { name: "Dr. Punya Suvarna", role: "Consultant Dermatologist — MBBS, MD, MRCP SCE (UK)", photo: punyaPhoto.url },
-  { name: "Dr. P. Suraksha", role: "Consultant Dermatologist — MBBS, MD", photo: surakshaPhoto.url },
-  { name: "Dr. Ashwini Ashokan", role: "Consultant Dermatologist — MBBS, MD", photo: ashwiniPhoto.url },
-];
-
 function About() {
+  const founder = clinicTeam[0];
+  if (!founder) return null;
   return (
     <div className="min-h-screen bg-ivory text-navy">
       <SiteHeader />
@@ -48,22 +40,18 @@ function About() {
 
       <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-16 items-center">
         <div className="md:col-span-6">
-          <img src={vindhyaPhoto.url} alt="Dr. Vindhya A. Pai, Founder and Chief Dermatologist" className="w-full aspect-square object-cover" loading="lazy" />
+          <img src={founder.image} alt="Dr. Vindhya A. Pai, Founder and Chief Dermatologist" className="w-full max-w-[400px] aspect-square object-cover" loading="lazy" />
         </div>
         <div className="md:col-span-6">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Our philosophy</p>
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Founder & Chief Dermatologist</p>
           <h2 className="font-display text-4xl md:text-5xl leading-[1.1] mb-8">
-            "The best dermatology is often the least visible."
+            Dr. Vindhya A. Pai
           </h2>
           <p className="text-lg leading-relaxed opacity-80 mb-6">
-            Tha Skin Clinic was born of a simple observation — Indian skin, and Indian
-            monsoon skin especially, needs care shaped for its climate, its melanin,
-            and its rhythms. Not imported protocols.
+            MBBS, MD, DNB. {founder.description}
           </p>
           <p className="leading-relaxed opacity-70">
-            Since 2018, we've built a practice where evidence-based dermatology meets
-            genuine listening. Every laser, every prescription, every drop of Formula V
-            starts with the same question: what does <em>your</em> skin need?
+            Alongside Dr. Punya Suvarna, Dr. P. Suraksha and Dr. Ashwini Ashokan, she leads a team caring for medical skin, hair and nail concerns as well as selected cosmetic goals.
           </p>
         </div>
       </section>
@@ -73,11 +61,12 @@ function About() {
           <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">The team</p>
           <h2 className="font-display text-5xl md:text-6xl mb-16">Four dermatologists.<br /><em className="text-sage">One promise.</em></h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {TEAM.map((d) => (
+            {clinicTeam.map((d) => (
               <div key={d.name} className="bg-ivory p-8">
-                <img src={d.photo} alt={d.name} className="w-full aspect-square object-cover mb-6" loading="lazy" />
+                <img src={d.image} alt={d.name} className="w-full aspect-square object-cover mb-6" loading="lazy" />
                 <h4 className="font-display text-xl leading-tight">{d.name}</h4>
-                <p className="text-xs opacity-60 mt-2">{d.role}</p>
+                <p className="text-xs opacity-60 mt-2">{d.role} · {d.credentials}</p>
+                <p className="text-sm opacity-70 leading-relaxed mt-4">{d.description}</p>
               </div>
             ))}
           </div>

@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { clinicFacilities } from "@/lib/clinic-facilities";
 
-export const Route = createFileRoute("/facilities")({
+export const Route = createFileRoute("/facilities/")({
   head: () => ({ meta: [
     { title: "Facilities & Technologies | The Skin Clinic, Mangalore" },
     { name: "description", content: "Explore the technologies listed by The Skin Clinic, including laser, light and energy-based treatments. Understand their purpose and questions to discuss with your dermatologist." },
