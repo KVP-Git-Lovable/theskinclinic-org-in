@@ -4,8 +4,8 @@ export const CLINIC = {
   phoneHref: "tel:+919620123030",
   whatsappHref:
     "https://wa.me/919620123030?text=Hello%20Tha%20Skin%20Clinic%2C%20I%27d%20like%20to%20book%20a%20consultation.",
-  hoursShort: "Mon–Sun · 10:00 am – 8:00 pm",
-  hoursLabel: "Open every day",
   hoursDay: "Mon to Sun",
   hoursTime: "10:00 am – 8:00 pm",
+  hoursTimeCompact: "10am–8pm",
+  hoursShort: "Mon–Sun · 10:00 am – 8:00 pm",
 } as const;
