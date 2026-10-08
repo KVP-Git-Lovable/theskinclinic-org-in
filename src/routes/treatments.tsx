@@ -4,6 +4,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { TreatmentDetail } from "@/components/treatment-detail";
+import { SkinConcernGuide } from "@/components/skin-concern-guide";
+import { TreatmentComparison } from "@/components/treatment-comparison";
 import { medicalTreatments, cosmeticTreatments } from "@/lib/treatments";
 import skinPortrait from "@/assets/hero-portrait.jpg";
 
@@ -45,6 +47,13 @@ function Treatments() {
             </Button>
           </div>
         </nav>
+
+        <div className="max-w-7xl mx-auto px-6 pt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+          <a href="#skin-guide" className="text-sage-dark underline underline-offset-4">Find guides for your concern</a>
+          <a href="#compare" className="text-sage-dark underline underline-offset-4">Compare related treatments</a>
+        </div>
+        <SkinConcernGuide />
+        <TreatmentComparison />
 
         <section id="medical" aria-labelledby="medical-heading" className="scroll-mt-24 max-w-7xl mx-auto px-6 py-16 md:py-24">
           <div className="grid lg:grid-cols-[1fr_1.65fr] gap-10 lg:gap-20 items-start">

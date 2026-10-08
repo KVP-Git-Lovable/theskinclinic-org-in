@@ -16,6 +16,7 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TreatmentsRouteImport } from './routes/treatments'
+import { Route as ApiConcernRouteImport } from './routes/api.concern'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const TreatmentsRoute = TreatmentsRouteImport.update({
   path: '/treatments',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiConcernRoute = ApiConcernRouteImport.update({
+  id: '/api/concern',
+  path: '/api/concern',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductHandleRoute = ProductHandleRouteImport.update({
   id: '/product/$handle',
   path: '/product/$handle',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
+  '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
+  '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
+  '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/treatments'
+    | '/api/concern'
     | '/product/$handle'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/treatments'
+    | '/api/concern'
     | '/product/$handle'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/shop'
     | '/sitemap.xml'
     | '/treatments'
+    | '/api/concern'
     | '/product/$handle'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TreatmentsRoute: typeof TreatmentsRoute
+  ApiConcernRoute: typeof ApiConcernRoute
   ProductHandleRoute: typeof ProductHandleRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TreatmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/concern': {
+      id: '/api/concern'
+      path: '/api/concern'
+      fullPath: '/api/concern'
+      preLoaderRoute: typeof ApiConcernRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$handle': {
       id: '/product/$handle'
       path: '/product/$handle'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TreatmentsRoute: TreatmentsRoute,
+  ApiConcernRoute: ApiConcernRoute,
   ProductHandleRoute: ProductHandleRoute,
 }
 export const routeTree = rootRouteImport
