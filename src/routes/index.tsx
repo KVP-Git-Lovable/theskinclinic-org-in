@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { clinicTeam } from "@/lib/clinic-team";
 import { clinicServices } from "@/lib/clinic-services";
 import clinicLogo from "@/assets/clinic-logo.png.asset.json";
-import clinic from "@/assets/clinic-interior.jpg";
+import clinic from "@/assets/clinic-treatment-room.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +44,7 @@ function Home() {
       <SiteHeader />
       <main>
         <section className="relative bg-clinic-mint overflow-hidden">
-          <img src={clinic} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-15" fetchPriority="high" />
+          <img src={clinic.url} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-15" fetchPriority="high" />
           <div className="absolute inset-0 clinic-hero-wash" />
           <div className="relative max-w-5xl mx-auto px-6 py-10 md:py-12 flex flex-col items-center text-center animate-fade-up">
             <img src={clinicLogo.url} alt="The Skin Clinic" className="w-24 h-16 object-contain mb-3" />

@@ -2,19 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { clinicTeam } from "@/lib/clinic-team";
-import clinic from "@/assets/clinic-interior.jpg";
+import clinic from "@/assets/clinic-treatment-room.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Dr. Vindhya A. Pai & Team | Tha Skin Clinic" },
+      { title: "About — Dr. Vindhya A. Pai & Team | The Skin Clinic" },
       {
         name: "description",
         content:
-          "Tha Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore.",
+          "The Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore.",
       },
-      { property: "og:title", content: "About — Dr. Vindhya A. Pai & Team | Tha Skin Clinic" },
-      { property: "og:description", content: "Tha Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore." },
+      { property: "og:title", content: "About — Dr. Vindhya A. Pai & Team | The Skin Clinic" },
+      { property: "og:description", content: "The Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -82,12 +82,12 @@ function About() {
             <em className="text-sage">sanctuary.</em>
           </h2>
           <p className="text-lg leading-relaxed opacity-75">
-            Soft light. Quiet corners. Sanitised, hospital-grade treatment rooms tucked
-            behind a residential-feeling reception. Because clinical excellence doesn't
-            have to feel clinical.
+            Take a look inside one of our treatment rooms, photographed at The Skin Clinic.
+            During your consultation, ask about the facilities relevant to your care,
+            preparation and aftercare.
           </p>
         </div>
-        <img src={clinic} alt="Tha Skin Clinic interior" className="w-full aspect-square object-cover" loading="lazy" />
+        <img src={clinic.url} alt="Treatment room at The Skin Clinic, Mangalore" className="w-full aspect-square object-cover" loading="lazy" />
       </section>
 
       <SiteFooter />
