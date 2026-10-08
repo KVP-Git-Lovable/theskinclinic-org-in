@@ -35,12 +35,6 @@
   --color-sage: var(--sage);
   --color-sage-dark: var(--sage-dark);
   --color-navy: var(--navy);
-  --color-clinic-white: var(--clinic-white);
-  --color-clinic-mint: var(--clinic-mint);
-  --color-clinic-butterfly: var(--clinic-butterfly);
-  --color-clinic-green: var(--clinic-green);
-  --font-clinic-display: "Sora", ui-sans-serif, system-ui, sans-serif;
-  --font-clinic-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
   --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
@@ -50,10 +44,6 @@
 
 :root {
   --radius: 0.25rem;
-  --clinic-white: oklch(1 0 0);
-  --clinic-mint: oklch(0.9484947277 0.013409425 167.1703295);
-  --clinic-butterfly: oklch(0.7994153487 0.0680955593 165.3752379);
-  --clinic-green: oklch(0.3330714697 0.0465219727 177.7913628);
 
   /* Brand palette */
   --ivory: oklch(0.985 0.003 120);
@@ -127,13 +117,9 @@
 }
 
 .treatment-page, .treatment-page * { letter-spacing: 0; }
-.clinic-page { font-family: var(--font-clinic-body); background: var(--clinic-white); color: var(--clinic-green); }
-.clinic-page h1, .clinic-page h2, .clinic-page h3, .clinic-page h4 { font-family: var(--font-clinic-display); font-weight: 600; letter-spacing: 0; }
-.clinic-page * { letter-spacing: 0; }
-.clinic-hero-wash { background: linear-gradient(180deg, var(--clinic-mint), transparent 45%, var(--clinic-mint)); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .treatment-page *, .treatment-page *::before, .treatment-page *::after, .clinic-page *, .clinic-page *::before, .clinic-page *::after {
+  .treatment-page *, .treatment-page *::before, .treatment-page *::after {
     animation: none;
     transition: none;
   }

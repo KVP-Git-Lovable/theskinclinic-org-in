@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { TreatmentDetail } from "@/components/treatment-detail";
 import { SkinConcernGuide } from "@/components/skin-concern-guide";
 import { TreatmentComparison } from "@/components/treatment-comparison";
-import { ClinicServiceDirectory } from "@/components/clinic-service-directory";
 import { medicalTreatments, cosmeticTreatments } from "@/lib/treatments";
 import skinPortrait from "@/assets/hero-portrait.jpg";
 
@@ -49,7 +48,6 @@ function Treatments() {
           </div>
         </nav>
 
-        <ClinicServiceDirectory />
         <div className="max-w-7xl mx-auto px-6 pt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           <a href="#skin-guide" className="text-sage-dark underline underline-offset-4">Find guides for your concern</a>
           <a href="#compare" className="text-sage-dark underline underline-offset-4">Compare related treatments</a>
