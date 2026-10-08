@@ -9,42 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as PortalRouteImport } from './routes/portal'
-import { Route as ShopRouteImport } from './routes/shop'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TreatmentsRouteImport } from './routes/treatments'
-import { Route as ApiConcernRouteImport } from './routes/api.concern'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as PortalRouteImport } from './routes/portal'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as FacilitiesIndexRouteImport } from './routes/facilities.index'
-import { Route as FacilitiesSlugRouteImport } from './routes/facilities.$slug'
-import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as ProductHandleRouteImport } from './routes/product.$handle'
+import { Route as FacilitiesSlugRouteImport } from './routes/facilities.$slug'
+import { Route as ApiConcernRouteImport } from './routes/api.concern'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PortalRoute = PortalRouteImport.update({
-  id: '/portal',
-  path: '/portal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ShopRoute = ShopRouteImport.update({
-  id: '/shop',
-  path: '/shop',
+const TreatmentsRoute = TreatmentsRouteImport.update({
+  id: '/treatments',
+  path: '/treatments',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -52,14 +32,29 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TreatmentsRoute = TreatmentsRouteImport.update({
-  id: '/treatments',
-  path: '/treatments',
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiConcernRoute = ApiConcernRouteImport.update({
-  id: '/api/concern',
-  path: '/api/concern',
+const PortalRoute = PortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FacilitiesIndexRoute = FacilitiesIndexRouteImport.update({
@@ -67,9 +62,9 @@ const FacilitiesIndexRoute = FacilitiesIndexRouteImport.update({
   path: '/facilities/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FacilitiesSlugRoute = FacilitiesSlugRouteImport.update({
-  id: '/facilities/$slug',
-  path: '/facilities/$slug',
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductHandleRoute = ProductHandleRouteImport.update({
@@ -77,9 +72,14 @@ const ProductHandleRoute = ProductHandleRouteImport.update({
   path: '/product/$handle',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSlugRoute = ServicesSlugRouteImport.update({
-  id: '/services/$slug',
-  path: '/services/$slug',
+const FacilitiesSlugRoute = FacilitiesSlugRouteImport.update({
+  id: '/facilities/$slug',
+  path: '/facilities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiConcernRoute = ApiConcernRouteImport.update({
+  id: '/api/concern',
+  path: '/api/concern',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -188,39 +188,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portal': {
-      id: '/portal'
-      path: '/portal'
-      fullPath: '/portal'
-      preLoaderRoute: typeof PortalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shop': {
-      id: '/shop'
-      path: '/shop'
-      fullPath: '/shop'
-      preLoaderRoute: typeof ShopRouteImport
+    '/treatments': {
+      id: '/treatments'
+      path: '/treatments'
+      fullPath: '/treatments'
+      preLoaderRoute: typeof TreatmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -230,18 +202,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/treatments': {
-      id: '/treatments'
-      path: '/treatments'
-      fullPath: '/treatments'
-      preLoaderRoute: typeof TreatmentsRouteImport
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/concern': {
-      id: '/api/concern'
-      path: '/api/concern'
-      fullPath: '/api/concern'
-      preLoaderRoute: typeof ApiConcernRouteImport
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/facilities/': {
@@ -251,11 +244,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacilitiesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/facilities/$slug': {
-      id: '/facilities/$slug'
-      path: '/facilities/$slug'
-      fullPath: '/facilities/$slug'
-      preLoaderRoute: typeof FacilitiesSlugRouteImport
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/product/$handle': {
@@ -265,11 +258,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductHandleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/$slug': {
-      id: '/services/$slug'
-      path: '/services/$slug'
-      fullPath: '/services/$slug'
-      preLoaderRoute: typeof ServicesSlugRouteImport
+    '/facilities/$slug': {
+      id: '/facilities/$slug'
+      path: '/facilities/$slug'
+      fullPath: '/facilities/$slug'
+      preLoaderRoute: typeof FacilitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/concern': {
+      id: '/api/concern'
+      path: '/api/concern'
+      fullPath: '/api/concern'
+      preLoaderRoute: typeof ApiConcernRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
