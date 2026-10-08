@@ -13,10 +13,10 @@ import { Route as TreatmentsRouteImport } from './routes/treatments'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as PortalRouteImport } from './routes/portal'
-import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FacilitiesIndexRouteImport } from './routes/facilities.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 import { Route as FacilitiesSlugRouteImport } from './routes/facilities.$slug'
@@ -42,11 +42,6 @@ const PortalRoute = PortalRouteImport.update({
   path: '/portal',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FacilitiesRoute = FacilitiesRouteImport.update({
-  id: '/facilities',
-  path: '/facilities',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -62,6 +57,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FacilitiesIndexRoute = FacilitiesIndexRouteImport.update({
+  id: '/facilities/',
+  path: '/facilities/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/services/$slug',
   path: '/services/$slug',
@@ -73,9 +73,9 @@ const ProductHandleRoute = ProductHandleRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const FacilitiesSlugRoute = FacilitiesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => FacilitiesRoute,
+  id: '/facilities/$slug',
+  path: '/facilities/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiConcernRoute = ApiConcernRouteImport.update({
   id: '/api/concern',
@@ -87,7 +87,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/facilities': typeof FacilitiesRouteWithChildren
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -96,12 +95,12 @@ export interface FileRoutesByFullPath {
   '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/facilities/': typeof FacilitiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/facilities': typeof FacilitiesRouteWithChildren
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -110,13 +109,13 @@ export interface FileRoutesByTo {
   '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/facilities': typeof FacilitiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/facilities': typeof FacilitiesRouteWithChildren
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -125,6 +124,7 @@ export interface FileRoutesById {
   '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/facilities/': typeof FacilitiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -132,7 +132,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/facilities'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
@@ -141,12 +140,12 @@ export interface FileRouteTypes {
     | '/facilities/$slug'
     | '/product/$handle'
     | '/services/$slug'
+    | '/facilities/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
-    | '/facilities'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
@@ -155,12 +154,12 @@ export interface FileRouteTypes {
     | '/facilities/$slug'
     | '/product/$handle'
     | '/services/$slug'
+    | '/facilities'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
-    | '/facilities'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
@@ -169,20 +168,22 @@ export interface FileRouteTypes {
     | '/facilities/$slug'
     | '/product/$handle'
     | '/services/$slug'
+    | '/facilities/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  FacilitiesRoute: typeof FacilitiesRouteWithChildren
   PortalRoute: typeof PortalRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TreatmentsRoute: typeof TreatmentsRoute
   ApiConcernRoute: typeof ApiConcernRoute
+  FacilitiesSlugRoute: typeof FacilitiesSlugRoute
   ProductHandleRoute: typeof ProductHandleRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
+  FacilitiesIndexRoute: typeof FacilitiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -215,13 +216,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/facilities': {
-      id: '/facilities'
-      path: '/facilities'
-      fullPath: '/facilities'
-      preLoaderRoute: typeof FacilitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -243,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/facilities/': {
+      id: '/facilities/'
+      path: '/facilities'
+      fullPath: '/facilities/'
+      preLoaderRoute: typeof FacilitiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/services/$slug'
@@ -259,10 +260,10 @@ declare module '@tanstack/react-router' {
     }
     '/facilities/$slug': {
       id: '/facilities/$slug'
-      path: '/$slug'
+      path: '/facilities/$slug'
       fullPath: '/facilities/$slug'
       preLoaderRoute: typeof FacilitiesSlugRouteImport
-      parentRoute: typeof FacilitiesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/api/concern': {
       id: '/api/concern'
@@ -274,30 +275,19 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface FacilitiesRouteChildren {
-  FacilitiesSlugRoute: typeof FacilitiesSlugRoute
-}
-
-const FacilitiesRouteChildren: FacilitiesRouteChildren = {
-  FacilitiesSlugRoute: FacilitiesSlugRoute,
-}
-
-const FacilitiesRouteWithChildren = FacilitiesRoute._addFileChildren(
-  FacilitiesRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  FacilitiesRoute: FacilitiesRouteWithChildren,
   PortalRoute: PortalRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TreatmentsRoute: TreatmentsRoute,
   ApiConcernRoute: ApiConcernRoute,
+  FacilitiesSlugRoute: FacilitiesSlugRoute,
   ProductHandleRoute: ProductHandleRoute,
   ServicesSlugRoute: ServicesSlugRoute,
+  FacilitiesIndexRoute: FacilitiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
