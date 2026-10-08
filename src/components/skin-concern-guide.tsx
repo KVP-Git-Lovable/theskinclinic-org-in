@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useObject } from "@ai-sdk/react";
+import { experimental_useObject as useObject } from "@ai-sdk/react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, ShieldCheck, AlertTriangle, Loader2 } from "lucide-react";
 import { concernResultSchema, type ConcernResult } from "@/lib/concern-schema";
