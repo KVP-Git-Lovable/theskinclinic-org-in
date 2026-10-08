@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep treatment education in a typed content module and render it through a shared accessible disclosure component; this separates medical copy from presentation and keeps both care categories consistent.
+- Render all homepage options through a shared HomePage component with separate alternative openings and scoped themes; this preserves the original page while keeping clinic content and commerce consistent.

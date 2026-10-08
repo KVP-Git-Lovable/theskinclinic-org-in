@@ -117,9 +117,39 @@
 }
 
 .treatment-page, .treatment-page * { letter-spacing: 0; }
+
+.home-alternative {
+  --ivory: #ffffff;
+  --mist: #e6f1ec;
+  --sage: #5a8272;
+  --sage-dark: #173e36;
+  --navy: #173e36;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-body);
+}
+.home-alternative, .home-alternative * { letter-spacing: 0; }
+.home-alternative h1, .home-alternative h2, .home-alternative h3,
+.home-alternative h4, .home-alternative .font-display { font-family: var(--font-display); }
+.home-alternative em { font-style: normal; }
+.home-alternative h2 { font-size: 2.5rem; line-height: 1.2; }
+.home-opening { min-height: min(720px, calc(100svh - 192px)); }
+.home-opening-care > img { object-position: center; }
+.home-care-overlay { background: transparent; }
+@media (max-width: 767px) {
+  .home-opening { min-height: 590px; }
+  .home-opening-care > img { object-position: 65% center; }
+  .home-care-overlay { background: color-mix(in srgb, var(--ivory) 88%, transparent); }
+  .home-alternative h2 { font-size: 2rem; }
+  .home-alternative footer h5 { margin-bottom: 1rem; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .treatment-page *, .treatment-page *::before, .treatment-page *::after {
+    animation: none;
+    transition: none;
+  }
+  .home-alternative *, .home-alternative *::before, .home-alternative *::after {
     animation: none;
     transition: none;
   }
