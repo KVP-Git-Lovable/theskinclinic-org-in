@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, Waves, Zap, Heart, Instagram, BadgeCheck, Users, Clock, Phone } from "lucide-react";
+import { ArrowRight, Sparkles, Waves, Zap, Heart, Instagram, BadgeCheck, Users, Clock, Phone, Star } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CLINIC } from "@/lib/clinic";
@@ -48,6 +48,7 @@ const HIGHLIGHTS = [
   { icon: Zap, value: "Medical-Grade", label: "Clinical lasers & prescription protocols" },
   { icon: Waves, value: "Coastal-Climate", label: "Formulas tuned for humid Mangalore" },
   { icon: Users, value: "27,000+", label: "Patients cared for since 2018" },
+  { icon: Star, value: "4.85 / 5", label: "Average patient feedback" },
 ];
 
 const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
@@ -114,12 +115,12 @@ function Home() {
 
       {/* KEY PROMISES — highlighted, scannable */}
       <section className="border-y border-navy/10">
-        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10">
+        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-navy/10">
           {HIGHLIGHTS.map((h) => (
-            <div key={h.value} className="bg-mist/60 px-8 py-12 flex flex-col gap-4">
-              <h.icon className="size-6 text-sage" strokeWidth={1.25} />
-              <p className="font-display text-3xl md:text-[2.6rem] leading-none">{h.value}</p>
-              <p className="text-[11px] uppercase tracking-[0.14em] leading-relaxed opacity-85 max-w-[16rem]">
+            <div key={h.value} className="bg-mist/60 px-6 py-9 flex flex-col gap-3">
+              <h.icon className="size-5 text-sage" strokeWidth={1.25} />
+              <p className="font-display text-2xl md:text-[1.75rem] leading-none">{h.value}</p>
+              <p className="text-[10px] uppercase tracking-[0.14em] leading-relaxed opacity-85 max-w-[15rem]">
                 {h.label}
               </p>
             </div>
@@ -180,9 +181,8 @@ function Home() {
           </p>
           <p className="leading-relaxed opacity-70 mb-10">
             Alongside a team of three fellow dermatologists — Dr. Punya Suvarna,
-            Dr. P. Suraksha and Dr. Ashwini Ashokan — the practice sees over 400
-            patients each month across acne, pigmentation, hair loss, and aesthetic
-            medicine.
+            Dr. P. Suraksha and Dr. Ashwini Ashokan — the practice sees over 1,200
+            patients each month across medical dermatology and aesthetic medicine.
           </p>
           <Link
             to="/about"

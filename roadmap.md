@@ -19,3 +19,9 @@
 - [x] Show opening hours (Mon to Sun, 10:00 am – 8:00 pm) and phone +91 96201 23030 prominently.
 - [x] Add a WhatsApp button wired to wa.me/919620123030 on every page.
 - [x] Verify header, homepage bands, mobile layout and console cleanliness.
+
+# Trust bar and footer logo polish
+- [x] Reduce the trust-bar type scale and add a fifth item: 4.85 / 5 average patient feedback.
+- [x] State over 1,200 patients each month across medical dermatology and aesthetic medicine in the founder section.
+- [x] Recolour the footer logo text white so it reads on the dark footer.
+- [x] Verify desktop and phone rendering of the trust bar, founder line and footer.
