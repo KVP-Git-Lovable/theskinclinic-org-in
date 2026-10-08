@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TreatmentsRouteImport } from './routes/treatments'
+import { Route as SkinAiRouteImport } from './routes/skin-ai'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as PortalRouteImport } from './routes/portal'
@@ -22,6 +23,11 @@ import { Route as ApiConcernRouteImport } from './routes/api.concern'
 const TreatmentsRoute = TreatmentsRouteImport.update({
   id: '/treatments',
   path: '/treatments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkinAiRoute = SkinAiRouteImport.update({
+  id: '/skin-ai',
+  path: '/skin-ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/skin-ai': typeof SkinAiRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/skin-ai': typeof SkinAiRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/skin-ai': typeof SkinAiRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
+    | '/skin-ai'
     | '/treatments'
     | '/api/concern'
     | '/product/$handle'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
+    | '/skin-ai'
     | '/treatments'
     | '/api/concern'
     | '/product/$handle'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
+    | '/skin-ai'
     | '/treatments'
     | '/api/concern'
     | '/product/$handle'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   PortalRoute: typeof PortalRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SkinAiRoute: typeof SkinAiRoute
   TreatmentsRoute: typeof TreatmentsRoute
   ApiConcernRoute: typeof ApiConcernRoute
   ProductHandleRoute: typeof ProductHandleRoute
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/treatments'
       fullPath: '/treatments'
       preLoaderRoute: typeof TreatmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skin-ai': {
+      id: '/skin-ai'
+      path: '/skin-ai'
+      fullPath: '/skin-ai'
+      preLoaderRoute: typeof SkinAiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortalRoute: PortalRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SkinAiRoute: SkinAiRoute,
   TreatmentsRoute: TreatmentsRoute,
   ApiConcernRoute: ApiConcernRoute,
   ProductHandleRoute: ProductHandleRoute,

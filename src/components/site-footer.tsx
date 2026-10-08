@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="bg-navy text-ivory py-24 mt-24">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
         <div className="col-span-2">
-          <Link to="/" className="font-display text-4xl tracking-widest uppercase mb-8 block">
-            Tha Skin
+          <Link to="/" aria-label="Tha Skin Clinic — home" className="mb-8 block">
+            <img src={logoAsset.url} alt="The Skin Clinic" className="h-16 w-auto" />
           </Link>
           <p className="max-w-xs opacity-50 text-sm leading-relaxed mb-12">
             A sanctuary for advanced dermatology and aesthetic medicine in the heart of Mangalore —

@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { CartDrawer } from "./cart-drawer";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const NAV = [
   { to: "/treatments", label: "Treatments" },
+  { to: "/skin-ai", label: "Skin AI" },
   { to: "/shop", label: "Formula V" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
@@ -13,8 +15,8 @@ export function SiteHeader() {
     <nav className="sticky top-0 z-50 w-full bg-ivory/85 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-12">
-          <Link to="/" className="font-display text-2xl tracking-widest uppercase text-navy">
-            Tha <span className="italic font-light">Skin</span>
+          <Link to="/" aria-label="Tha Skin Clinic — home" className="block">
+            <img src={logoAsset.url} alt="The Skin Clinic" className="h-12 w-auto" />
           </Link>
           <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-medium opacity-70">
             {NAV.map((n) => (

@@ -1,8 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import drVindhya from "@/assets/dr-vindhya.jpg";
+import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
+import drPunyaAsset from "@/assets/dr-punya.png.asset.json";
+import drSurakshaAsset from "@/assets/dr-suraksha.jpg.asset.json";
+import drAshwiniAsset from "@/assets/dr-ashwini.jpg.asset.json";
 import clinic from "@/assets/clinic-interior.jpg";
+
+const drVindhya = drVindhyaAsset.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -23,10 +28,10 @@ export const Route = createFileRoute("/about")({
 });
 
 const TEAM = [
-  { name: "Dr. Vindhya A. Pai", role: "Founder, Consultant Dermatologist — MD, DNB" },
-  { name: "Dr. Punya Suvarna", role: "Consultant Dermatologist — MBBS, MD" },
-  { name: "Dr. P. Suraksha", role: "Consultant Dermatologist — MBBS, DDVL" },
-  { name: "Dr. Ashwini Ashokan", role: "Consultant Dermatologist — MBBS, MD" },
+  { name: "Dr. Vindhya A. Pai", role: "Founder, Consultant Dermatologist — MD, DNB", photo: drVindhyaAsset.url },
+  { name: "Dr. Punya Suvarna", role: "Consultant Dermatologist — MBBS, MD", photo: drPunyaAsset.url },
+  { name: "Dr. P. Suraksha", role: "Consultant Dermatologist — MBBS, DDVL", photo: drSurakshaAsset.url },
+  { name: "Dr. Ashwini Ashokan", role: "Consultant Dermatologist — MBBS, MD", photo: drAshwiniAsset.url },
 ];
 
 function About() {
@@ -72,7 +77,9 @@ function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {TEAM.map((d) => (
               <div key={d.name} className="bg-ivory p-8">
-                <div className="aspect-square bg-mist/60 mb-6" />
+                <div className="aspect-square bg-mist/60 mb-6 overflow-hidden">
+                  <img src={d.photo} alt={d.name} className="w-full h-full object-cover object-top" loading="lazy" />
+                </div>
                 <h4 className="font-display text-xl leading-tight">{d.name}</h4>
                 <p className="text-xs opacity-60 mt-2">{d.role}</p>
               </div>
