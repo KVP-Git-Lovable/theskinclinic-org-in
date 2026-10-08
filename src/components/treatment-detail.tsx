@@ -25,7 +25,7 @@ export function TreatmentDetail({ treatment, index }: { treatment: TreatmentInfo
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen(!open)}
-          className="group h-auto w-full justify-start items-start gap-4 rounded-none px-0 py-7 text-left whitespace-normal hover:bg-transparent hover:text-sage-dark"
+          className="group scroll-mt-28 h-auto w-full justify-start items-start gap-4 rounded-none px-0 py-7 text-left whitespace-normal hover:bg-transparent hover:text-sage-dark"
         >
           <span className="mt-2 w-6 shrink-0 font-body text-xs text-muted-foreground tabular-nums">{String(index + 1).padStart(2, "0")}</span>
           <span className="flex-1 min-w-0">
