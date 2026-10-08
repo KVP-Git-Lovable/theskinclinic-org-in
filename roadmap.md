@@ -1,4 +1,4 @@
 # Treatment page update
-- [ ] Research medical and cosmetic reference content.
-- [ ] Create two detailed, patient-friendly treatment sections with expandable explanations.
-- [ ] Verify reading, expansion, navigation and page layout.
+- [x] Research medical and cosmetic reference content.
+- [x] Create two detailed, patient-friendly treatment sections with expandable explanations.
+- [x] Verify reading, expansion, navigation and page layout.
