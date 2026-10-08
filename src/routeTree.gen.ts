@@ -16,6 +16,7 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 import { Route as ApiConcernRouteImport } from './routes/api.concern'
 
@@ -54,6 +55,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductHandleRoute = ProductHandleRouteImport.update({
   id: '/product/$handle',
   path: '/product/$handle',
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/treatments'
     | '/api/concern'
     | '/product/$handle'
+    | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/treatments'
     | '/api/concern'
     | '/product/$handle'
+    | '/services/$slug'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/treatments'
     | '/api/concern'
     | '/product/$handle'
+    | '/services/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   TreatmentsRoute: typeof TreatmentsRoute
   ApiConcernRoute: typeof ApiConcernRoute
   ProductHandleRoute: typeof ProductHandleRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$handle': {
       id: '/product/$handle'
       path: '/product/$handle'
@@ -225,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   TreatmentsRoute: TreatmentsRoute,
   ApiConcernRoute: ApiConcernRoute,
   ProductHandleRoute: ProductHandleRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
