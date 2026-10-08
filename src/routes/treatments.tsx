@@ -1,89 +1,97 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowDown, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { Button } from "@/components/ui/button";
+import { TreatmentDetail } from "@/components/treatment-detail";
+import { medicalTreatments, cosmeticTreatments } from "@/lib/treatments";
+import skinPortrait from "@/assets/hero-portrait.jpg";
 
 export const Route = createFileRoute("/treatments")({
   head: () => ({
     meta: [
-      { title: "Treatments — Dermatology, Laser & Aesthetics | Tha Skin Clinic" },
-      {
-        name: "description",
-        content:
-          "Comprehensive dermatology and aesthetic treatments in Mangalore: acne, pigmentation, laser hair reduction, anti-ageing, botox, fillers, PRP, and more.",
-      },
+      { title: "Medical & Cosmetic Treatments | Tha Skin Clinic, Mangalore" },
+      { name: "description", content: "Understand medical dermatology and cosmetic care: acne, eczema, hair loss, pigmentation, lasers, peels and injectables. Explore care options with Tha Skin Clinic." },
+      { property: "og:title", content: "Medical & Cosmetic Treatments | Tha Skin Clinic" },
+      { property: "og:description", content: "Clear, thoughtful guidance on skin conditions, cosmetic treatments and what to expect from your care." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Treatments,
 });
 
-const CATEGORIES = [
-  {
-    heading: "Medical Dermatology",
-    items: [
-      { name: "Acne & Post-Acne Scarring", body: "Root-cause protocols combining prescriptions, chemical peels, subcision and fractional lasers.", price: "From ₹1,200" },
-      { name: "Pigmentation & Melasma", body: "Multi-modal care with Q-Switched Nd:YAG, cysteamine, and evidence-based topicals.", price: "From ₹2,500" },
-      { name: "Hair Loss & PRP", body: "Trichoscopy-guided diagnosis with GFC / PRP for men and women.", price: "From ₹3,500" },
-      { name: "Nail & Skin Infections", body: "Culture-guided antifungal, antibacterial and biopsy-based dermato-pathology care.", price: "From ₹900" },
-    ],
-  },
-  {
-    heading: "Laser & Energy Devices",
-    items: [
-      { name: "Diode Laser Hair Reduction", body: "US-FDA cleared, safe for all Indian skin tones. Six-session protocol.", price: "From ₹1,500 / area" },
-      { name: "Q-Switched Nd:YAG Toning", body: "Pigment removal, tattoo removal, skin brightening.", price: "From ₹3,000" },
-      { name: "Fractional CO₂ Resurfacing", body: "For acne scars, stretch marks and skin resurfacing.", price: "From ₹6,000" },
-      { name: "HIFU & Ultherapy", body: "Non-surgical skin tightening for face, neck and jawline.", price: "From ₹20,000" },
-    ],
-  },
-  {
-    heading: "Aesthetic Medicine",
-    items: [
-      { name: "Botulinum Toxin (Botox)", body: "For dynamic lines, jawline slimming, and hyperhidrosis. Always subtle.", price: "From ₹250 / unit" },
-      { name: "Dermal Fillers", body: "Hyaluronic acid — lips, cheeks, tear-trough, chin. Structural, not overdone.", price: "From ₹22,000 / syringe" },
-      { name: "Skin Boosters & PRP", body: "Profhilo, Sunekos and PRP for skin quality, glow and hydration.", price: "From ₹15,000" },
-      { name: "Thread Lift", body: "PDO threads for jawline, brow, and neck definition.", price: "From ₹35,000" },
-    ],
-  },
-];
-
 function Treatments() {
   return (
-    <div className="min-h-screen bg-ivory text-navy">
+    <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <section className="max-w-7xl mx-auto px-6 pt-32 pb-20">
-        <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">Our practice</p>
-        <h1 className="font-display text-6xl md:text-8xl leading-[0.95] max-w-4xl">
-          Treatments,
-          <br />
-          <em className="text-sage">rooted in evidence.</em>
-        </h1>
-        <p className="mt-10 max-w-2xl text-lg opacity-75 leading-relaxed">
-          Every plan starts with a conversation. We diagnose before we treat and
-          only recommend what your skin actually needs — nothing more.
-        </p>
-      </section>
-
-      {CATEGORIES.map((cat) => (
-        <section key={cat.heading} className="max-w-7xl mx-auto px-6 pb-24">
-          <div className="border-t border-navy/15 pt-12">
-            <h2 className="font-display text-4xl mb-12">{cat.heading}</h2>
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-14">
-              {cat.items.map((t) => (
-                <div key={t.name} className="border-b border-navy/10 pb-10">
-                  <div className="flex justify-between items-start gap-6 mb-3">
-                    <h3 className="font-display text-2xl">{t.name}</h3>
-                    <span className="text-xs uppercase tracking-widest opacity-50 whitespace-nowrap mt-2">
-                      {t.price}
-                    </span>
-                  </div>
-                  <p className="text-sm opacity-70 leading-relaxed">{t.body}</p>
-                </div>
-              ))}
-            </div>
+      <main className="treatment-page">
+        <section className="max-w-7xl mx-auto px-6 pt-14 md:pt-20 pb-12 md:pb-16">
+          <p className="text-xs text-sage-dark mb-6">Tha Skin Clinic · Mangalore</p>
+          <h1 className="font-display text-5xl md:text-7xl leading-[1.05] max-w-4xl">Medical & cosmetic care.<br /><em className="text-sage">Thoughtfully personalised.</em></h1>
+          <div className="mt-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Relief for a skin concern. A change that feels like you. Understand your options, with care that begins by listening.</p>
+            <Button asChild size="lg" className="h-12 self-start md:self-auto rounded-none shadow-none"><Link to="/contact">Book a consultation <ArrowRight aria-hidden="true" /></Link></Button>
           </div>
         </section>
-      ))}
 
+        <nav aria-label="Treatment categories" className="border-y border-border">
+          <div className="max-w-7xl mx-auto px-6 grid sm:grid-cols-2">
+            <Button asChild variant="ghost" className="h-auto py-6 md:py-8 justify-between rounded-none px-0 sm:pr-8 whitespace-normal hover:bg-transparent hover:text-sage-dark">
+              <a href="#medical"><span className="flex items-center gap-4"><ShieldCheck className="text-sage" strokeWidth={1.5} /><span className="font-display text-2xl">Medical Dermatology</span></span><ArrowDown aria-hidden="true" /></a>
+            </Button>
+            <Button asChild variant="ghost" className="h-auto py-6 md:py-8 justify-between rounded-none px-0 sm:pl-8 border-t sm:border-t-0 sm:border-l border-border whitespace-normal hover:bg-transparent hover:text-sage-dark">
+              <a href="#cosmetic"><span className="flex items-center gap-4"><Sparkles className="text-sage" strokeWidth={1.5} /><span className="font-display text-2xl">Cosmetic Treatments</span></span><ArrowDown aria-hidden="true" /></a>
+            </Button>
+          </div>
+        </nav>
+
+        <section id="medical" aria-labelledby="medical-heading" className="scroll-mt-24 max-w-7xl mx-auto px-6 py-16 md:py-24">
+          <div className="grid lg:grid-cols-[1fr_1.65fr] gap-10 lg:gap-20 items-start">
+            <div className="lg:sticky lg:top-28">
+              <p className="text-xs text-sage-dark mb-5">01 / Skin, hair & nail health</p>
+              <h2 id="medical-heading" className="font-display text-4xl md:text-5xl leading-tight">Medical<br />Dermatology</h2>
+              <p className="text-lg leading-relaxed text-muted-foreground mt-6 max-w-md">When your skin needs attention, understanding the cause is the first step towards feeling better.</p>
+              <p className="text-sm leading-relaxed text-muted-foreground mt-5 max-w-md">From recurring rashes to hair loss and changing moles, a dermatologist can help distinguish similar-looking conditions and guide the right next step.</p>
+              <div className="mt-8 border-t border-border pt-6 max-w-md">
+                <div className="flex gap-3 items-start"><ShieldCheck className="size-5 text-sage shrink-0 mt-1" strokeWidth={1.5} /><p className="text-sm leading-relaxed text-muted-foreground">New or changing spots, a non-healing sore or sudden hair loss deserve an in-person assessment.</p></div>
+              </div>
+            </div>
+            <div className="border-t border-border">{medicalTreatments.map((treatment, index) => <TreatmentDetail key={treatment.id} treatment={treatment} index={index} />)}</div>
+          </div>
+        </section>
+
+        <section id="cosmetic" aria-labelledby="cosmetic-heading" className="scroll-mt-24 bg-mist/30 border-y border-border">
+          <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid lg:grid-cols-[1fr_1.65fr] gap-10 lg:gap-20 items-start">
+            <div className="lg:sticky lg:top-28">
+              <p className="text-xs text-sage-dark mb-5">02 / Texture, tone & confidence</p>
+              <h2 id="cosmetic-heading" className="font-display text-4xl md:text-5xl leading-tight">Cosmetic<br />Treatments</h2>
+              <p className="text-lg leading-relaxed text-muted-foreground mt-6 max-w-md">Subtle improvements. Considered choices. Your features, still unmistakably yours.</p>
+              <p className="text-sm leading-relaxed text-muted-foreground mt-5 max-w-md">Explore treatments for scars, unwanted hair, uneven tone and signs of ageing. Suitability depends on your skin, health and expectations—not a trend.</p>
+              <img src={skinPortrait} alt="Illustrative portrait of natural skin texture" className="mt-8 w-full max-w-md aspect-[4/3] object-cover object-center" loading="lazy" />
+              <p className="text-xs text-muted-foreground mt-3">Individual results and recovery vary.</p>
+            </div>
+            <div className="border-t border-border">{cosmeticTreatments.map((treatment, index) => <TreatmentDetail key={treatment.id} treatment={treatment} index={index} />)}</div>
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+            <div><p className="text-xs text-sage-dark mb-5">Your first visit</p><h2 className="font-display text-4xl md:text-5xl leading-tight">A conversation.<br /><em className="text-sage">Then a considered plan.</em></h2></div>
+            <ol className="divide-y divide-border border-t border-border">
+              {[
+                ["We listen", "Your concerns, medical history, current products and what you hope to change."],
+                ["We assess", "A skin or scalp examination, with tests only when they can help clarify the cause."],
+                ["You understand your options", "Recommended care, alternatives, costs, potential risks and aftercare—before you decide."],
+              ].map(([title, body], i) => <li key={title} className="flex gap-5 py-6"><span className="text-xs text-sage-dark mt-1 tabular-nums">0{i + 1}</span><div><h3 className="font-display text-2xl">{title}</h3><p className="mt-2 text-sm text-muted-foreground leading-relaxed">{body}</p></div></li>)}
+            </ol>
+          </div>
+          <div className="mt-12 border-t border-border pt-8 flex flex-col md:flex-row gap-6 justify-between items-start">
+            <p className="max-w-2xl text-sm text-muted-foreground leading-relaxed">These guides explain possible care options, not a diagnosis or a guarantee of results. Specific products, devices and specialist procedures are subject to suitability and local availability; confirm them at consultation.</p>
+            <Button asChild size="lg" className="h-12 rounded-none shadow-none shrink-0"><Link to="/contact">Talk to a dermatologist <ArrowRight aria-hidden="true" /></Link></Button>
+          </div>
+        </section>
+      </main>
       <SiteFooter />
     </div>
   );

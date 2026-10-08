@@ -14,6 +14,10 @@ export const Route = createFileRoute("/contact")({
         content:
           "Book a dermatology consultation at Tha Skin Clinic, Mangalore. Kadri Kambla Road. Call +91 96201 23030.",
       },
+      { property: "og:title", content: "Book a Consultation | Tha Skin Clinic, Mangalore" },
+      { property: "og:description", content: "Book a dermatology consultation at Tha Skin Clinic, Mangalore. Kadri Kambla Road. Call +91 96201 23030." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Contact,
