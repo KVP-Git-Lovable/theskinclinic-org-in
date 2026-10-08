@@ -80,7 +80,7 @@ function Home() {
         </div>
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 py-32">
           <div className="animate-fade-up">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-60 mb-8">
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-80 mb-8">
               Since 2018 — Mangalore
             </p>
             <h1 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
@@ -116,10 +116,10 @@ function Home() {
       <section className="border-y border-navy/10">
         <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10">
           {HIGHLIGHTS.map((h) => (
-            <div key={h.value} className="bg-mist/60 px-8 py-10 flex flex-col gap-4">
+            <div key={h.value} className="bg-mist/60 px-8 py-12 flex flex-col gap-4">
               <h.icon className="size-6 text-sage" strokeWidth={1.25} />
               <p className="font-display text-3xl md:text-[2.6rem] leading-none">{h.value}</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] leading-relaxed opacity-70 max-w-[15rem]">
+              <p className="text-[11px] uppercase tracking-[0.14em] leading-relaxed opacity-85 max-w-[16rem]">
                 {h.label}
               </p>
             </div>
@@ -133,7 +133,7 @@ function Home() {
           <div className="flex items-center gap-4">
             <Clock className="size-8 text-sage shrink-0" strokeWidth={1} />
             <div>
-              <p className="text-[9px] uppercase tracking-[0.28em] opacity-60 mb-2">Clinic hours</p>
+              <p className="text-[10px] uppercase tracking-[0.22em] opacity-75 mb-2">Clinic hours</p>
               <p className="font-display text-2xl md:text-3xl leading-none">
                 {CLINIC.hoursDay} · {CLINIC.hoursTime}
               </p>
@@ -146,7 +146,7 @@ function Home() {
             >
               <Phone className="size-4 text-sage shrink-0" strokeWidth={1.5} />
               <span className="text-left leading-tight">
-                <span className="block text-[9px] uppercase tracking-[0.25em] opacity-60 group-hover:opacity-80">
+                <span className="block text-[10px] uppercase tracking-[0.2em] opacity-75 group-hover:opacity-90">
                   Call the clinic
                 </span>
                 <span className="block font-display text-xl md:text-2xl">{CLINIC.phoneDisplay}</span>
