@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, Waves, Zap, Heart, Instagram } from "lucide-react";
+import { ArrowRight, Sparkles, Waves, Zap, Heart, Instagram, BadgeCheck, Users, Clock, Phone } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { CLINIC } from "@/lib/clinic";
+import { WhatsAppButton } from "@/components/whatsapp";
 import { storefrontApiRequest, STOREFRONT_QUERY, formatINR, type ShopifyProduct } from "@/lib/shopify";
 import hero from "@/assets/hero-portrait.jpg";
 import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
@@ -41,6 +43,13 @@ const SERVICES = [
   { icon: Heart, title: "Aesthetic Medicine", body: "Botox, fillers, PRP and thread-lift — always subtle, always your face." },
 ];
 
+const HIGHLIGHTS = [
+  { icon: BadgeCheck, value: "Board-Certified", label: "Dermatologist-led care — MD & DNB" },
+  { icon: Zap, value: "Medical-Grade", label: "Clinical lasers & prescription protocols" },
+  { icon: Waves, value: "Coastal-Climate", label: "Formulas tuned for humid Mangalore" },
+  { icon: Users, value: "27,000+", label: "Patients cared for since 2018" },
+];
+
 const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
 
 function Home() {
@@ -71,7 +80,7 @@ function Home() {
         </div>
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 py-32">
           <div className="animate-fade-up">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-60 mb-8">
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-80 mb-8">
               Since 2018 — Mangalore
             </p>
             <h1 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
@@ -103,16 +112,48 @@ function Home() {
         </div>
       </section>
 
-      {/* MARQUEE OF PROMISES */}
-      <section className="border-y border-navy/10 py-8 overflow-hidden">
-        <div className="flex items-center justify-around gap-16 text-[10px] uppercase tracking-[0.35em] opacity-60 whitespace-nowrap flex-wrap px-6">
-          <span>Board-Certified Dermatologist</span>
-          <span className="hidden md:inline">•</span>
-          <span>Medical-Grade Lasers</span>
-          <span className="hidden md:inline">•</span>
-          <span>Coastal-Climate Formulations</span>
-          <span className="hidden md:inline">•</span>
-          <span>7,000+ Patients Cared For</span>
+      {/* KEY PROMISES — highlighted, scannable */}
+      <section className="border-y border-navy/10">
+        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10">
+          {HIGHLIGHTS.map((h) => (
+            <div key={h.value} className="bg-mist/60 px-8 py-12 flex flex-col gap-4">
+              <h.icon className="size-6 text-sage" strokeWidth={1.25} />
+              <p className="font-display text-3xl md:text-[2.6rem] leading-none">{h.value}</p>
+              <p className="text-[11px] uppercase tracking-[0.14em] leading-relaxed opacity-85 max-w-[16rem]">
+                {h.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* OPEN HOURS + DIRECT CONTACT */}
+      <section className="bg-navy text-ivory">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-wrap items-center justify-between gap-x-10 gap-y-6">
+          <div className="flex items-center gap-4">
+            <Clock className="size-8 text-sage shrink-0" strokeWidth={1} />
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.22em] opacity-75 mb-2">Clinic hours</p>
+              <p className="font-display text-2xl md:text-3xl leading-none">
+                {CLINIC.hoursDay} · {CLINIC.hoursTime}
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href={CLINIC.phoneHref}
+              className="group flex items-center gap-3 border border-ivory/25 px-8 py-4 hover:bg-ivory hover:text-navy transition-colors"
+            >
+              <Phone className="size-4 text-sage shrink-0" strokeWidth={1.5} />
+              <span className="text-left leading-tight">
+                <span className="block text-[10px] uppercase tracking-[0.2em] opacity-75 group-hover:opacity-90">
+                  Call the clinic
+                </span>
+                <span className="block font-display text-xl md:text-2xl">{CLINIC.phoneDisplay}</span>
+              </span>
+            </a>
+            <WhatsAppButton label="Chat on WhatsApp" />
+          </div>
         </div>
       </section>
 
