@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { storefrontApiRequest, STOREFRONT_QUERY, formatINR, type ShopifyProduct } from "@/lib/shopify";
 import hero from "@/assets/hero-portrait.jpg";
-import drVindhya from "@/assets/dr-vindhya.jpg";
+import vindhyaPhoto from "@/assets/dr-vindhya-pai.jpeg.asset.json";
 import clinic from "@/assets/clinic-interior.jpg";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
@@ -119,7 +119,7 @@ function Home() {
       <section className="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-12 gap-12 items-center">
         <div className="md:col-span-5">
           <div className="relative aspect-[4/5] overflow-hidden">
-            <img src={drVindhya} alt="Dr. Vindhya A. Pai" className="w-full h-full object-cover" loading="lazy" />
+            <img src={vindhyaPhoto.url} alt="Dr. Vindhya A. Pai" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
         <div className="md:col-span-6 md:col-start-7">
