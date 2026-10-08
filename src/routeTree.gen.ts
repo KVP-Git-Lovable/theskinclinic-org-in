@@ -14,6 +14,8 @@ import { Route as SkinAiRouteImport } from './routes/skin-ai'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as PortalRouteImport } from './routes/portal'
+import { Route as HomeOption3RouteImport } from './routes/home-option-3'
+import { Route as HomeOption2RouteImport } from './routes/home-option-2'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,6 +45,16 @@ const ShopRoute = ShopRouteImport.update({
 const PortalRoute = PortalRouteImport.update({
   id: '/portal',
   path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeOption3Route = HomeOption3RouteImport.update({
+  id: '/home-option-3',
+  path: '/home-option-3',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeOption2Route = HomeOption2RouteImport.update({
+  id: '/home-option-2',
+  path: '/home-option-2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -75,6 +87,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/home-option-2': typeof HomeOption2Route
+  '/home-option-3': typeof HomeOption3Route
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -87,6 +101,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/home-option-2': typeof HomeOption2Route
+  '/home-option-3': typeof HomeOption3Route
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -100,6 +116,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/home-option-2': typeof HomeOption2Route
+  '/home-option-3': typeof HomeOption3Route
   '/portal': typeof PortalRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -114,6 +132,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/home-option-2'
+    | '/home-option-3'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
@@ -126,6 +146,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/home-option-2'
+    | '/home-option-3'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
@@ -138,6 +160,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/home-option-2'
+    | '/home-option-3'
     | '/portal'
     | '/shop'
     | '/sitemap.xml'
@@ -151,6 +175,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  HomeOption2Route: typeof HomeOption2Route
+  HomeOption3Route: typeof HomeOption3Route
   PortalRoute: typeof PortalRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -197,6 +223,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/home-option-3': {
+      id: '/home-option-3'
+      path: '/home-option-3'
+      fullPath: '/home-option-3'
+      preLoaderRoute: typeof HomeOption3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home-option-2': {
+      id: '/home-option-2'
+      path: '/home-option-2'
+      fullPath: '/home-option-2'
+      preLoaderRoute: typeof HomeOption2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -239,6 +279,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  HomeOption2Route: HomeOption2Route,
+  HomeOption3Route: HomeOption3Route,
   PortalRoute: PortalRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

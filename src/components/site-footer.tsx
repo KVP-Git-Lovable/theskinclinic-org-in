@@ -66,6 +66,12 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
+      <nav aria-label="Homepage options" className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-ivory/20 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+        <span className="opacity-60">Home page</span>
+        <Link to="/" className="hover:underline underline-offset-4" activeProps={{ className: "underline underline-offset-4" }} activeOptions={{ exact: true }}>Option 1 · Original</Link>
+        <Link to="/home-option-2" className="hover:underline underline-offset-4" activeProps={{ className: "underline underline-offset-4" }}>Option 2</Link>
+        <Link to="/home-option-3" className="hover:underline underline-offset-4" activeProps={{ className: "underline underline-offset-4" }}>Option 3</Link>
+      </nav>
     </footer>
   );
 }
