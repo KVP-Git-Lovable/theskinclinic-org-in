@@ -25,3 +25,8 @@
 - [x] State over 1,200 patients each month across medical dermatology and aesthetic medicine in the founder section.
 - [x] Recolour the footer logo text white so it reads on the dark footer.
 - [x] Verify desktop and phone rendering of the trust bar, founder line and footer.
+
+# Additional homepage options
+- [ ] Preserve the current homepage and add Options 2 and 3 without a lady's portrait in the opening.
+- [ ] Add footer links to switch between all three homepages.
+- [ ] Verify both options, footer navigation and phone layouts.
