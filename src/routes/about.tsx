@@ -13,6 +13,10 @@ export const Route = createFileRoute("/about")({
         content:
           "Tha Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore.",
       },
+      { property: "og:title", content: "About — Dr. Vindhya A. Pai & Team | Tha Skin Clinic" },
+      { property: "og:description", content: "Tha Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: About,
