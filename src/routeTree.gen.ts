@@ -16,7 +16,10 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FacilitiesIndexRouteImport } from './routes/facilities.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
+import { Route as FacilitiesSlugRouteImport } from './routes/facilities.$slug'
 import { Route as ApiConcernRouteImport } from './routes/api.concern'
 
 const TreatmentsRoute = TreatmentsRouteImport.update({
@@ -54,9 +57,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FacilitiesIndexRoute = FacilitiesIndexRouteImport.update({
+  id: '/facilities/',
+  path: '/facilities/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductHandleRoute = ProductHandleRouteImport.update({
   id: '/product/$handle',
   path: '/product/$handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilitiesSlugRoute = FacilitiesSlugRouteImport.update({
+  id: '/facilities/$slug',
+  path: '/facilities/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiConcernRoute = ApiConcernRouteImport.update({
@@ -74,7 +92,10 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/facilities/': typeof FacilitiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -85,7 +106,10 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/facilities': typeof FacilitiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -97,7 +121,10 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/facilities/$slug': typeof FacilitiesSlugRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/facilities/': typeof FacilitiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -110,7 +137,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/treatments'
     | '/api/concern'
+    | '/facilities/$slug'
     | '/product/$handle'
+    | '/services/$slug'
+    | '/facilities/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -121,7 +151,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/treatments'
     | '/api/concern'
+    | '/facilities/$slug'
     | '/product/$handle'
+    | '/services/$slug'
+    | '/facilities'
   id:
     | '__root__'
     | '/'
@@ -132,7 +165,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/treatments'
     | '/api/concern'
+    | '/facilities/$slug'
     | '/product/$handle'
+    | '/services/$slug'
+    | '/facilities/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,7 +180,10 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TreatmentsRoute: typeof TreatmentsRoute
   ApiConcernRoute: typeof ApiConcernRoute
+  FacilitiesSlugRoute: typeof FacilitiesSlugRoute
   ProductHandleRoute: typeof ProductHandleRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  FacilitiesIndexRoute: typeof FacilitiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -198,11 +237,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/facilities/': {
+      id: '/facilities/'
+      path: '/facilities'
+      fullPath: '/facilities/'
+      preLoaderRoute: typeof FacilitiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$handle': {
       id: '/product/$handle'
       path: '/product/$handle'
       fullPath: '/product/$handle'
       preLoaderRoute: typeof ProductHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facilities/$slug': {
+      id: '/facilities/$slug'
+      path: '/facilities/$slug'
+      fullPath: '/facilities/$slug'
+      preLoaderRoute: typeof FacilitiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/concern': {
@@ -224,7 +284,10 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TreatmentsRoute: TreatmentsRoute,
   ApiConcernRoute: ApiConcernRoute,
+  FacilitiesSlugRoute: FacilitiesSlugRoute,
   ProductHandleRoute: ProductHandleRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  FacilitiesIndexRoute: FacilitiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
