@@ -10,6 +10,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Toaster } from "sonner";
+import { WhatsAppFab } from "@/components/whatsapp";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -132,6 +133,7 @@ function RootComponent() {
       <CartSyncBridge />
       <Outlet />
       <Toaster position="top-center" />
+      <WhatsAppFab />
     </QueryClientProvider>
   );
 }

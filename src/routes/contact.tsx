@@ -89,7 +89,7 @@ function Contact() {
           <Info icon={MapPin} label="Visit us" lines={["Kadri Kambla Road,", "Mangalore, Karnataka 575004"]} />
           <Info icon={Phone} label="Call" lines={["+91 96201 23030", "+91 63607 53030"]} />
           <Info icon={MessageCircle} label="WhatsApp" lines={["+91 96201 23030"]} link="https://wa.me/919620123030" />
-          <Info icon={Clock} label="Hours" lines={["Mon–Sat: 10am — 7pm", "Sunday: By appointment"]} />
+          <Info icon={Clock} label="Hours" lines={["Mon to Sun: 10:00 am — 8:00 pm"]} />
         </aside>
       </section>
 
