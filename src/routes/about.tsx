@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import drVindhya from "@/assets/dr-vindhya.jpg";
+import vindhyaPhoto from "@/assets/dr-vindhya-pai.jpeg.asset.json";
+import punyaPhoto from "@/assets/dr-punya.png.asset.json";
+import surakshaPhoto from "@/assets/dr-suraksha.jpg.asset.json";
+import ashwiniPhoto from "@/assets/dr-ashwini.jpg.asset.json";
 import clinic from "@/assets/clinic-interior.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -23,10 +26,10 @@ export const Route = createFileRoute("/about")({
 });
 
 const TEAM = [
-  { name: "Dr. Vindhya A. Pai", role: "Founder, Consultant Dermatologist — MD, DNB" },
-  { name: "Dr. Punya Suvarna", role: "Consultant Dermatologist — MBBS, MD" },
-  { name: "Dr. P. Suraksha", role: "Consultant Dermatologist — MBBS, DDVL" },
-  { name: "Dr. Ashwini Ashokan", role: "Consultant Dermatologist — MBBS, MD" },
+  { name: "Dr. Vindhya A. Pai", role: "Founder & Chief Dermatologist — MBBS, MD, DNB", photo: vindhyaPhoto.url },
+  { name: "Dr. Punya Suvarna", role: "Consultant Dermatologist — MBBS, MD, MRCP SCE (UK)", photo: punyaPhoto.url },
+  { name: "Dr. P. Suraksha", role: "Consultant Dermatologist — MBBS, MD", photo: surakshaPhoto.url },
+  { name: "Dr. Ashwini Ashokan", role: "Consultant Dermatologist — MBBS, MD", photo: ashwiniPhoto.url },
 ];
 
 function About() {
@@ -45,7 +48,7 @@ function About() {
 
       <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-16 items-center">
         <div className="md:col-span-6">
-          <img src={drVindhya} alt="Dr. Vindhya A. Pai" className="w-full aspect-[4/5] object-cover" loading="lazy" />
+          <img src={vindhyaPhoto.url} alt="Dr. Vindhya A. Pai, Founder and Chief Dermatologist" className="w-full aspect-square object-cover" loading="lazy" />
         </div>
         <div className="md:col-span-6">
           <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Our philosophy</p>
@@ -72,7 +75,7 @@ function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {TEAM.map((d) => (
               <div key={d.name} className="bg-ivory p-8">
-                <div className="aspect-square bg-mist/60 mb-6" />
+                <img src={d.photo} alt={d.name} className="w-full aspect-square object-cover mb-6" loading="lazy" />
                 <h4 className="font-display text-xl leading-tight">{d.name}</h4>
                 <p className="text-xs opacity-60 mt-2">{d.role}</p>
               </div>
