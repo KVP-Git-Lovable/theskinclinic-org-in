@@ -3,16 +3,15 @@ import { ArrowRight, Clock } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
-import { VideoGallery } from "@/components/video-gallery";
 import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Skin Journal — Articles & Skin Talks Videos | The Skin Clinic Mangaluru" },
-      { name: "description", content: "Skin care advice, treatment explainers and Skin Talks videos from the dermatologists at The Skin Clinic, Mangaluru." },
+      { title: "Skin Journal — Articles | The Skin Clinic Mangaluru" },
+      { name: "description", content: "Skin care advice and treatment explainers from the dermatologists at The Skin Clinic, Mangaluru." },
       { property: "og:title", content: "Skin Journal | The Skin Clinic Mangaluru" },
-      { property: "og:description", content: "Skin care advice, treatment explainers and Skin Talks videos from our dermatologists." },
+      { property: "og:description", content: "Skin care advice and treatment explainers from our dermatologists." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -35,7 +34,7 @@ function BlogIndex() {
         </h1>
         <div className="relative h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.5s" }} />
         <p className="relative mt-8 max-w-xl text-lg leading-relaxed opacity-75 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          Practical skin care advice, honest treatment guides and videos from our dermatologists, written for how skin really behaves on the coast.
+          Practical skin care advice and honest treatment guides from our dermatologists, written for how skin really behaves on the coast.
         </p>
       </section>
 
@@ -80,19 +79,6 @@ function BlogIndex() {
               </Link>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* Videos */}
-      <section className="bg-navy text-ivory py-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin Talks</p>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-14 max-w-3xl">
-              Watch Dr. Vindhya <em className="text-sage">explain.</em>
-            </h2>
-          </Reveal>
-          <VideoGallery dark />
         </div>
       </section>
 
