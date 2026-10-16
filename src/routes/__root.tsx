@@ -83,14 +83,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Board-certified dermatology, laser aesthetics and Formula V medical skincare, led by Dr. Vindhya A. Pai in Mangalore since 2018.",
+          "Board-certified dermatology, laser aesthetics and medical skincare, led by Dr. Vindhya A. Pai in Mangalore since 2018.",
       },
       { name: "author", content: "Tha Skin Clinic" },
       { property: "og:title", content: "Tha Skin Clinic — Dermatology & Aesthetics in Mangalore" },
       {
         property: "og:description",
         content:
-          "Board-certified dermatology, laser aesthetics and Formula V medical skincare in Mangalore.",
+          "Board-certified dermatology, laser aesthetics and medical skincare in Mangalore.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

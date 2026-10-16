@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Clock, Phone } from "lucide-react";
-import { CartDrawer } from "./cart-drawer";
 import { WhatsAppIcon } from "./whatsapp";
 import { CLINIC } from "@/lib/clinic";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -9,7 +8,6 @@ import logoAsset from "@/assets/logo.png.asset.json";
 const NAV = [
   { to: "/treatments", label: "Treatments" },
   { to: "/skin-ai", label: "Skin AI" },
-  { to: "/shop", label: "Formula V" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -89,7 +87,6 @@ export function SiteHeader() {
             >
               Patient Portal
             </Link>
-            <CartDrawer />
           </div>
         </div>
       </nav>

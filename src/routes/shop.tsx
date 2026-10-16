@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -10,6 +10,10 @@ import {
 } from "@/lib/shopify";
 
 export const Route = createFileRoute("/shop")({
+  beforeLoad: () => {
+    // Formula V storefront is hidden for now
+    throw redirect({ to: "/" });
+  },
   head: () => ({
     meta: [
       { title: "Formula V — Clinical Skincare | Tha Skin Clinic" },

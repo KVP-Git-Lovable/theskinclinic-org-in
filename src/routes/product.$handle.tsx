@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { ArrowLeft, Loader2, Check } from "lucide-react";
@@ -13,6 +13,10 @@ import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/product/$handle")({
+  beforeLoad: () => {
+    // Formula V storefront is hidden for now
+    throw redirect({ to: "/" });
+  },
   head: ({ params }) => {
     const productName = params.handle.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
     const title = `${productName} — Formula V | Tha Skin Clinic`;

@@ -69,7 +69,6 @@ function Contact() {
               <option>Acne / scar treatment</option>
               <option>Pigmentation / melasma</option>
               <option>Aesthetic / anti-ageing</option>
-              <option>Formula V product advice</option>
             </select>
           </div>
           <div>

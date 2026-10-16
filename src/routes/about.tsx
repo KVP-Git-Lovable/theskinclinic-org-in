@@ -64,7 +64,7 @@ function About() {
           </p>
           <p className="leading-relaxed opacity-70">
             Since 2018, we've built a practice where evidence-based dermatology meets
-            genuine listening. Every laser, every prescription, every drop of Formula V
+            genuine listening. Every laser, every prescription, every treatment plan
             starts with the same question: what does <em>your</em> skin need?
           </p>
         </div>

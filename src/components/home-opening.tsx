@@ -27,14 +27,14 @@ export function HomeOpening({ option }: { option: 2 | 3 }) {
           <p className={`mt-7 max-w-lg text-base leading-relaxed text-navy/80 md:text-lg ${clinicOpening ? "mx-auto" : ""}`}>
             {clinicOpening
               ? "Medical dermatology, considered aesthetic treatments and a team that takes the time to understand you. Led by Dr. Vindhya A. Pai."
-              : "From everyday skin concerns to advanced treatments, find dermatologist-led care and Formula V clinical skincare, led by Dr. Vindhya A. Pai."}
+              : "From everyday skin concerns to advanced treatments, find dermatologist-led care, led by Dr. Vindhya A. Pai."}
           </p>
           <div className={`mt-9 flex flex-wrap gap-3 ${clinicOpening ? "justify-center" : ""}`}>
             <Button asChild size="lg" className="h-12 rounded-sm bg-navy px-6 text-ivory shadow-none hover:bg-sage-dark">
               <Link to="/contact">Book a consultation <ArrowRight /></Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 rounded-sm border-navy/25 bg-ivory/75 px-6 shadow-none">
-              <Link to={clinicOpening ? "/treatments" : "/shop"}>{clinicOpening ? "Explore treatments" : "Explore Formula V"}</Link>
+              <Link to="/treatments">Explore treatments</Link>
             </Button>
           </div>
           <p className={`mt-8 flex items-center gap-2 text-sm text-navy/75 ${clinicOpening ? "justify-center" : ""}`}>

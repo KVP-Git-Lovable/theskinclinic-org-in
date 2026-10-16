@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, Waves, Zap, Heart, Instagram, BadgeCheck, Users, Clock, Phone, Star } from "lucide-react";
 import { HomeOpening } from "@/components/home-opening";
@@ -7,7 +6,6 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CLINIC } from "@/lib/clinic";
 import { WhatsAppButton } from "@/components/whatsapp";
-import { storefrontApiRequest, STOREFRONT_QUERY, formatINR, type ShopifyProduct } from "@/lib/shopify";
 import hero from "@/assets/hero-portrait.jpg";
 import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
 const drVindhya = drVindhyaAsset.url;
@@ -30,7 +28,7 @@ const SERVICES = [
 const HIGHLIGHTS = [
   { icon: BadgeCheck, value: "Board-Certified", label: "Dermatologist-led care — MD & DNB" },
   { icon: Zap, value: "Medical-Grade", label: "Clinical lasers & prescription protocols" },
-  { icon: Waves, value: "Coastal-Climate", label: "Formulas tuned for humid Mangalore" },
+  { icon: Waves, value: "Coastal-Climate", label: "Care tuned for humid Mangalore" },
   { icon: Users, value: "27,000+", label: "Patients cared for since 2018" },
   { icon: Star, value: "4.85 / 5", label: "Average patient feedback" },
 ];
@@ -38,14 +36,6 @@ const HIGHLIGHTS = [
 const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
 
 export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
-  const { data } = useQuery({
-    queryKey: ["home-products"],
-    queryFn: async () => {
-      const res = await storefrontApiRequest(STOREFRONT_QUERY, { first: 4, query: null });
-      return (res?.data?.products?.edges ?? []) as ShopifyProduct[];
-    },
-  });
-
   return (
     <div className={`min-h-screen bg-ivory text-navy overflow-x-hidden ${option === 1 ? "" : "home-alternative"}`}>
       <SiteHeader />
@@ -75,8 +65,8 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
             <div className="h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.6s" }} />
             <p className="mt-10 text-lg max-w-md leading-relaxed opacity-75">
               A dermatology practice for people who prefer results that whisper —
-              not shout. Board-certified care, medical-grade lasers, and Formula V —
-              our in-house apothecary of clinical skincare.
+              not shout. Board-certified care, medical-grade lasers, and
+              considered aesthetic medicine.
             </p>
             <div className="mt-12 flex flex-wrap gap-4">
               <Link
@@ -87,10 +77,10 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
                 <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/shop"
+                to="/treatments"
                 className="px-10 py-4 text-[11px] uppercase tracking-[0.25em] border border-navy/20 hover:bg-navy hover:text-ivory transition-all"
               >
-                Explore Formula V
+                Explore treatments
               </Link>
             </div>
           </div>
@@ -204,66 +194,6 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* FORMULA V FEATURED */}
-      <section className="max-w-7xl mx-auto px-6 py-32">
-        <div className="grid md:grid-cols-12 gap-12 mb-16">
-          <div className="md:col-span-5">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Formula V</p>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
-              Clinic-tested.
-              <br />
-              <em className="text-sage">Coast-approved.</em>
-            </h2>
-          </div>
-          <div className="md:col-span-6 md:col-start-7 flex flex-col justify-end">
-            <p className="text-lg leading-relaxed opacity-75">
-              Formulations refined over years of clinical practice — dermatologist-
-              designed for the humidity, sun, and lifestyle of coastal Karnataka.
-              Now available to take home.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {data?.slice(0, 4).map((p) => (
-            <Link
-              key={p.node.id}
-              to="/product/$handle"
-              params={{ handle: p.node.handle }}
-              className="group block"
-            >
-              <div className="aspect-[4/5] bg-mist/40 overflow-hidden mb-5">
-                {p.node.images.edges[0] && (
-                  <img
-                    src={p.node.images.edges[0].node.url}
-                    alt={p.node.images.edges[0].node.altText ?? p.node.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                )}
-              </div>
-              <h4 className="font-display text-xl leading-tight">{p.node.title}</h4>
-              <p className="text-xs opacity-60 mt-2 uppercase tracking-widest">
-                {formatINR(p.node.priceRange.minVariantPrice.amount)}
-              </p>
-            </Link>
-          ))}
-          {!data && Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="aspect-[4/5] bg-mist/30 animate-pulse" />
-          ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <Link
-            to="/shop"
-            className="inline-flex items-center gap-3 bg-navy text-ivory px-10 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
-          >
-            Shop Formula V
-            <ArrowRight className="size-3" />
-          </Link>
         </div>
       </section>
 
