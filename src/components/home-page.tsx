@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, Sparkles, Waves, Zap, Heart, Instagram, BadgeCheck, Users, Clock, Phone, Star } from "lucide-react";
 import { HomeOpening } from "@/components/home-opening";
 import { SiteHeader } from "@/components/site-header";
@@ -19,11 +19,6 @@ import tourTreatmentRoom from "@/assets/tour/tour-15.jpg";
 import tourExterior from "@/assets/tour/tour-13.jpg";
 import tourReception from "@/assets/tour/tour-11.jpg";
 import tourLobby from "@/assets/tour/tour-16.jpg";
-import ig2 from "@/assets/ig-2.jpg";
-import ig3 from "@/assets/ig-3.jpg";
-import ig4 from "@/assets/ig-4.jpg";
-import ig5 from "@/assets/ig-5.jpg";
-import ig6 from "@/assets/ig-6.jpg";
 
 
 const SERVICES = [
@@ -47,8 +42,6 @@ const HERO_SLIDES: HeroSlide[] = [
   { src: tourReception, framed: true, alt: "The welcoming reception area at The Skin Clinic", eyebrow: "A warm welcome", caption: "No rush. No pressure. Just thoughtful care." },
   { src: tourLobby, framed: true, alt: "The Skin Clinic reception and waiting area", eyebrow: "Step inside", caption: "Comfortable, confidential, considered." },
 ];
-
-const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
 
 export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
   return (
@@ -259,10 +252,25 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
       </section>
 
       {/* INSTAGRAM STRIP */}
-      <IGStrip />
+      <section className="border-t border-navy/10">
+        <Reveal>
+          <a
+            href="https://www.instagram.com/theskinclinic_mangalore/"
+            target="_blank"
+            rel="noreferrer"
+            className="group max-w-7xl mx-auto px-6 py-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-center"
+          >
+            <Instagram className="size-6 text-sage" strokeWidth={1.25} />
+            <span className="font-display text-2xl md:text-3xl">Follow us on Instagram</span>
+            <span className="text-[11px] uppercase tracking-[0.25em] opacity-60 group-hover:opacity-100 group-hover:text-sage transition-colors">
+              @theskinclinic_mangalore →
+            </span>
+          </a>
+        </Reveal>
+      </section>
 
       {/* CTA */}
-      <section className="max-w-4xl mx-auto px-6 py-40 text-center">
+      <section className="max-w-4xl mx-auto px-6 py-28 text-center">
         <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">Begin</p>
         <h2 className="font-display text-5xl md:text-7xl leading-[1.05]">
           Skin that feels
@@ -305,48 +313,5 @@ function Fact({ q, a }: { q: string; a: string }) {
         <p className="text-sm leading-relaxed">{a}</p>
       </div>
     </button>
-  );
-}
-
-function IGStrip() {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(t);
-  }, []);
-  return (
-    <section className="py-24 border-t border-navy/10">
-      <div className="max-w-7xl mx-auto px-6 flex items-end justify-between mb-12 flex-wrap gap-4">
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-4">Journal</p>
-          <h3 className="font-display text-4xl">@theskinclinic_mangalore</h3>
-        </div>
-        <a
-          href="https://www.instagram.com/theskinclinic_mangalore/"
-          target="_blank"
-          rel="noreferrer"
-          className="text-[11px] uppercase tracking-[0.25em] flex items-center gap-2 hover:text-sage transition-colors"
-        >
-          <Instagram className="size-4" strokeWidth={1} />
-          Follow
-        </a>
-      </div>
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-6 gap-2">
-        {IG_TILES.map((src, i) => (
-          <a
-            key={i}
-            href="https://www.instagram.com/theskinclinic_mangalore/"
-            target="_blank"
-            rel="noreferrer"
-            className={`aspect-square overflow-hidden bg-mist/30 transition-all duration-1000 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: `${i * 80}ms` }}
-          >
-            <img src={src} alt="Instagram post" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" />
-          </a>
-        ))}
-      </div>
-    </section>
   );
 }
