@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { CLINIC } from "@/lib/clinic";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -41,11 +42,36 @@ const floating =
 
 function Contact() {
   const [sent, setSent] = useState(false);
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    // Hidden honeypot field: real visitors never fill it in, bots usually do.
+    if (String(data.get("website") ?? "").trim() !== "") {
+      setSent(true);
+      form.reset();
+      return;
+    }
+    setSubmitting(true);
+    const { error } = await supabase.from("contact_enquiries").insert({
+      name: String(data.get("name") ?? "").trim(),
+      phone: String(data.get("phone") ?? "").trim(),
+      email: String(data.get("email") ?? "").trim(),
+      interest: String(data.get("interest") ?? "") || null,
+      source: String(data.get("source") ?? "") || null,
+      message: String(data.get("message") ?? "").trim() || null,
+    });
+    setSubmitting(false);
+    if (error) {
+      console.error("[contact] enquiry not saved", error.message);
+      toast.error(`Sorry, we couldn't send that. Please call ${CLINIC.phoneDisplay} or message us on WhatsApp.`);
+      return;
+    }
     setSent(true);
     toast.success("Thank you — we'll be in touch within 24 hours.");
-    (e.target as HTMLFormElement).reset();
+    form.reset();
     setTimeout(() => setSent(false), 5000);
   };
 
@@ -96,24 +122,25 @@ function Contact() {
           <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-4">Drop a line</p>
           <h2 className="font-display text-4xl md:text-5xl mb-10">Book a consultation</h2>
           <form onSubmit={handleSubmit} className="space-y-7">
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             <div className="relative">
-              <input id="name" required type="text" placeholder="Name" autoComplete="name" className={field} />
+              <input id="name" name="name" required maxLength={120} type="text" placeholder="Name" autoComplete="name" className={field} />
               <label htmlFor="name" className={floating}>May I know your name?</label>
             </div>
             <div className="grid sm:grid-cols-2 gap-7">
               <div className="relative">
-                <input id="phone" required type="tel" placeholder="Phone" autoComplete="tel" className={field} />
+                <input id="phone" name="phone" required minLength={5} maxLength={30} type="tel" placeholder="Phone" autoComplete="tel" className={field} />
                 <label htmlFor="phone" className={floating}>Phone number</label>
               </div>
               <div className="relative">
-                <input id="email" required type="email" placeholder="Email" autoComplete="email" className={field} />
+                <input id="email" name="email" required maxLength={200} type="email" placeholder="Email" autoComplete="email" className={field} />
                 <label htmlFor="email" className={floating}>Email address</label>
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-7">
               <div>
                 <label htmlFor="interest" className="text-[10px] uppercase tracking-widest opacity-60 block">Interested in</label>
-                <select id="interest" className="w-full bg-transparent border-b border-navy/25 py-3 outline-none transition-colors focus:border-sage">
+                <select id="interest" name="interest" className="w-full bg-transparent border-b border-navy/25 py-3 outline-none transition-colors focus:border-sage">
                   <option>Skin consultation</option>
                   <option>Laser hair reduction</option>
                   <option>Acne / scar treatment</option>
@@ -123,7 +150,7 @@ function Contact() {
               </div>
               <div>
                 <label htmlFor="source" className="text-[10px] uppercase tracking-widest opacity-60 block">How did you find us?</label>
-                <select id="source" className="w-full bg-transparent border-b border-navy/25 py-3 outline-none transition-colors focus:border-sage">
+                <select id="source" name="source" className="w-full bg-transparent border-b border-navy/25 py-3 outline-none transition-colors focus:border-sage">
                   {FIND_US.map((o) => (
                     <option key={o}>{o}</option>
                   ))}
@@ -131,15 +158,17 @@ function Contact() {
               </div>
             </div>
             <div className="relative">
-              <textarea id="message" rows={4} placeholder="Message" className={`${field} resize-none`} />
+              <textarea id="message" name="message" maxLength={2000} rows={4} placeholder="Message" className={`${field} resize-none`} />
               <label htmlFor="message" className={floating}>Anything else you'd like us to know?</label>
             </div>
             <button
               type="submit"
-              disabled={sent}
+              disabled={sent || submitting}
               className="group relative inline-flex items-center gap-3 overflow-hidden bg-navy text-ivory px-12 py-4 text-[11px] uppercase tracking-[0.25em] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-60 before:absolute before:inset-0 before:origin-left before:scale-x-0 before:bg-sage-dark before:transition-transform before:duration-500 hover:before:scale-x-100 [&>*]:relative [&>*]:z-10"
             >
-              {sent ? (
+              {submitting ? (
+                <>Sending…</>
+              ) : sent ? (
                 <>
                   <CheckCircle2 className="size-4" /> Sent — thank you
                 </>
