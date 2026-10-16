@@ -14,6 +14,9 @@ import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
 const drVindhya = drVindhyaAsset.url;
 import clinic from "@/assets/clinic-interior.jpg";
 import ig1 from "@/assets/ig-1.jpg";
+import tourExterior from "@/assets/tour/tour-13.jpg";
+import tourTreatmentRoom from "@/assets/tour/tour-15.jpg";
+import tourReception from "@/assets/tour/tour-11.jpg";
 import ig2 from "@/assets/ig-2.jpg";
 import ig3 from "@/assets/ig-3.jpg";
 import ig4 from "@/assets/ig-4.jpg";
@@ -38,8 +41,9 @@ const HIGHLIGHTS = [
 
 const HERO_SLIDES: HeroSlide[] = [
   { src: hero, alt: "Portrait of confident, healthy skin", eyebrow: "Medical dermatology", caption: "Skin that feels unmistakably yours." },
-  { src: clinic, alt: "A calm dermatology treatment room", eyebrow: "The clinic", caption: "A calm, modern space designed around you." },
-  { src: ig1, alt: "Close-up of glowing, healthy skin", eyebrow: "Aesthetic care", caption: "Results that whisper, never shout." },
+  { src: tourExterior, alt: "The Skin Clinic building surrounded by greenery on Kadri Kambla Road, Mangaluru", eyebrow: "Visit us", caption: "A calm clinic in the heart of Mangaluru." },
+  { src: tourTreatmentRoom, alt: "A bright, modern treatment room at The Skin Clinic", eyebrow: "Our treatment rooms", caption: "Modern, comfortable care designed around you." },
+  { src: tourReception, alt: "The welcoming reception area at The Skin Clinic", eyebrow: "A warm welcome", caption: "No rush. No pressure. Just thoughtful care." },
 ];
 
 const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
