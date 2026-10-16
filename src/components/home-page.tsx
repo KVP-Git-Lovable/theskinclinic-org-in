@@ -14,9 +14,7 @@ import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
 const drVindhya = drVindhyaAsset.url;
 import clinic from "@/assets/clinic-interior.jpg";
 import ig1 from "@/assets/ig-1.jpg";
-import tourExterior from "@/assets/tour/tour-13.jpg";
 import tourTreatmentRoom from "@/assets/tour/tour-15.jpg";
-import tourReception from "@/assets/tour/tour-11.jpg";
 import ig2 from "@/assets/ig-2.jpg";
 import ig3 from "@/assets/ig-3.jpg";
 import ig4 from "@/assets/ig-4.jpg";
@@ -41,9 +39,8 @@ const HIGHLIGHTS = [
 
 const HERO_SLIDES: HeroSlide[] = [
   { src: hero, alt: "Portrait of confident, healthy skin", eyebrow: "Medical dermatology", caption: "Skin that feels unmistakably yours." },
-  { src: tourExterior, alt: "The Skin Clinic building surrounded by greenery on Kadri Kambla Road, Mangaluru", eyebrow: "Visit us", caption: "A calm clinic in the heart of Mangaluru." },
-  { src: tourTreatmentRoom, alt: "A bright, modern treatment room at The Skin Clinic", eyebrow: "Our treatment rooms", caption: "Modern, comfortable care designed around you." },
-  { src: tourReception, alt: "The welcoming reception area at The Skin Clinic", eyebrow: "A warm welcome", caption: "No rush. No pressure. Just thoughtful care." },
+  { src: clinic, alt: "A calm dermatology treatment room", eyebrow: "The clinic", caption: "A calm, modern space designed around you." },
+  { src: ig1, alt: "Close-up of glowing, healthy skin", eyebrow: "Aesthetic care", caption: "Results that whisper, never shout." },
 ];
 
 const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
@@ -208,8 +205,8 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
       {/* JOURNAL / EDUCATION */}
       <section className="bg-navy text-ivory py-32">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div className="aspect-square overflow-hidden">
-            <img src={clinic} alt="Tha Skin Clinic interior" className="w-full h-full object-cover" loading="lazy" />
+          <div className="aspect-[4/3] overflow-hidden">
+            <img src={tourTreatmentRoom} alt="A treatment room at The Skin Clinic" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div>
             <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin, understood</p>
