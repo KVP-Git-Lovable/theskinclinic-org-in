@@ -5,7 +5,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { TreatmentDetail } from "@/components/treatment-detail";
 import { medicalTreatments, cosmeticTreatments } from "@/lib/treatments";
-import skinPortrait from "@/assets/hero-portrait.jpg";
+import medicalImage from "@/assets/ig-2.jpg";
+import cosmeticImage from "@/assets/ig-3.jpg";
 
 export const Route = createFileRoute("/treatments")({
   head: () => ({
@@ -58,6 +59,7 @@ function Treatments() {
               <h2 id="medical-heading" className="font-display text-4xl md:text-5xl leading-tight">Medical<br />Dermatology</h2>
               <p className="text-lg leading-relaxed text-muted-foreground mt-6 max-w-md">When your skin needs attention, understanding the cause is the first step towards feeling better.</p>
               <p className="text-sm leading-relaxed text-muted-foreground mt-5 max-w-md">From recurring rashes to hair loss and changing moles, a dermatologist can help distinguish similar-looking conditions and guide the right next step.</p>
+              <img src={medicalImage} alt="Dermatology examination instruments and a sprig of green leaves on a marble tray" className="mt-8 w-full max-w-md aspect-[4/3] object-cover object-center" loading="lazy" />
               <div className="mt-8 border-t border-border pt-6 max-w-md">
                 <div className="flex gap-3 items-start"><ShieldCheck className="size-5 text-sage shrink-0 mt-1" strokeWidth={1.5} /><p className="text-sm leading-relaxed text-muted-foreground">New or changing spots, a non-healing sore or sudden hair loss deserve an in-person assessment.</p></div>
               </div>
@@ -73,7 +75,7 @@ function Treatments() {
               <h2 id="cosmetic-heading" className="font-display text-4xl md:text-5xl leading-tight">Cosmetic<br />Treatments</h2>
               <p className="text-lg leading-relaxed text-muted-foreground mt-6 max-w-md">Subtle improvements. Considered choices. Your features, still unmistakably yours.</p>
               <p className="text-sm leading-relaxed text-muted-foreground mt-5 max-w-md">Explore treatments for scars, unwanted hair, uneven tone and signs of ageing. Suitability depends on your skin, health and expectations—not a trend.</p>
-              <img src={skinPortrait} alt="Illustrative portrait of natural skin texture" className="mt-8 w-full max-w-md aspect-[4/3] object-cover object-center" loading="lazy" />
+              <img src={cosmeticImage} alt="A drop of clear serum falling from a glass dropper in soft window light" className="mt-8 w-full max-w-md aspect-[4/3] object-cover object-center" loading="lazy" />
               <p className="text-xs text-muted-foreground mt-3">Individual results and recovery vary.</p>
             </div>
             <div className="border-t border-border">{cosmeticTreatments.map((treatment, index) => <TreatmentDetail key={treatment.id} treatment={treatment} index={index} />)}</div>
