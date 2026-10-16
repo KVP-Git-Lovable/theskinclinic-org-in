@@ -10,6 +10,7 @@ const EXPLORE = [
   { to: "/about", label: "About & Team" },
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
+  { to: "/contact", hash: "careers", label: "Careers" },
   { to: "/portal", label: "Patient Portal" },
 ] as const;
 
@@ -83,8 +84,8 @@ export function SiteFooter() {
           <h5 className="text-[11px] uppercase tracking-[0.25em] font-semibold mb-7">Explore</h5>
           <ul className="space-y-4 text-sm">
             {EXPLORE.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className={linkCls}>
+              <li key={l.label}>
+                <Link to={l.to} hash={"hash" in l ? l.hash : undefined} className={linkCls}>
                   {l.label}
                 </Link>
               </li>
