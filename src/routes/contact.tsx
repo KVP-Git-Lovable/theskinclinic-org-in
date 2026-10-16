@@ -12,10 +12,10 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Book a dermatology consultation at Tha Skin Clinic, Mangalore. Kadri Kambla Road. Call +91 96201 23030.",
+          "Book a dermatology consultation at Tha Skin Clinic, Mangaluru. Vyasa Rao Road, Kadri Kambla Road. Call +91 96201 23030.",
       },
       { property: "og:title", content: "Book a Consultation | Tha Skin Clinic, Mangalore" },
-      { property: "og:description", content: "Book a dermatology consultation at Tha Skin Clinic, Mangalore. Kadri Kambla Road. Call +91 96201 23030." },
+      { property: "og:description", content: "Book a dermatology consultation at Tha Skin Clinic, Mangaluru. Vyasa Rao Road, Kadri Kambla Road. Call +91 96201 23030." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -85,10 +85,10 @@ function Contact() {
         </form>
 
         <aside className="md:col-span-5 space-y-10">
-          <Info icon={MapPin} label="Visit us" lines={["Kadri Kambla Road,", "Mangalore, Karnataka 575004"]} />
+          <Info icon={MapPin} label="Visit us" lines={["Vyasa Rao Road, Kadri Kambla Road,", "Mangaluru, Karnataka 575003"]} />
           <Info icon={Phone} label="Call" lines={["+91 96201 23030", "+91 63607 53030"]} />
           <Info icon={MessageCircle} label="WhatsApp" lines={["+91 96201 23030"]} link="https://wa.me/919620123030" />
-          <Info icon={Clock} label="Hours" lines={["Mon to Sun: 10:00 am — 8:00 pm"]} />
+          <Info icon={Clock} label="Hours" lines={["Mon to Sat: 10:00 am — 8:00 pm"]} />
         </aside>
       </section>
 

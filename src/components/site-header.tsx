@@ -34,7 +34,7 @@ export function SiteHeader() {
           <span className="flex items-center gap-2 opacity-90 whitespace-nowrap">
             <Clock className="size-3.5 text-sage shrink-0" strokeWidth={1.5} />
             <span className="hidden sm:inline">Open {CLINIC.hoursDay}</span>
-            <span className="sm:hidden">Open daily</span>
+            <span className="sm:hidden">Open Mon–Sat</span>
             <span className="opacity-40">·</span>
             <span className="hidden sm:inline">{CLINIC.hoursTime}</span>
             <span className="sm:hidden">{CLINIC.hoursTimeCompact}</span>

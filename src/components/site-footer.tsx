@@ -1,77 +1,170 @@
 import { Link } from "@tanstack/react-router";
+import { Clock, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { WhatsAppIcon } from "@/components/whatsapp";
+import { CLINIC } from "@/lib/clinic";
 import logoAsset from "@/assets/logo-white.png.asset.json";
+
+const EXPLORE = [
+  { to: "/treatments", label: "Treatments" },
+  { to: "/skin-ai", label: "Skin AI" },
+  { to: "/about", label: "About & Team" },
+  { to: "/contact", label: "Contact" },
+  { to: "/portal", label: "Patient Portal" },
+] as const;
+
+const SOCIALS = [
+  { href: CLINIC.instagramHref, label: "Instagram", icon: Instagram },
+  { href: CLINIC.facebookHref, label: "Facebook", icon: Facebook },
+  { href: CLINIC.youtubeHref, label: "YouTube — Skin Talks", icon: Youtube },
+] as const;
+
+const linkCls = "opacity-70 hover:opacity-100 hover:text-sage transition-colors";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-navy text-ivory py-24 mt-24">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
-        <div className="col-span-2">
-          <Link to="/" aria-label="Tha Skin Clinic — home" className="mb-8 block">
-            <img src={logoAsset.url} alt="The Skin Clinic" className="h-16 w-auto" />
-          </Link>
-          <p className="max-w-xs opacity-50 text-sm leading-relaxed mb-12">
-            A sanctuary for advanced dermatology and aesthetic medicine in the heart of Mangalore —
-            led by Dr. Vindhya A. Pai since 2018.
-          </p>
-          <div className="text-[10px] uppercase tracking-[0.3em] font-medium opacity-40">
-            © {new Date().getFullYear()} Tha Skin Clinic. All rights reserved.
+    <footer className="bg-navy text-ivory mt-24">
+      {/* Closing call to action */}
+      <div className="border-b border-ivory/10">
+        <div className="max-w-7xl mx-auto px-6 py-14 flex flex-wrap items-center justify-between gap-8">
+          <div>
+            <p className="font-display text-3xl md:text-4xl leading-tight">
+              Ready for a calmer conversation about your skin?
+            </p>
+            <p className="mt-2 text-sm opacity-60">Consult first, commit later. No rush, no pressure.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              className="bg-ivory text-navy px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage hover:text-ivory transition-colors"
+            >
+              Book a consultation
+            </Link>
+            <a
+              href={CLINIC.whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 border border-ivory/30 px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-ivory hover:text-navy transition-colors"
+            >
+              <WhatsAppIcon className="size-3.5" /> WhatsApp
+            </a>
           </div>
         </div>
-        <div>
-          <h5 className="text-[11px] uppercase tracking-[0.25em] font-semibold mb-8">Visit</h5>
-          <address className="not-italic text-sm opacity-60 leading-relaxed">
-            Kadri Kambla Road<br />
-            Mangalore, Karnataka<br />
-            575004, India
-          </address>
-          <p className="mt-4 text-sm opacity-60">
-            <a href="tel:+919620123030" className="hover:opacity-100">+91 96201 23030</a>
-            <br />
-            <a href="tel:+916360753030" className="hover:opacity-100">+91 63607 53030</a>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-20 grid gap-14 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <Link to="/" aria-label="Tha Skin Clinic — home" className="mb-6 block">
+            <img src={logoAsset.url} alt="The Skin Clinic" className="h-16 w-auto" />
+          </Link>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-sage mb-5">{CLINIC.tagline}</p>
+          <p className="max-w-sm opacity-60 text-sm leading-relaxed">
+            A family dermatology practice in Mangaluru offering medical dermatology, laser and aesthetic
+            medicine — led by Dr. Vindhya A. Pai since 2018.
           </p>
+          <div className="mt-8 flex gap-3">
+            {SOCIALS.map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                title={label}
+                className="size-11 border border-ivory/25 flex items-center justify-center hover:bg-ivory hover:text-navy transition-colors"
+              >
+                <Icon className="size-4" strokeWidth={1.5} />
+              </a>
+            ))}
+          </div>
         </div>
-        <div>
-          <h5 className="text-[11px] uppercase tracking-[0.25em] font-semibold mb-8">Connect</h5>
-          <ul className="text-sm opacity-60 space-y-4">
-            <li>
-              <a
-                href="https://www.instagram.com/theskinclinic_mangalore/"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-100 transition-opacity"
-              >
-                Instagram
-              </a>
+
+        <div className="md:col-span-2">
+          <h5 className="text-[11px] uppercase tracking-[0.25em] font-semibold mb-7">Explore</h5>
+          <ul className="space-y-4 text-sm">
+            {EXPLORE.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className={linkCls}>
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="md:col-span-5">
+          <h5 className="text-[11px] uppercase tracking-[0.25em] font-semibold mb-7">Visit & contact</h5>
+          <ul className="space-y-5 text-sm">
+            <li className="flex gap-4">
+              <MapPin className="size-4 mt-0.5 shrink-0 text-sage" strokeWidth={1.5} />
+              <address className="not-italic opacity-70 leading-relaxed">
+                {CLINIC.addressLines.map((l) => (
+                  <span key={l} className="block">
+                    {l}
+                  </span>
+                ))}
+                <a
+                  href={CLINIC.mapHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block mt-2 text-[11px] uppercase tracking-[0.2em] text-sage hover:text-ivory transition-colors"
+                >
+                  Get directions →
+                </a>
+              </address>
             </li>
-            <li>
-              <a
-                href="https://wa.me/919620123030"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-100 transition-opacity"
-              >
-                WhatsApp
-              </a>
+            <li className="flex gap-4">
+              <Clock className="size-4 mt-0.5 shrink-0 text-sage" strokeWidth={1.5} />
+              <span className="opacity-70">
+                {CLINIC.hoursDay}
+                <br />
+                {CLINIC.hoursTime}
+              </span>
             </li>
-            <li>
-              <Link to="/portal" className="hover:opacity-100 transition-opacity">
-                Patient Portal
-              </Link>
+            <li className="flex gap-4">
+              <Phone className="size-4 mt-0.5 shrink-0 text-sage" strokeWidth={1.5} />
+              <span className="leading-relaxed">
+                <a href={CLINIC.phoneHref} className={linkCls}>
+                  {CLINIC.phoneDisplay}
+                </a>
+                <br />
+                <a href={CLINIC.phone2Href} className={linkCls}>
+                  {CLINIC.phone2Display}
+                </a>
+              </span>
             </li>
-            <li>
-              <Link to="/contact" className="hover:opacity-100 transition-opacity">
-                Book Consultation
-              </Link>
+            <li className="flex gap-4">
+              <Mail className="size-4 mt-0.5 shrink-0 text-sage" strokeWidth={1.5} />
+              <span className="leading-relaxed">
+                <a href={`mailto:${CLINIC.email}`} className={`${linkCls} break-all`}>
+                  {CLINIC.email}
+                </a>
+                <br />
+                <a href={`mailto:${CLINIC.email2}`} className={`${linkCls} break-all`}>
+                  {CLINIC.email2}
+                </a>
+              </span>
             </li>
           </ul>
         </div>
       </div>
-      <nav aria-label="Homepage options" className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-ivory/20 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-        <span className="opacity-60">Home page</span>
-        <Link to="/" className="hover:underline underline-offset-4" activeProps={{ className: "underline underline-offset-4" }} activeOptions={{ exact: true }}>Option 1 · Original</Link>
-        <Link to="/home-option-2" className="hover:underline underline-offset-4" activeProps={{ className: "underline underline-offset-4" }}>Option 2</Link>
-        <Link to="/home-option-3" className="hover:underline underline-offset-4" activeProps={{ className: "underline underline-offset-4" }}>Option 3</Link>
-      </nav>
+
+      <div className="border-t border-ivory/10">
+        <div className="max-w-7xl mx-auto px-6 pr-24 py-6 flex flex-wrap items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] opacity-50">
+          <span>© {new Date().getFullYear()} The Skin Clinic, Mangaluru. All rights reserved.</span>
+          <nav aria-label="Homepage design previews" className="flex items-center gap-5 normal-case tracking-normal text-xs">
+            <span>Preview homepage:</span>
+            <Link to="/" activeOptions={{ exact: true }} className="hover:opacity-100 underline-offset-4 hover:underline" activeProps={{ className: "underline" }}>
+              Original
+            </Link>
+            <Link to="/home-option-2" className="hover:opacity-100 underline-offset-4 hover:underline" activeProps={{ className: "underline" }}>
+              Option 2
+            </Link>
+            <Link to="/home-option-3" className="hover:opacity-100 underline-offset-4 hover:underline" activeProps={{ className: "underline" }}>
+              Option 3
+            </Link>
+          </nav>
+        </div>
+      </div>
     </footer>
   );
 }

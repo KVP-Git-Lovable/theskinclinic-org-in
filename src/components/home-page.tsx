@@ -26,7 +26,7 @@ const SERVICES = [
 ];
 
 const HIGHLIGHTS = [
-  { icon: BadgeCheck, value: "Board-Certified", label: "Dermatologist-led care — MD & DNB" },
+  { icon: BadgeCheck, value: "Board-Certified", label: "Dermatologist-led care — MD (DVL)" },
   { icon: Zap, value: "Medical-Grade", label: "Clinical lasers & prescription protocols" },
   { icon: Waves, value: "Coastal-Climate", label: "Care tuned for humid Mangalore" },
   { icon: Users, value: "27,000+", label: "Patients cared for since 2018" },
@@ -144,7 +144,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
           <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
             Dr. Vindhya A. Pai
             <br />
-            <em className="text-sage text-4xl md:text-5xl">MD, DNB Dermatology</em>
+            <em className="text-sage text-4xl md:text-5xl">MD, Dermatology (DVL)</em>
           </h2>
           <div className="h-px w-16 bg-sage my-8" />
           <p className="text-lg leading-relaxed opacity-80 mb-6">

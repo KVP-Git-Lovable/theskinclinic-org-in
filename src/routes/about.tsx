@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, HeartHandshake, MessagesSquare, Microscope, ShieldCheck } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
@@ -12,14 +13,14 @@ const drVindhya = drVindhyaAsset.url;
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Dr. Vindhya A. Pai & Team | Tha Skin Clinic" },
+      { title: "About — Dr. Vindhya A. Pai & Team | The Skin Clinic Mangaluru" },
       {
         name: "description",
         content:
-          "Tha Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore.",
+          "The Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. A family dermatology practice in Mangaluru with a team of four dermatologists.",
       },
-      { property: "og:title", content: "About — Dr. Vindhya A. Pai & Team | Tha Skin Clinic" },
-      { property: "og:description", content: "Tha Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. Meet our team of dermatologists caring for Mangalore." },
+      { property: "og:title", content: "About — Dr. Vindhya A. Pai & Team | The Skin Clinic Mangaluru" },
+      { property: "og:description", content: "A family dermatology practice in Mangaluru, founded in 2018 by Dr. Vindhya A. Pai, with a team of four dermatologists." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -27,11 +28,57 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
+const STATS = [
+  { value: "2018", label: "Founded in Mangaluru" },
+  { value: "4", label: "Consultant dermatologists" },
+  { value: "27,000+", label: "Patients cared for" },
+  { value: "IADVL", label: "Recognised observership centre, 2023" },
+];
+
+const VALUES = [
+  { icon: HeartHandshake, title: "Patient experience", body: "No-rush appointments in a comfortable, confidential setting. You are never hurried out of the room." },
+  { icon: ShieldCheck, title: "Care first", body: "Consult first, commit later. We explain options, risks and alternatives before you decide anything." },
+  { icon: MessagesSquare, title: "Honest communication", body: "Plain language, realistic expectations and no protocol pushed on you." },
+  { icon: Microscope, title: "Innovation", body: "Medical-grade lasers and evidence-based techniques, chosen to suit Indian skin and climate." },
+];
+
 const TEAM = [
-  { name: "Dr. Vindhya A. Pai", role: "Founder, Consultant Dermatologist — MD, DNB", photo: drVindhyaAsset.url },
-  { name: "Dr. Punya Suvarna", role: "Consultant Dermatologist — MBBS, MD", photo: drPunyaAsset.url },
-  { name: "Dr. P. Suraksha", role: "Consultant Dermatologist — MBBS, DDVL", photo: drSurakshaAsset.url },
-  { name: "Dr. Ashwini Ashokan", role: "Consultant Dermatologist — MBBS, MD", photo: drAshwiniAsset.url },
+  {
+    name: "Dr. Vindhya A. Pai",
+    role: "Founder · Consultant Dermatologist",
+    quals: "MBBS, MD (DVL)",
+    photo: drVindhyaAsset.url,
+    bio: "Trained at Kasturba Medical College, Mangalore, with a dermoscopy fellowship at Cardiff University and laser training in New Jersey and Milan. Interests include acne, pigmentation, ageing skin, body contouring, paediatric dermatology and scar care.",
+  },
+  {
+    name: "Dr. Punya Suvarna",
+    role: "Consultant Dermatologist",
+    quals: "MBBS, MD (DVL)",
+    photo: drPunyaAsset.url,
+    bio: "MD from KMC Manipal and a published researcher. Treats acne, fungal infections, psoriasis, dermatitis and vitiligo, with a current focus on pigmentation and acne scars.",
+  },
+  {
+    name: "Dr. P. Suraksha",
+    role: "Consultant Dermatologist",
+    quals: "MBBS, MD (DVL)",
+    photo: drSurakshaAsset.url,
+    bio: "Expertise in acne, pigmentary and hair conditions. Performs chemical peels, PRP, cryotherapy, electrocautery, biopsies and laser procedures.",
+  },
+  {
+    name: "Dr. Ashwini Ashokan",
+    role: "Consultant Dermatologist",
+    quals: "MBBS, MD (DVL)",
+    photo: drAshwiniAsset.url,
+    bio: "Trained at Amrita Institute of Medical Sciences, Kochi. Interests include pigmentary disorders, hair and scalp disease, infections and autoimmune skin conditions.",
+  },
+];
+
+const MILESTONES = [
+  { year: "2010", text: "Dr. Vindhya completes her MD in Dermatology at KMC Mangalore." },
+  { year: "2014", text: "Sets up the aesthetic clinic at KMC Hospital; completes a dermoscopy fellowship at Cardiff University." },
+  { year: "2017", text: "Trains in fractional CO2 laser resurfacing in Milan." },
+  { year: "2018", text: "The Skin Clinic opens its doors on Kadri Kambla Road, Mangaluru." },
+  { year: "2023", text: "Recognised by IADVL as a centre for observerships in aesthetic dermatology." },
 ];
 
 function About() {
@@ -39,70 +86,137 @@ function About() {
     <div className="min-h-screen bg-ivory text-navy">
       <SiteHeader />
 
-      <section className="max-w-7xl mx-auto px-6 pt-32 pb-24">
-        <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">Est. 2018</p>
-        <h1 className="font-display text-6xl md:text-8xl leading-[0.95] max-w-4xl">
-          A quieter kind of
-          <br />
-          <em className="text-sage">dermatology.</em>
-        </h1>
+      {/* Hero */}
+      <section className="max-w-7xl mx-auto px-6 pt-28 pb-20 grid md:grid-cols-12 gap-12 items-end">
+        <div className="md:col-span-8">
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">About · Est. 2018</p>
+          <h1 className="font-display text-6xl md:text-8xl leading-[0.95]">
+            Simply. Better.
+            <br />
+            <em className="text-sage">Skin.</em>
+          </h1>
+        </div>
+        <p className="md:col-span-4 text-lg leading-relaxed opacity-75">
+          Mangaluru's most-loved family skin clinic — a full-spectrum dermatology practice for every age, from
+          everyday concerns to advanced laser and aesthetic care.
+        </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-16 items-center">
-        <div className="md:col-span-6">
-          <img src={drVindhya} alt="Dr. Vindhya A. Pai" className="w-full aspect-[4/5] object-cover" loading="lazy" />
+      {/* Stats */}
+      <section className="border-y border-navy/10 bg-mist/40">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-navy/10">
+          {STATS.map((s) => (
+            <div key={s.label} className="bg-mist/60 px-6 py-10">
+              <p className="font-display text-4xl md:text-5xl leading-none">{s.value}</p>
+              <p className="mt-3 text-[10px] uppercase tracking-[0.16em] opacity-70 leading-relaxed">{s.label}</p>
+            </div>
+          ))}
         </div>
-        <div className="md:col-span-6">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Our philosophy</p>
+      </section>
+
+      {/* Story */}
+      <section className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-12 gap-16 items-center">
+        <div className="md:col-span-5">
+          <img src={drVindhya} alt="Dr. Vindhya A. Pai, founder" className="w-full aspect-[4/5] object-cover" loading="lazy" />
+        </div>
+        <div className="md:col-span-7">
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Our story</p>
           <h2 className="font-display text-4xl md:text-5xl leading-[1.1] mb-8">
             "The best dermatology is often the least visible."
           </h2>
           <p className="text-lg leading-relaxed opacity-80 mb-6">
-            Tha Skin Clinic was born of a simple observation — Indian skin, and Indian
-            monsoon skin especially, needs care shaped for its climate, its melanin,
-            and its rhythms. Not imported protocols.
+            The Skin Clinic began with a simple observation: Indian skin, and coastal monsoon skin especially,
+            needs care shaped for its climate, its melanin and its rhythms, not imported protocols.
           </p>
-          <p className="leading-relaxed opacity-70">
-            Since 2018, we've built a practice where evidence-based dermatology meets
-            genuine listening. Every laser, every prescription, every treatment plan
-            starts with the same question: what does <em>your</em> skin need?
+          <p className="leading-relaxed opacity-70 mb-10">
+            Founded in 2018 by Dr. Vindhya A. Pai after years in academic dermatology and aesthetic medicine, the
+            clinic brings evidence-based medicine together with genuine listening. Today four dermatologists care
+            for families across Mangaluru and the coast.
           </p>
+          <ol className="border-l border-navy/15 space-y-6 pl-8">
+            {MILESTONES.map((m) => (
+              <li key={m.year} className="relative">
+                <span className="absolute -left-[37px] top-1.5 size-2.5 rounded-full bg-sage" />
+                <span className="font-display text-2xl mr-4">{m.year}</span>
+                <span className="text-sm opacity-70">{m.text}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className="bg-mist/40 py-24">
+      {/* Values */}
+      <section className="bg-navy text-ivory py-28">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">The team</p>
-          <h2 className="font-display text-5xl md:text-6xl mb-16">Four dermatologists.<br /><em className="text-sage">One promise.</em></h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {TEAM.map((d) => (
-              <div key={d.name} className="bg-ivory p-8">
-                <div className="aspect-square bg-mist/60 mb-6 overflow-hidden">
-                  <img src={d.photo} alt={d.name} className="w-full h-full object-cover object-top" loading="lazy" />
-                </div>
-                <h4 className="font-display text-xl leading-tight">{d.name}</h4>
-                <p className="text-xs opacity-60 mt-2">{d.role}</p>
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Why patients choose us</p>
+          <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-16 max-w-3xl">
+            Considered care, <em className="text-sage">without the rush.</em>
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-ivory/10">
+            {VALUES.map((v) => (
+              <div key={v.title} className="bg-navy p-10">
+                <v.icon className="size-6 text-sage mb-8" strokeWidth={1.25} />
+                <h3 className="font-display text-2xl mb-4">{v.title}</h3>
+                <p className="text-sm opacity-65 leading-relaxed">{v.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Inside the clinic</p>
-          <h2 className="font-display text-5xl leading-[1.05] mb-8">
-            Designed as a
-            <br />
-            <em className="text-sage">sanctuary.</em>
-          </h2>
-          <p className="text-lg leading-relaxed opacity-75">
-            Soft light. Quiet corners. Sanitised, hospital-grade treatment rooms tucked
-            behind a residential-feeling reception. Because clinical excellence doesn't
-            have to feel clinical.
-          </p>
+      {/* Team */}
+      <section className="max-w-7xl mx-auto px-6 py-28">
+        <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">The team</p>
+        <h2 className="font-display text-5xl md:text-6xl mb-16">
+          Four dermatologists.
+          <br />
+          <em className="text-sage">One promise.</em>
+        </h2>
+        <div className="grid md:grid-cols-2 gap-x-10 gap-y-14">
+          {TEAM.map((d) => (
+            <article key={d.name} className="grid grid-cols-5 gap-6 group">
+              <div className="col-span-2 aspect-[4/5] bg-mist/60 overflow-hidden">
+                <img
+                  src={d.photo}
+                  alt={d.name}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </div>
+              <div className="col-span-3 flex flex-col justify-center">
+                <h3 className="font-display text-2xl leading-tight">{d.name}</h3>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-sage-dark mt-2">{d.role}</p>
+                <p className="text-xs opacity-60 mt-1">{d.quals}</p>
+                <p className="text-sm opacity-75 leading-relaxed mt-4">{d.bio}</p>
+              </div>
+            </article>
+          ))}
         </div>
-        <img src={clinic} alt="Tha Skin Clinic interior" className="w-full aspect-square object-cover" loading="lazy" />
+      </section>
+
+      {/* Clinic */}
+      <section className="bg-mist/40 py-28">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Inside the clinic</p>
+            <h2 className="font-display text-5xl leading-[1.05] mb-8">
+              Designed as a
+              <br />
+              <em className="text-sage">sanctuary.</em>
+            </h2>
+            <p className="text-lg leading-relaxed opacity-75 mb-8">
+              Soft light, quiet corners and a comfortable, confidential setting, with modern treatment rooms
+              behind a welcoming reception. Because clinical excellence doesn't have to feel clinical.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 bg-navy text-ivory px-10 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
+            >
+              Book a consultation <ArrowRight className="size-3" />
+            </Link>
+          </div>
+          <img src={clinic} alt="The Skin Clinic interior" className="w-full aspect-square object-cover" loading="lazy" />
+        </div>
       </section>
 
       <SiteFooter />
