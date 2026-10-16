@@ -8,6 +8,7 @@ const EXPLORE = [
   { to: "/treatments", label: "Treatments" },
   { to: "/skin-ai", label: "Skin AI" },
   { to: "/about", label: "About & Team" },
+  { to: "/blog", label: "Blog & Videos" },
   { to: "/contact", label: "Contact" },
   { to: "/portal", label: "Patient Portal" },
 ] as const;

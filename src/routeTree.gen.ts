@@ -20,6 +20,8 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SkinAiRouteImport } from './routes/skin-ai'
 import { Route as TreatmentsRouteImport } from './routes/treatments'
 import { Route as ApiConcernRouteImport } from './routes/api.concern'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 
 const IndexRoute = IndexRouteImport.update({
@@ -77,6 +79,16 @@ const ApiConcernRoute = ApiConcernRouteImport.update({
   path: '/api/concern',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductHandleRoute = ProductHandleRouteImport.update({
   id: '/product/$handle',
   path: '/product/$handle',
@@ -95,7 +107,9 @@ export interface FileRoutesByFullPath {
   '/skin-ai': typeof SkinAiRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -109,7 +123,9 @@ export interface FileRoutesByTo {
   '/skin-ai': typeof SkinAiRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -124,7 +140,9 @@ export interface FileRoutesById {
   '/skin-ai': typeof SkinAiRoute
   '/treatments': typeof TreatmentsRoute
   '/api/concern': typeof ApiConcernRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/product/$handle': typeof ProductHandleRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -140,7 +158,9 @@ export interface FileRouteTypes {
     | '/skin-ai'
     | '/treatments'
     | '/api/concern'
+    | '/blog/$slug'
     | '/product/$handle'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -154,7 +174,9 @@ export interface FileRouteTypes {
     | '/skin-ai'
     | '/treatments'
     | '/api/concern'
+    | '/blog/$slug'
     | '/product/$handle'
+    | '/blog'
   id:
     | '__root__'
     | '/'
@@ -168,7 +190,9 @@ export interface FileRouteTypes {
     | '/skin-ai'
     | '/treatments'
     | '/api/concern'
+    | '/blog/$slug'
     | '/product/$handle'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -183,7 +207,9 @@ export interface RootRouteChildren {
   SkinAiRoute: typeof SkinAiRoute
   TreatmentsRoute: typeof TreatmentsRoute
   ApiConcernRoute: typeof ApiConcernRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   ProductHandleRoute: typeof ProductHandleRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -265,6 +291,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiConcernRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$handle': {
       id: '/product/$handle'
       path: '/product/$handle'
@@ -287,7 +327,9 @@ const rootRouteChildren: RootRouteChildren = {
   SkinAiRoute: SkinAiRoute,
   TreatmentsRoute: TreatmentsRoute,
   ApiConcernRoute: ApiConcernRoute,
+  BlogSlugRoute: BlogSlugRoute,
   ProductHandleRoute: ProductHandleRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

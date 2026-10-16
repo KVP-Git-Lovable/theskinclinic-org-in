@@ -6,6 +6,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CLINIC } from "@/lib/clinic";
 import { WhatsAppButton } from "@/components/whatsapp";
+import { VideoGallery } from "@/components/video-gallery";
+import { Reveal } from "@/components/reveal";
 import hero from "@/assets/hero-portrait.jpg";
 import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
 const drVindhya = drVindhyaAsset.url;
@@ -215,6 +217,24 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* SKIN TALKS VIDEOS */}
+      <section className="max-w-7xl mx-auto px-6 py-28">
+        <Reveal>
+          <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin Talks</p>
+              <h2 className="font-display text-5xl md:text-6xl leading-[1.05] max-w-2xl">
+                Watch, learn, <em className="text-sage">then decide.</em>
+              </h2>
+            </div>
+            <Link to="/blog" className="text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors">
+              Read the journal →
+            </Link>
+          </div>
+        </Reveal>
+        <VideoGallery />
       </section>
 
       {/* INSTAGRAM STRIP */}
