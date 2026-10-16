@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Clock, Phone } from "lucide-react";
+import { ArrowRight, Clock, Phone } from "lucide-react";
 import { WhatsAppIcon } from "./whatsapp";
 import { CLINIC } from "@/lib/clinic";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -28,12 +28,12 @@ export function SiteHeader() {
       {/* Hours + direct contact — visible at the top of every page */}
       <div
         className={`bg-navy text-ivory overflow-hidden transition-[max-height,opacity] duration-500 ${
-          compact ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+          compact ? "max-h-0 opacity-0" : "max-h-14 opacity-100"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 h-9 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.16em]">
+        <div className="max-w-7xl mx-auto px-6 h-11 flex items-center justify-between gap-4 text-xs uppercase tracking-[0.14em]">
           <span className="flex items-center gap-2 opacity-90 whitespace-nowrap">
-            <Clock className="size-3.5 text-sage shrink-0" strokeWidth={1.5} />
+            <Clock className="size-4 text-sage shrink-0" strokeWidth={1.5} />
             <span className="hidden sm:inline">Open {CLINIC.hoursDay}</span>
             <span className="sm:hidden">Open Mon–Sat</span>
             <span className="opacity-40">·</span>
@@ -43,9 +43,9 @@ export function SiteHeader() {
           <span className="flex items-center gap-4">
             <a
               href={CLINIC.phoneHref}
-              className="flex items-center gap-2 hover:text-sage transition-colors whitespace-nowrap"
+              className="group flex items-center gap-2 hover:text-sage transition-colors whitespace-nowrap"
             >
-              <Phone className="size-3.5 text-sage shrink-0" strokeWidth={1.5} />
+              <Phone className="size-4 text-sage shrink-0" strokeWidth={1.5} />
               {CLINIC.phoneDisplay}
             </a>
             <a
@@ -53,9 +53,9 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
               aria-label="Chat with us on WhatsApp"
-              className="flex items-center gap-2 border border-ivory/25 px-3 py-1 hover:bg-ivory hover:text-navy transition-colors whitespace-nowrap"
+              className="group/wa relative flex items-center gap-2 overflow-hidden border border-ivory/30 px-4 py-1.5 transition-colors duration-300 hover:text-navy whitespace-nowrap before:absolute before:inset-0 before:-z-0 before:origin-left before:scale-x-0 before:bg-ivory before:transition-transform before:duration-300 hover:before:scale-x-100 [&>*]:relative [&>*]:z-10"
             >
-              <WhatsAppIcon className="size-3 shrink-0" />
+              <WhatsAppIcon className="size-3.5 shrink-0 transition-transform duration-300 group-hover/wa:scale-125" />
               <span className="hidden sm:inline">WhatsApp</span>
             </a>
           </span>
@@ -68,13 +68,13 @@ export function SiteHeader() {
             <Link to="/" aria-label="Tha Skin Clinic — home" className="block">
               <img src={logoAsset.url} alt="The Skin Clinic" className="h-12 w-auto" />
             </Link>
-            <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-medium opacity-70">
+            <div className="hidden md:flex items-center gap-9 text-[13px] uppercase tracking-[0.18em] font-medium">
               {NAV.map((n) => (
                 <Link
                   key={n.to}
                   to={n.to}
-                  className="hover:opacity-100 transition-opacity"
-                  activeProps={{ className: "opacity-100" }}
+                  className="relative py-2 opacity-75 transition-opacity hover:opacity-100 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-sage after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  activeProps={{ className: "opacity-100 after:scale-x-100" }}
                 >
                   {n.label}
                 </Link>
@@ -84,9 +84,10 @@ export function SiteHeader() {
           <div className="flex items-center gap-6">
             <Link
               to="/portal"
-              className="hidden sm:inline-block px-5 py-2 border border-navy/20 text-[10px] uppercase tracking-widest hover:bg-navy hover:text-ivory transition-all"
+              className="group/pp relative hidden sm:inline-flex items-center gap-2 overflow-hidden px-6 py-3 border border-navy/30 text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:text-ivory hover:shadow-lg hover:-translate-y-0.5 before:absolute before:inset-0 before:origin-bottom before:scale-y-0 before:bg-navy before:transition-transform before:duration-300 hover:before:scale-y-100 [&>*]:relative [&>*]:z-10"
             >
-              Patient Portal
+              <span>Patient Portal</span>
+              <ArrowRight className="size-3.5 -ml-4 opacity-0 transition-all duration-300 group-hover/pp:ml-0 group-hover/pp:opacity-100" />
             </Link>
           </div>
         </div>
