@@ -11,8 +11,6 @@ import { VideoGallery } from "@/components/video-gallery";
 import { Reveal } from "@/components/reveal";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import hero from "@/assets/hero-portrait.jpg";
-import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
-const drVindhya = drVindhyaAsset.url;
 import clinic from "@/assets/clinic-interior.jpg";
 import ig1 from "@/assets/ig-1.jpg";
 import tourTreatmentRoom from "@/assets/tour/tour-15.jpg";
@@ -132,42 +130,6 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
             </a>
             <WhatsAppButton label="Chat on WhatsApp" />
           </div>
-        </div>
-      </section>
-
-      {/* PHILOSOPHY / DOCTOR */}
-      <section className="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-12 gap-12 items-center">
-        <div className="md:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden">
-            <img src={drVindhya} alt="Dr. Vindhya A. Pai" className="w-full h-full object-cover" loading="lazy" />
-          </div>
-        </div>
-        <div className="md:col-span-6 md:col-start-7">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">The Founder</p>
-          <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
-            Dr. Vindhya A. Pai
-            <br />
-            <em className="text-sage text-4xl md:text-5xl">MD, Dermatology (DVL)</em>
-          </h2>
-          <div className="h-px w-16 bg-sage my-8" />
-          <p className="text-lg leading-relaxed opacity-80 mb-6">
-            "Skin remembers everything. Kindness, most of all." — a phrase Dr. Vindhya
-            returns to in every consultation. Trained across some of India's leading
-            institutions, she built Tha Skin Clinic in 2018 as a place where evidence
-            meets empathy.
-          </p>
-          <p className="leading-relaxed opacity-70 mb-10">
-            Alongside a team of three fellow dermatologists — Dr. Punya Suvarna,
-            Dr. P. Suraksha and Dr. Ashwini Ashokan — the practice sees over 1,200
-            patients each month across medical dermatology and aesthetic medicine.
-          </p>
-          <Link
-            to="/about"
-            className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors"
-          >
-            Meet the team
-            <ArrowRight className="size-3" />
-          </Link>
         </div>
       </section>
 
