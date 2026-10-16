@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-/** Fades and lifts its children into view the first time they scroll on screen. */
+/**
+ * Fades and lifts its children into view as they scroll on screen.
+ * Content is visible by default (server render, slow hydration, no JS); it only
+ * hides after mounting, and only when it starts below the visible area.
+ */
 export function Reveal({
   children,
   delay = 0,
@@ -11,34 +15,40 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setShown(true);
-      return;
-    }
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Already on (or above) the screen: leave it visible, no animation.
+    if (el.getBoundingClientRect().top < window.innerHeight * 1.05) return;
+
+    setHidden(true);
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShown(true);
+          setHidden(false);
           io.disconnect();
         }
       },
-      { threshold: 0.12 },
+      // Start the reveal well before the element reaches the screen.
+      { rootMargin: "0px 0px 35% 0px", threshold: 0 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Safety net: never leave content hidden.
+    const fallback = window.setTimeout(() => setHidden(false), 4000);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-[900ms] ease-out motion-reduce:transition-none ${
-        shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 motion-reduce:opacity-100 motion-reduce:translate-y-0"
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-all duration-700 ease-out ${hidden ? "opacity-0 translate-y-6" : "opacity-100 translate-y-0"} ${className}`}
+      style={{ transitionDelay: hidden ? "0ms" : `${delay}ms` }}
     >
       {children}
     </div>
