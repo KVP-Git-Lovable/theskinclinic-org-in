@@ -169,6 +169,13 @@
 @utility hero-progress {
   animation: hero-progress 6s linear both;
 }
+@keyframes hero-float {
+  from { transform: translateY(8px) rotate(-0.6deg); }
+  to { transform: translateY(-6px) rotate(0.4deg); }
+}
+@utility hero-float {
+  animation: hero-float 6s ease-in-out both;
+}
 @media (prefers-reduced-motion: reduce) {
-  .hero-kenburns, .hero-progress { animation: none; }
+  .hero-kenburns, .hero-progress, .hero-float { animation: none; }
 }
