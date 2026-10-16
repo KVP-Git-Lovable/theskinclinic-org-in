@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CLINIC } from "@/lib/clinic";
 import { WhatsAppButton } from "@/components/whatsapp";
+import { HeroSlideshow, type HeroSlide } from "@/components/hero-slideshow";
 import { VideoGallery } from "@/components/video-gallery";
 import { Reveal } from "@/components/reveal";
 import hero from "@/assets/hero-portrait.jpg";
@@ -35,6 +36,12 @@ const HIGHLIGHTS = [
   { icon: Star, value: "4.85 / 5", label: "Average patient feedback" },
 ];
 
+const HERO_SLIDES: HeroSlide[] = [
+  { src: hero, alt: "Portrait of confident, healthy skin", eyebrow: "Medical dermatology", caption: "Skin that feels unmistakably yours." },
+  { src: clinic, alt: "A calm dermatology treatment room", eyebrow: "The clinic", caption: "A calm, modern space designed around you." },
+  { src: ig1, alt: "Close-up of glowing, healthy skin", eyebrow: "Aesthetic care", caption: "Results that whisper, never shout." },
+];
+
 const IG_TILES = [ig1, ig2, ig3, ig4, ig5, ig6];
 
 export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
@@ -47,12 +54,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
         <div className="absolute inset-0 grid md:grid-cols-2">
           <div className="bg-mist/30" />
           <div className="relative overflow-hidden hidden md:block">
-            <img
-              src={hero}
-              alt="Portrait of confident skin"
-              className="w-full h-full object-cover animate-soft-zoom"
-              fetchPriority="high"
-            />
+            <HeroSlideshow slides={HERO_SLIDES} />
           </div>
         </div>
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 py-32">
