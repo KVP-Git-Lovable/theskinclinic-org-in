@@ -9,6 +9,7 @@ import { WhatsAppButton } from "@/components/whatsapp";
 import { HeroSlideshow, type HeroSlide } from "@/components/hero-slideshow";
 import { VideoGallery } from "@/components/video-gallery";
 import { Reveal } from "@/components/reveal";
+import { TestimonialSlider } from "@/components/testimonial-slider";
 import hero from "@/assets/hero-portrait.jpg";
 import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
 const drVindhya = drVindhyaAsset.url;
@@ -242,6 +243,19 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
           </div>
         </Reveal>
         <VideoGallery />
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="bg-sage-dark text-ivory py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-70 mb-6">Testimonials</p>
+            <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-14">
+              In our patients' <em>own words.</em>
+            </h2>
+          </Reveal>
+          <TestimonialSlider />
+        </div>
       </section>
 
       {/* INSTAGRAM STRIP */}
