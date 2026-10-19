@@ -6,10 +6,6 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { ServiceCover } from "@/components/service-cover";
 import { CLINIC } from "@/lib/clinic";
-import picoCare from "@/assets/tour/tour-28.jpg";
-import lightSheer from "@/assets/tour/tour-43.jpg";
-import hydraFacial from "@/assets/tour/tour-10.jpg";
-import vioraV10 from "@/assets/tour/tour-06.jpg";
 import {
   AESTHETIC_CONCERNS,
   MEDICAL_CONDITIONS,
@@ -33,14 +29,6 @@ export const Route = createFileRoute("/treatments/")({
   }),
   component: Treatments,
 });
-
-// The clinic's own equipment photos (from its tour gallery), shown without people.
-const FEATURED_DEVICES = [
-  { device: "PicoCare", img: picoCare, alt: "The PicoCare laser at The Skin Clinic" },
-  { device: "LightSheer Duet", img: lightSheer, alt: "The Lumenis LightSheer Duet laser at The Skin Clinic" },
-  { device: "HydraFacial MD", img: hydraFacial, alt: "The HydraFacial MD machine at The Skin Clinic" },
-  { device: "Viora V10", img: vioraV10, alt: "The Viora V10 device at The Skin Clinic" },
-];
 
 function Treatments() {
   const [filter, setFilter] = useState<ServiceCategoryId | "all">("all");
@@ -167,26 +155,8 @@ function Treatments() {
             Advanced equipment, <em className="text-sage">chosen with care.</em>
           </h2>
         </Reveal>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-          {FEATURED_DEVICES.map((f, i) => {
-            const t = TECHNOLOGY.find((x) => x.device === f.device)!;
-            return (
-              <Reveal key={f.device} delay={i * 90}>
-                <figure className="group relative aspect-[3/4] overflow-hidden bg-mist">
-                  <img src={f.img} alt={f.alt} loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
-                  <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/10 to-transparent" />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-5 text-ivory">
-                    <span className="block font-display text-2xl leading-tight">{f.device}</span>
-                    <span className="mt-1 block text-xs opacity-75">{t.usedFor}</span>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            );
-          })}
-        </div>
-        <p className="text-[11px] uppercase tracking-[0.3em] opacity-50 mb-2">Also in our clinic</p>
         <div className="grid md:grid-cols-2 gap-x-14">
-          {TECHNOLOGY.filter((t) => !FEATURED_DEVICES.some((f) => f.device === t.device)).map((t, i) => (
+          {TECHNOLOGY.map((t, i) => (
             <Reveal key={t.device} delay={(i % 2) * 80}>
               <div className="flex items-baseline justify-between gap-6 border-b border-navy/10 py-5">
                 <span className="font-display text-2xl leading-tight">{t.device}</span>

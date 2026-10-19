@@ -343,6 +343,5 @@ export const TECHNOLOGY: { device: string; usedFor: string }[] = [
   { device: "Lumenis M22", usedFor: "Skin rejuvenation, stretch marks, photofacial" },
   { device: "Deka Onda, Emsculpt Neo & Exion body", usedFor: "Body sculpting" },
   { device: "Excimer", usedFor: "Light therapy for vitiligo, psoriasis, alopecia areata" },
-  { device: "Viora V10", usedFor: "Anti-ageing" },
-  { device: "Emface & Lumenis Legend Pro", usedFor: "Anti-ageing" },
+  { device: "Emface, Lumenis Legend Pro & Viora V10", usedFor: "Anti-ageing" },
 ];
