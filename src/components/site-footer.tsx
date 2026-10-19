@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
-import { WhatsAppIcon } from "@/components/whatsapp";
 import { CLINIC } from "@/lib/clinic";
 import logoAsset from "@/assets/logo-white.png.asset.json";
 
@@ -24,35 +23,7 @@ const linkCls = "opacity-70 hover:opacity-100 hover:text-sage transition-colors"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-navy text-ivory mt-24">
-      {/* Closing call to action */}
-      <div className="border-b border-ivory/10">
-        <div className="max-w-7xl mx-auto px-6 py-14 flex flex-wrap items-center justify-between gap-8">
-          <div>
-            <p className="font-display text-3xl md:text-4xl leading-tight">
-              Ready for a calmer conversation about your skin?
-            </p>
-            <p className="mt-2 text-sm opacity-60">Consult first, commit later. No rush, no pressure.</p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              className="bg-ivory text-navy px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage hover:text-ivory transition-colors"
-            >
-              Book a consultation
-            </Link>
-            <a
-              href={CLINIC.whatsappHref}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 border border-ivory/30 px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-ivory hover:text-navy transition-colors"
-            >
-              <WhatsAppIcon className="size-3.5" /> WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <footer className="bg-navy text-ivory border-t border-ivory/10">
       <div className="max-w-7xl mx-auto px-6 py-20 grid gap-14 md:grid-cols-12">
         <div className="md:col-span-5">
           <Link to="/" aria-label="Tha Skin Clinic — home" className="mb-6 block">
