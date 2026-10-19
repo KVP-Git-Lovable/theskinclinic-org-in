@@ -6,6 +6,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { ServiceCover } from "@/components/service-cover";
 import { CLINIC } from "@/lib/clinic";
+import clinicRoomDevices from "@/assets/tour/tour-45.jpg";
+import clinicTreatmentRoom from "@/assets/tour/tour-15.jpg";
 import {
   AESTHETIC_CONCERNS,
   MEDICAL_CONDITIONS,
@@ -41,6 +43,15 @@ function Treatments() {
       {/* Hero */}
       <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-14">
         <div aria-hidden className="pointer-events-none absolute -top-16 right-0 size-[26rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
+        {/* The clinic's own treatment-room photos, shown at about native size */}
+        <div aria-hidden={false} className="hidden xl:block absolute right-6 top-20 h-[25rem] w-[28rem]">
+          <figure className="absolute right-0 top-0 w-[24rem] rotate-2 border-[10px] border-ivory bg-ivory shadow-2xl hero-float">
+            <img src={clinicRoomDevices} alt="A treatment room with laser equipment at The Skin Clinic" width={500} height={375} className="block w-full" />
+          </figure>
+          <figure className="absolute bottom-0 left-0 w-[15rem] -rotate-3 border-[10px] border-ivory bg-ivory shadow-2xl animate-fade-up" style={{ animationDelay: "0.4s" }}>
+            <img src={clinicTreatmentRoom} alt="A bright treatment room at The Skin Clinic" width={500} height={375} className="block w-full" />
+          </figure>
+        </div>
         <p className="relative text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Treatments</p>
         <h1 className="relative font-display text-6xl md:text-8xl leading-[0.95] animate-fade-up">
           Care for your skin,
