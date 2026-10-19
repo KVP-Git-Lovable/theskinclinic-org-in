@@ -83,6 +83,12 @@ function BlogPostPage() {
         </div>
       </header>
 
+      {post.image && (
+        <div className="max-w-5xl mx-auto px-6 -mt-10 relative z-10">
+          <img src={post.image} alt="" style={{ objectPosition: post.imagePosition }} className="w-full aspect-[16/8] object-cover shadow-2xl" />
+        </div>
+      )}
+
       <article className="max-w-3xl mx-auto px-6 py-20">
         <p className="font-display text-2xl md:text-3xl leading-snug text-sage-dark mb-12">{post.excerpt}</p>
         <div className="space-y-6 text-lg leading-[1.8] opacity-85">

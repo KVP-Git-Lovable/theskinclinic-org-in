@@ -47,7 +47,11 @@ function BlogIndex() {
             className="group grid md:grid-cols-12 border border-navy/10 hover:border-navy/30 transition-colors overflow-hidden"
           >
             <div className={`md:col-span-6 relative min-h-[18rem] bg-gradient-to-br ${featured.cover} flex items-center justify-center overflow-hidden`}>
-              <featured.icon className="size-40 text-sage-dark/30 group-hover:scale-125 group-hover:rotate-6 transition-transform duration-1000" strokeWidth={0.6} />
+              {featured.image ? (
+                <img src={featured.image} alt="" loading="eager" style={{ objectPosition: featured.imagePosition }} className="absolute inset-0 size-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
+              ) : (
+                <featured.icon className="size-40 text-sage-dark/30 group-hover:scale-125 group-hover:rotate-6 transition-transform duration-1000" strokeWidth={0.6} />
+              )}
             </div>
             <div className="md:col-span-6 p-10 md:p-14 flex flex-col justify-center bg-ivory">
               <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-5">Featured · {featured.category}</p>
@@ -68,7 +72,11 @@ function BlogIndex() {
             <Reveal key={p.slug} delay={i * 120}>
               <Link to="/blog/$slug" params={{ slug: p.slug }} className="group block h-full">
                 <div className={`aspect-[16/10] bg-gradient-to-br ${p.cover} flex items-center justify-center overflow-hidden mb-6`}>
-                  <p.icon className="size-24 text-sage-dark/30 group-hover:scale-125 group-hover:-rotate-6 transition-transform duration-1000" strokeWidth={0.6} />
+                  {p.image ? (
+                    <img src={p.image} alt="" loading="lazy" style={{ objectPosition: p.imagePosition }} className="size-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
+                  ) : (
+                    <p.icon className="size-24 text-sage-dark/30 group-hover:scale-125 group-hover:-rotate-6 transition-transform duration-1000" strokeWidth={0.6} />
+                  )}
                 </div>
                 <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-3">{p.category}</p>
                 <h3 className="font-display text-2xl leading-tight group-hover:text-sage-dark transition-colors">{p.title}</h3>

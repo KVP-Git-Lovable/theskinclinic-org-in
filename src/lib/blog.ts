@@ -1,4 +1,7 @@
 import { Apple, Droplets, Sun, type LucideIcon } from "lucide-react";
+import imgEveryAge from "@/assets/blog/skincare-for-every-age.jpg";
+import imgDiet from "@/assets/blog/how-diet-affects-your-skin.jpg";
+import imgAcne from "@/assets/blog/medical-acne-treatment.jpg";
 
 export type Block =
   | { type: "h"; text: string }
@@ -14,8 +17,11 @@ export interface BlogPost {
   date: string; // ISO yyyy-mm-dd
   readingMinutes: number;
   icon: LucideIcon;
-  /** Tailwind gradient classes for the cover tile until a photo is added. */
+  /** Tailwind gradient classes used when a post has no image. */
   cover: string;
+  /** Cover photo (see assets/blog/CREDITS.md) and where to centre it when cropped. */
+  image?: string;
+  imagePosition?: string;
   body: Block[];
 }
 
@@ -32,6 +38,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readingMinutes: 4,
     icon: Sun,
     cover: "from-sage/60 via-mist to-ivory",
+    image: imgEveryAge,
+    imagePosition: "center 62%",
     body: [
       { type: "p", text: "Good skin care is less complicated than the products on a shelf suggest. At every age the foundations are the same: gentle cleansing, moisture, and daily protection from the sun. What changes over the years is what your skin needs in addition." },
       { type: "h", text: "Children" },
@@ -57,6 +65,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readingMinutes: 4,
     icon: Apple,
     cover: "from-ivory via-mist to-sage/50",
+    image: imgDiet,
+    imagePosition: "center",
     body: [
       { type: "p", text: "Fad diets promise glowing skin, but the evidence is more modest and more useful: an overall balanced diet supports healthy skin, and for some people certain foods can make skin conditions worse." },
       { type: "h", text: "Things worth cutting back on" },
@@ -77,6 +87,8 @@ export const BLOG_POSTS: BlogPost[] = [
     readingMinutes: 5,
     icon: Droplets,
     cover: "from-mist via-sage/40 to-ivory",
+    image: imgAcne,
+    imagePosition: "center 50%",
     body: [
       { type: "p", text: "Acne often begins in the teenage years but can continue, or start, in adulthood. Besides the discomfort, it can leave marks and scars, and it can affect confidence. The earlier it is treated properly, the better the chance of avoiding scarring." },
       { type: "h", text: "At your first visit" },
