@@ -4,6 +4,7 @@ import { ArrowRight, Clock, Layers3 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
+import { ServiceCover } from "@/components/service-cover";
 import { CLINIC } from "@/lib/clinic";
 import {
   AESTHETIC_CONCERNS,
@@ -89,16 +90,12 @@ function Treatments() {
               <Link
                 to="/treatments/$slug"
                 params={{ slug: s.slug }}
-                className="group relative flex h-full flex-col overflow-hidden border border-navy/15 bg-ivory p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-navy hover:shadow-2xl"
+                className="group relative flex h-full flex-col overflow-hidden border border-navy/15 bg-ivory transition-all duration-500 hover:-translate-y-1.5 hover:border-navy hover:shadow-2xl"
               >
                 <span aria-hidden className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-sage transition-transform duration-500 group-hover:scale-x-100" />
-                <div className="flex items-start justify-between gap-4">
-                  <span className="flex size-14 items-center justify-center rounded-full bg-mist text-sage-dark transition-all duration-500 group-hover:bg-navy group-hover:text-ivory group-hover:rotate-6">
-                    <s.icon className="size-6" strokeWidth={1.25} />
-                  </span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-sage-dark text-right">{getCategory(s.category).label}</span>
-                </div>
-                <h2 className="mt-8 font-display text-3xl leading-tight">{s.name}</h2>
+                <ServiceCover service={s} categoryLabel={getCategory(s.category).label} />
+                <div className="flex flex-1 flex-col p-8">
+                <h2 className="font-display text-3xl leading-tight">{s.name}</h2>
                 <p className="mt-3 flex-1 text-[15px] leading-relaxed opacity-70">{s.tagline}</p>
                 <dl className="mt-7 grid grid-cols-2 gap-4 border-t border-navy/10 pt-5 text-sm">
                   <div>
@@ -113,6 +110,7 @@ function Treatments() {
                 <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em]">
                   Learn more <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-2" />
                 </span>
+                </div>
               </Link>
             </Reveal>
           ))}

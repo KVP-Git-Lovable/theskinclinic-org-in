@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, CalendarClock, CheckCircle2, Clock, MessageCircl
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
+import { ServiceCover } from "@/components/service-cover";
 import { CLINIC } from "@/lib/clinic";
 import { SERVICES, getCategory, getService } from "@/lib/services";
 
@@ -71,6 +72,11 @@ function ServicePage() {
 
       <div className="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-12 gap-14">
         <div className="lg:col-span-8 space-y-14">
+          <Reveal>
+            <div className="group">
+              <ServiceCover service={s} showLabel={false} className="aspect-[21/9]" />
+            </div>
+          </Reveal>
           {/* Fact tiles */}
           <Reveal>
             <dl className="grid sm:grid-cols-2 gap-4">
