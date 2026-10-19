@@ -20,10 +20,10 @@ import tourLobby from "@/assets/tour/tour-16.jpg";
 
 
 const SERVICES = [
-  { icon: Sparkles, title: "Acne & Scar Therapy", body: "Micro-needling, TCA cross, and layered laser protocols for lasting clarity." },
-  { icon: Waves, title: "Laser Hair Reduction", body: "US-FDA cleared diode laser tailored to Indian skin tones and hormones." },
-  { icon: Zap, title: "Pigmentation & Melasma", body: "Q-Switched Nd:YAG with prescription-grade home care for even, radiant tone." },
-  { icon: Heart, title: "Aesthetic Medicine", body: "Botox, fillers, PRP and thread-lift — always subtle, always your face." },
+  { slug: "scar-treatment", icon: Sparkles, title: "Acne & Scar Therapy", body: "Micro-needling, TCA cross, and layered laser protocols for lasting clarity." },
+  { slug: "laser-hair-reduction", icon: Waves, title: "Laser Hair Reduction", body: "US-FDA cleared diode laser tailored to Indian skin tones and hormones." },
+  { slug: "revlite-laser", icon: Zap, title: "Pigmentation & Melasma", body: "Q-Switched Nd:YAG with prescription-grade home care for even, radiant tone." },
+  { slug: "dermal-fillers", icon: Heart, title: "Aesthetic Medicine", body: "Botox, fillers, PRP and thread-lift — always subtle, always your face." },
 ];
 
 const HIGHLIGHTS = [
@@ -149,14 +149,19 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10">
             {SERVICES.map((s) => (
-              <div
+              <Link
                 key={s.title}
+                to="/treatments/$slug"
+                params={{ slug: s.slug }}
                 className="bg-ivory p-10 group hover:bg-navy hover:text-ivory transition-colors duration-500"
               >
                 <s.icon className="size-6 mb-8 text-sage group-hover:text-ivory transition-colors" strokeWidth={1} />
                 <h3 className="font-display text-2xl mb-4">{s.title}</h3>
                 <p className="text-sm opacity-70 leading-relaxed">{s.body}</p>
-              </div>
+                <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] opacity-60 group-hover:opacity-100">
+                  Learn more <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>
