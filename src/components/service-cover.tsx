@@ -1,4 +1,5 @@
 import type { Service, ServiceCategoryId } from "@/lib/services";
+import { SERVICE_IMAGES } from "@/lib/service-images";
 
 const THEME: Record<ServiceCategoryId, { bg: string; ink: string; chip: string }> = {
   skin: { bg: "from-sage/45 via-mist to-ivory", ink: "text-sage-dark", chip: "bg-ivory/80 text-sage-dark" },
@@ -58,6 +59,25 @@ export function ServiceCover({
   showLabel?: boolean;
 }) {
   const t = THEME[service.category];
+  const image = SERVICE_IMAGES[service.slug];
+  if (image)
+    return (
+      <div className={`relative overflow-hidden bg-mist ${className}`}>
+        <img
+          src={image}
+          alt={`${service.name}: illustration`}
+          loading="lazy"
+          width={1600}
+          height={1000}
+          className="absolute inset-0 size-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+        />
+        {showLabel && categoryLabel && (
+          <span className={`absolute left-4 top-4 px-3 py-1 text-[10px] uppercase tracking-[0.2em] backdrop-blur-sm ${t.chip}`}>
+            {categoryLabel}
+          </span>
+        )}
+      </div>
+    );
   return (
     <div className={`relative overflow-hidden bg-gradient-to-br ${t.bg} ${t.ink} ${className}`}>
       <Pattern category={service.category} />
