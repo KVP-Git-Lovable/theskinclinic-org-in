@@ -74,7 +74,7 @@ function ServicePage() {
         <div className="lg:col-span-8 space-y-14">
           <Reveal>
             <div className="group">
-              <ServiceCover service={s} showLabel={false} className="aspect-[21/9]" />
+              <ServiceCover service={s} showLabel={false} className="aspect-video" />
             </div>
           </Reveal>
           {/* Fact tiles */}
