@@ -44,11 +44,11 @@ function Treatments() {
       <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-14">
         <div aria-hidden className="pointer-events-none absolute -top-16 right-0 size-[26rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
         {/* The clinic's own treatment-room photos, shown at about native size */}
-        <div aria-hidden={false} className="hidden xl:block absolute right-6 top-14 h-[25rem] w-[30rem]">
-          <figure className="absolute right-0 top-0 w-[27rem] rotate-2 border-[10px] border-ivory bg-ivory shadow-2xl hero-float">
+        <div aria-hidden={false} className="hidden xl:block absolute right-6 top-14 h-[25rem] w-[30rem] 2xl:-right-20 2xl:h-[29rem] 2xl:w-[35rem]">
+          <figure className="absolute right-0 top-0 w-[27rem] 2xl:w-[31rem] rotate-2 border-[10px] border-ivory bg-ivory shadow-2xl hero-float">
             <img src={clinicRoomDevices} alt="A treatment room with laser equipment at The Skin Clinic" width={500} height={375} className="block w-full" />
           </figure>
-          <figure className="absolute bottom-0 left-0 w-[16rem] -rotate-3 border-[10px] border-ivory bg-ivory shadow-2xl animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <figure className="absolute bottom-0 left-0 w-[16rem] 2xl:w-[18.5rem] -rotate-3 border-[10px] border-ivory bg-ivory shadow-2xl animate-fade-up" style={{ animationDelay: "0.4s" }}>
             <img src={clinicTreatmentRoom} alt="A bright treatment room at The Skin Clinic" width={500} height={375} className="block w-full" />
           </figure>
         </div>
