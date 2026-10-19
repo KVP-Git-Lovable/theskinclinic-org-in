@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_guidance_access_state: {
+        Row: {
+          blocked_at: string
+          id: string
+          message: string
+          status: number
+        }
+        Insert: {
+          blocked_at?: string
+          id: string
+          message: string
+          status: number
+        }
+        Update: {
+          blocked_at?: string
+          id?: string
+          message?: string
+          status?: number
+        }
+        Relationships: []
+      }
       contact_enquiries: {
         Row: {
           created_at: string
@@ -47,27 +68,6 @@ export type Database = {
           phone?: string
           source?: string | null
           status?: string
-        }
-        Relationships: []
-      }
-      ai_guidance_access_state: {
-        Row: {
-          blocked_at: string
-          id: string
-          message: string
-          status: number
-        }
-        Insert: {
-          blocked_at?: string
-          id: string
-          message: string
-          status: number
-        }
-        Update: {
-          blocked_at?: string
-          id?: string
-          message?: string
-          status?: number
         }
         Relationships: []
       }
