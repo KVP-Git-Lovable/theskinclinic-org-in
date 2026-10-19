@@ -1,4 +1,4 @@
-// Original AI-generated cover photos for each treatment (no faces).
+// Cover images for each treatment: AI-generated illustrations, plus free Unsplash photos for the face shots (see assets/services/CREDITS.md).
 import botox from "@/assets/services/botox.webp";
 import chemicalPeels from "@/assets/services/chemical-peels.webp";
 import dermalFillers from "@/assets/services/dermal-fillers.webp";
@@ -18,20 +18,27 @@ import revliteLaser from "@/assets/services/revlite-laser.webp";
 import scalpBooster from "@/assets/services/scalp-booster.webp";
 import scarTreatment from "@/assets/services/scar-treatment.webp";
 import tattooRemoval from "@/assets/services/tattoo-removal.webp";
+import botoxFace from "@/assets/services/botox-face.jpg";
+import chemicalPeelsFace from "@/assets/services/chemical-peels-face.jpg";
+import dermalFillersFace from "@/assets/services/dermal-fillers-face.jpg";
+import emfaceFace from "@/assets/services/emface-face.jpg";
+import exionFaceFace from "@/assets/services/exion-face-face.jpg";
+import hydrafacialFace from "@/assets/services/hydrafacial-face.jpg";
+import lipToningFace from "@/assets/services/lip-toning-face.jpg";
 
 export const SERVICE_IMAGES: Record<string, string> = {
-  "botox": botox,
-  "chemical-peels": chemicalPeels,
-  "dermal-fillers": dermalFillers,
-  "emface": emface,
+  "botox": botoxFace,
+  "chemical-peels": chemicalPeelsFace,
+  "dermal-fillers": dermalFillersFace,
+  "emface": emfaceFace,
   "emsculpt-neo": emsculptNeo,
-  "exion-face": exionFace,
+  "exion-face": exionFaceFace,
   "gfc-hair": gfcHair,
-  "hydrafacial": hydrafacial,
+  "hydrafacial": hydrafacialFace,
   "ipl-photofacial": iplPhotofacial,
   "laser-hair-reduction": laserHairReduction,
   "legend-pro": legendPro,
-  "lip-toning": lipToning,
+  "lip-toning": lipToningFace,
   "pore-refining": poreRefining,
   "prp-hair": prpHair,
   "qr678-neo": qr678Neo,
@@ -39,4 +46,12 @@ export const SERVICE_IMAGES: Record<string, string> = {
   "scalp-booster": scalpBooster,
   "scar-treatment": scarTreatment,
   "tattoo-removal": tattooRemoval,
+};
+
+/** Where to centre portrait photos when they are cropped to the 16:10 card. */
+export const SERVICE_IMAGE_POSITION: Record<string, string> = {
+  "botox": "center 38%",
+  "chemical-peels": "center 71%",
+  "emface": "center 51%",
+  "lip-toning": "center 64%",
 };
