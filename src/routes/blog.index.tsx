@@ -3,6 +3,7 @@ import { ArrowRight, Clock } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
+import { BlogVideoCard } from "@/components/blog-video-card";
 import { BLOG_POSTS, formatPostDate, type BlogPost } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/")({
@@ -41,7 +42,8 @@ function PostCover({ post, className = "", eager = false }: { post: BlogPost; cl
 }
 
 function BlogIndex() {
-  const [featured, ...rest] = BLOG_POSTS;
+  const videoPosts = BLOG_POSTS.filter((p) => p.video);
+  const [featured, ...rest] = BLOG_POSTS.filter((p) => !p.video);
   return (
     <div className="min-h-screen bg-ivory text-navy overflow-x-hidden">
       <SiteHeader />
@@ -59,8 +61,38 @@ function BlogIndex() {
         </p>
       </section>
 
+      {/* Video stories: vertical clips that play on their own while on screen */}
+      {videoPosts.length > 0 && (
+        <section className="relative overflow-hidden bg-navy text-ivory py-24">
+          <div aria-hidden className="pointer-events-none absolute -left-24 top-10 size-[28rem] rounded-full bg-sage/15 blur-3xl" />
+          <div className="relative max-w-7xl mx-auto px-6">
+            <Reveal>
+              <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-5">Watch</p>
+              <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+                <h2 className="font-display text-5xl md:text-6xl leading-[1.05] max-w-2xl">
+                  Treatments, <em className="text-sage">in motion.</em>
+                </h2>
+                <p className="max-w-sm text-sm leading-relaxed opacity-65">
+                  Short clips from our clinic. Tap one to watch it with sound and read the full guide beside it.
+                </p>
+              </div>
+            </Reveal>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {videoPosts.map((p, i) => (
+                <Reveal key={p.slug} delay={i * 110}>
+                  <BlogVideoCard post={p} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Posts: one large featured story beside two compact ones, then a grid for any more */}
-      <section className="max-w-7xl mx-auto px-6 pb-28">
+      <section className="max-w-7xl mx-auto px-6 pt-24 pb-28">
+        <Reveal>
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-10">Read</p>
+        </Reveal>
         <div className="grid lg:grid-cols-12 gap-8">
           <Reveal className="lg:col-span-7">
             <Link

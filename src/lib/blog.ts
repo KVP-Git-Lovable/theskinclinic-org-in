@@ -1,4 +1,8 @@
-import { Apple, Droplets, Sun, type LucideIcon } from "lucide-react";
+import { Activity, Apple, Dumbbell, Droplets, Scissors, Sparkles, Sun, type LucideIcon } from "lucide-react";
+import vidLaserHair from "@/assets/blog/videos/laser-hair-reduction.mp4";
+import vidHairThinning from "@/assets/blog/videos/hair-thinning-prp-gfc.mp4";
+import vidRfPico from "@/assets/blog/videos/rf-microneedling-picosecond.mp4";
+import vidEmsculpt from "@/assets/blog/videos/emsculpt-neo.mp4";
 import imgEveryAge from "@/assets/blog/skincare-for-every-age.jpg";
 import imgDiet from "@/assets/blog/how-diet-affects-your-skin.jpg";
 import imgAcne from "@/assets/blog/medical-acne-treatment.jpg";
@@ -7,6 +11,13 @@ export type Block =
   | { type: "h"; text: string }
   | { type: "p"; text: string }
   | { type: "ul"; items: string[] };
+
+export interface BlogVideo {
+  /** Vertical (9:16) clip from the clinic. */
+  src: string;
+  /** Shown on the card, e.g. "0:59". */
+  duration: string;
+}
 
 export interface BlogPost {
   slug: string;
@@ -22,12 +33,96 @@ export interface BlogPost {
   /** Cover photo (see assets/blog/CREDITS.md) and where to centre it when cropped. */
   image?: string;
   imagePosition?: string;
+  /** When set, the post is a video story: the clip plays beside the article. */
+  video?: BlogVideo;
+  /** Link to the matching treatment page, if there is one. */
+  treatmentSlug?: string;
   body: Block[];
 }
 
 // Starter articles on the topics of the clinic's earlier posts, rewritten for this site.
 // Add new posts to the top of this list; each needs a unique slug.
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "laser-hair-reduction-explained",
+    title: "Laser hair reduction: how it works and what to expect",
+    excerpt: "Unwanted hair on the face, underarms or legs doesn't have to be a weekly chore. Here is how laser hair reduction works, in under a minute.",
+    category: "Laser",
+    author: "The Skin Clinic team",
+    date: "2026-10-20",
+    readingMinutes: 2,
+    icon: Scissors,
+    cover: "from-sage/50 via-mist to-ivory",
+    video: { src: vidLaserHair, duration: "0:59" },
+    treatmentSlug: "laser-hair-reduction",
+    body: [
+      { type: "p", text: "Laser hair reduction uses a laser that is absorbed by the pigment in the hair. The heat damages the hair follicle, so over a course of sessions less hair grows back, and the hair that does return is usually finer." },
+      { type: "h", text: "What to expect" },
+      { type: "ul", items: ["Areas commonly treated include the upper lip, chin, face, underarms, arms, legs and bikini area", "Most people need around 6 to 10 sessions, spaced 4 to 8 weeks apart", "Dark hair responds best; plans are adapted for different skin and hair types", "Downtime is minimal, though the skin can look slightly red for a short while afterwards"] },
+      { type: "h", text: "Before you start" },
+      { type: "p", text: "A short consultation lets your dermatologist check your skin and hair, explain how many sessions are likely and tell you how to prepare, for example avoiding sun exposure and waxing between sessions. Results and recovery vary from person to person." },
+    ],
+  },
+  {
+    slug: "hair-thinning-prp-and-gfc",
+    title: "Hair getting thinner? Understanding PRP and GFC",
+    excerpt: "PRP and GFC use growth factors from your own blood to support the scalp. A quick look at what they are and how a session goes.",
+    category: "Hair",
+    author: "The Skin Clinic team",
+    date: "2026-10-20",
+    readingMinutes: 3,
+    icon: Activity,
+    cover: "from-emerald-100 via-mist to-ivory",
+    video: { src: vidHairThinning, duration: "0:47" },
+    treatmentSlug: "prp-hair",
+    body: [
+      { type: "p", text: "Hair that slowly gets thinner can have many causes, from hormones and nutrition to stress and genetics, so the first step is always finding out why. Where it is suitable, treatments such as PRP and GFC can be added to support the scalp." },
+      { type: "h", text: "How they work" },
+      { type: "ul", items: ["A small sample of your own blood is taken", "It is processed to separate the platelets and growth factors from the rest", "The concentrate is then injected into the scalp to support the hair follicles", "GFC is a more concentrated, refined version of the same idea"] },
+      { type: "h", text: "What to expect" },
+      { type: "p", text: "A course usually means several sessions (typically 3 to 6, depending on the treatment) with little downtime. Hair care is gradual, and your dermatologist will tell you what is realistic for you. This is general information, not a diagnosis." },
+    ],
+  },
+  {
+    slug: "rf-microneedling-and-picosecond-laser",
+    title: "Crepey skin and acne scars: RF microneedling and picosecond laser",
+    excerpt: "Dr. Punya Suvarna explains two of the technologies we use to improve skin texture, from crepey skin to acne scars.",
+    category: "Skin texture",
+    author: "The Skin Clinic team",
+    date: "2026-10-20",
+    readingMinutes: 2,
+    icon: Sparkles,
+    cover: "from-amber-100 via-orange-50 to-ivory",
+    video: { src: vidRfPico, duration: "0:38" },
+    treatmentSlug: "scar-treatment",
+    body: [
+      { type: "p", text: "Thin, crinkled or crepey skin and acne scars both come down to the skin's structure and collagen. Two technologies we use to improve texture are RF microneedling and picosecond laser." },
+      { type: "h", text: "The two technologies" },
+      { type: "ul", items: ["RF microneedling combines tiny needles with radiofrequency energy to stimulate the skin's own collagen", "Picosecond laser uses extremely short pulses of light and is used for texture, scars and pigmentation", "Your dermatologist may use one of them or combine them with other treatments, depending on your skin"] },
+      { type: "h", text: "Planning your care" },
+      { type: "p", text: "How many sessions you need depends on the type and depth of the concern, and improvement is gradual. A consultation is the best way to find out which option suits your skin. Results vary from person to person." },
+    ],
+  },
+  {
+    slug: "emsculpt-neo-body-contouring",
+    title: "Emsculpt Neo: body contouring in about 30 minutes",
+    excerpt: "A non-surgical way to help reduce fat and tone muscle, with no downtime expected. See how a session works.",
+    category: "Body",
+    author: "The Skin Clinic team",
+    date: "2026-10-20",
+    readingMinutes: 2,
+    icon: Dumbbell,
+    cover: "from-slate-200 via-slate-100 to-ivory",
+    video: { src: vidEmsculpt, duration: "1:04" },
+    treatmentSlug: "emsculpt-neo",
+    body: [
+      { type: "p", text: "Emsculpt Neo is a body-contouring treatment that combines radiofrequency with HIFEM (high-intensity focused electromagnetic energy). The radiofrequency warms and breaks down fat cells while the electromagnetic energy makes the muscle contract strongly, helping to tone and strengthen it." },
+      { type: "h", text: "What a session is like" },
+      { type: "ul", items: ["Applicator pads are placed on the area being treated, such as the abdomen, arms or thighs", "A session takes about 30 minutes", "There is no surgery and no downtime is expected, so you can return to your day", "Most people benefit from a course of around 4 to 6 sessions"] },
+      { type: "h", text: "Is it right for you?" },
+      { type: "p", text: "Emsculpt Neo is not a weight-loss treatment, and suitability depends on your health and goals. Your dermatologist will examine the area, explain what is realistic and tell you if you should avoid it. Results vary from person to person." },
+    ],
+  },
   {
     slug: "skincare-for-every-age",
     title: "Skincare for every age: a simple routine from childhood to your 40s",
