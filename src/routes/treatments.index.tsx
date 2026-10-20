@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { ServiceCover } from "@/components/service-cover";
 import { CLINIC } from "@/lib/clinic";
-import { HeroVideo } from "@/components/hero-video";
+import { HeroReel } from "@/components/hero-reel";
 import {
   AESTHETIC_CONCERNS,
   MEDICAL_CONDITIONS,
@@ -42,12 +42,9 @@ function Treatments() {
       {/* Hero */}
       <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-14">
         <div aria-hidden className="pointer-events-none absolute -top-16 right-0 size-[26rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
-        {/* Muted, looping clip from the clinic's Skin Talks channel; plays by itself */}
-        <div className="hidden xl:block absolute right-6 top-14 w-[29rem] 2xl:-right-16 2xl:w-[34rem]">
-          <div aria-hidden className="absolute -bottom-5 -left-5 size-full bg-sage/30" />
-          <div className="relative border-[10px] border-ivory bg-ivory shadow-2xl animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <HeroVideo videoId="3uRFY00obxg" label="Melasma, explained" />
-          </div>
+        {/* Muted reel of short treatment clips from the clinic's Skin Talks channel; plays by itself */}
+        <div className="hidden xl:block absolute right-6 top-12 2xl:-right-16 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <HeroReel />
         </div>
         <p className="relative text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Treatments</p>
         <h1 className="relative font-display text-6xl md:text-8xl leading-[0.95] animate-fade-up">
