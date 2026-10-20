@@ -6,7 +6,7 @@ export interface ReelClip {
   id: string;
   name: string;
   topic: string;
-  /** Seconds to skip so the clip opens on the treatment, not the greeting. */
+  /** Where to begin (seconds). The player loads hidden for a few seconds first, so this is set a little early. */
   start: number;
   /** Widescreen (16:9) source; shown as a centred portrait crop. */
   landscape?: boolean;
@@ -14,27 +14,28 @@ export interface ReelClip {
 
 // Short moments from the clinic's own Skin Talks videos, mixing the doctors and focusing on treatments.
 export const REEL_CLIPS: ReelClip[] = [
-  { id: "3uRFY00obxg", name: "Melasma", topic: "Causes & treatment", start: 30, landscape: true },
-  { id: "-YmJRNUVfic", name: "Botox", topic: "Fine lines", start: 7 },
-  { id: "PP2r5LTJm9M", name: "Revlite Laser Toning", topic: "Pigmentation & tone", start: 30, landscape: true },
-  { id: "ZxNetrk4RYo", name: "Skin Boosters", topic: "Hydration & glow", start: 7 },
-  { id: "oETsUP9D7Ig", name: "Laser Hair Reduction", topic: "How it works", start: 30, landscape: true },
-  { id: "tv2oHFnsvQM", name: "IPL Treatment", topic: "Sun damage & pigmentation", start: 7 },
-  { id: "yx8o7BRV1kw", name: "Skincare Routine", topic: "Daily care tips", start: 4 },
-  { id: "0jXgdrOkX8U", name: "Chemical Peel", topic: "Brighter complexion", start: 7 },
+  { id: "3uRFY00obxg", name: "Melasma", topic: "Causes & treatment", start: 24, landscape: true },
+  { id: "-YmJRNUVfic", name: "Botox", topic: "Fine lines", start: 1 },
+  { id: "PP2r5LTJm9M", name: "Revlite Laser Toning", topic: "Pigmentation & tone", start: 24, landscape: true },
+  { id: "ZxNetrk4RYo", name: "Skin Boosters", topic: "Hydration & glow", start: 1 },
+  { id: "oETsUP9D7Ig", name: "Laser Hair Reduction", topic: "How it works", start: 24, landscape: true },
+  { id: "tv2oHFnsvQM", name: "IPL Treatment", topic: "Sun damage & pigmentation", start: 1 },
+  { id: "yx8o7BRV1kw", name: "Skincare Routine", topic: "Daily care tips", start: 0 },
+  { id: "0jXgdrOkX8U", name: "Chemical Peel", topic: "Brighter complexion", start: 1 },
 ];
 const CLIP_BY_ID = Object.fromEntries(REEL_CLIPS.map((c) => [c.id, c]));
 
 const CLIP_MS = 9000;
-const SWAP_LEAD_MS = 4000; // the next clip loads this long before it fades in, so the player's own buttons have gone
+const SWAP_LEAD_MS = 6000; // the next clip loads this long before it fades in, so the player's own buttons have gone
 
 const embed = (clip: ReelClip) =>
-  `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${clip.id}&start=${clip.start}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+  `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=1&controls=0&start=${clip.start}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1`;
 
 // The player is drawn larger than its frame so its title bar and logo fall outside the visible area.
 const CROP_PORTRAIT = { width: "132%", height: "132%", left: "-16%", top: "-16%" } as const;
 // A 16:9 video shown full-height in the portrait frame, keeping its centre.
-const CROP_LANDSCAPE = { width: "354%", height: "112%", left: "-127%", top: "-6%" } as const;
+// It is also drawn taller than the frame so the video's own subtitle line (near the bottom) falls outside it.
+const CROP_LANDSCAPE = { width: "427%", height: "135%", left: "-163%", top: "-8%" } as const;
 
 /** A muted reel of short treatment clips that plays and changes by itself, with a clickable list. */
 export function HeroReel() {
@@ -55,7 +56,7 @@ export function HeroReel() {
   // Keep the first clip covered while the player loads and hides its own buttons.
   useEffect(() => {
     if (!mounted || !autoplay) return;
-    const t = setTimeout(() => setCovered(false), 4200);
+    const t = setTimeout(() => setCovered(false), 6500);
     return () => clearTimeout(t);
   }, [mounted, autoplay]);
 
