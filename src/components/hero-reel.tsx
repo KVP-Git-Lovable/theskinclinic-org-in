@@ -23,8 +23,14 @@ export const REEL_CLIPS: ReelClip[] = [
 const CLIP_MS = 9000;
 const SWAP_LEAD_MS = 2200; // standby clip loads this long before it fades in
 
+// Start a few seconds in to skip the spoken introduction and go straight to the treatment.
+const START_AT = 7;
+
 const embed = (id: string) =>
-  `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${id}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+  `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${id}&start=${START_AT}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+
+// The player is drawn larger than its frame so its title bar and logo fall outside the visible area.
+const CROP = { width: "132%", height: "132%", left: "-16%", top: "-16%" } as const;
 
 /** A muted reel of short treatment clips that plays and changes by itself, with a clickable list. */
 export function HeroReel() {
@@ -81,7 +87,8 @@ export function HeroReel() {
                     allow="autoplay; encrypted-media; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
                     tabIndex={-1}
-                    className={`pointer-events-none absolute inset-0 size-full border-0 transition-opacity duration-700 ${front === i ? "opacity-100" : "opacity-0"}`}
+                    style={CROP}
+                    className={`pointer-events-none absolute border-0 transition-opacity duration-700 ${front === i ? "opacity-100" : "opacity-0"}`}
                   />
                 ) : null,
               )
@@ -136,7 +143,7 @@ export function HeroReel() {
           rel="noreferrer"
           className="mt-3 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] hover:text-sage transition-colors"
         >
-          More on YouTube <ArrowUpRight className="size-3.5" />
+          Watch more treatment videos <ArrowUpRight className="size-3.5" />
         </a>
       </div>
     </div>
