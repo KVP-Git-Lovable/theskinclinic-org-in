@@ -2,13 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, HeartHandshake, MessagesSquare, Microscope, ShieldCheck } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import drVindhyaAsset from "@/assets/dr-vindhya-pai.jpg.asset.json";
+import drVindhya from "@/assets/dr-vindhya-pai.jpg";
 import drPunyaAsset from "@/assets/dr-punya.png.asset.json";
 import drSurakshaAsset from "@/assets/dr-suraksha.jpg.asset.json";
 import drAshwiniAsset from "@/assets/dr-ashwini.jpg.asset.json";
 import clinic from "@/assets/clinic-interior.jpg";
 
-const drVindhya = drVindhyaAsset.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -47,7 +46,7 @@ const TEAM = [
     name: "Dr. Vindhya A. Pai",
     role: "Founder · Consultant Dermatologist",
     quals: "MBBS, MD (DVL)",
-    photo: drVindhyaAsset.url,
+    photo: drVindhya,
     bio: "Trained at Kasturba Medical College, Mangalore, with a dermoscopy fellowship at Cardiff University and laser training in New Jersey and Milan. Interests include acne, pigmentation, ageing skin, body contouring, paediatric dermatology and scar care.",
   },
   {
@@ -117,7 +116,7 @@ function About() {
       {/* Story */}
       <section className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-12 gap-16 items-center">
         <div className="md:col-span-5">
-          <img src={drVindhya} alt="Dr. Vindhya A. Pai, founder" className="w-full aspect-[4/5] object-cover" loading="lazy" />
+          <img src={drVindhya} alt="Dr. Vindhya A. Pai, founder" className="w-full aspect-[4/5] object-cover object-top" loading="lazy" />
         </div>
         <div className="md:col-span-7">
           <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Our story</p>
