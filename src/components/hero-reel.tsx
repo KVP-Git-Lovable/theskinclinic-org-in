@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight, Play, Volume2, VolumeX, Youtube } from "lucide-react";
 import { YOUTUBE_CHANNEL } from "@/lib/videos";
 
 export interface ReelClip {
@@ -29,7 +29,24 @@ const CLIP_MS = 9000;
 const SWAP_LEAD_MS = 6000; // the next clip loads this long before it fades in, so the player's own buttons have gone
 
 const embed = (clip: ReelClip) =>
-  `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=1&controls=0&start=${clip.start}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1`;
+  `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=1&controls=0&start=${clip.start}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
+
+// Sound is switched with YouTube's postMessage commands, so the iframes never reload.
+const sendCommand = (frame: HTMLIFrameElement | null, func: string, args: unknown[] = []) =>
+  frame?.contentWindow?.postMessage(JSON.stringify({ event: "command", func, args }), "*");
+
+/** The clip's still frame, shown while its player loads. Shorts use the 4:3 still (its bars fall outside the portrait crop); widescreen clips use the HD still. */
+function Poster({ clip }: { clip: ReelClip }) {
+  const [src, setSrc] = useState(`https://i.ytimg.com/vi/${clip.id}/${clip.landscape ? "maxresdefault" : "hqdefault"}.jpg`);
+  return (
+    <img
+      src={src}
+      alt=""
+      onError={() => setSrc(`https://i.ytimg.com/vi/${clip.id}/mqdefault.jpg`)}
+      className="absolute inset-0 size-full object-cover"
+    />
+  );
+}
 
 // The player is drawn larger than its frame so its title bar and logo fall outside the visible area.
 const CROP_PORTRAIT = { width: "132%", height: "132%", left: "-16%", top: "-16%" } as const;
@@ -47,6 +64,23 @@ export function HeroReel() {
   const [front, setFront] = useState<0 | 1>(0);
   const frontRef = useRef<0 | 1>(0);
   const slotsRef = useRef<[string, string]>(slots);
+  const [muted, setMuted] = useState(true);
+  const mutedRef = useRef(true);
+  const playerRef = useRef<HTMLDivElement>(null);
+
+  const applySound = (frame: HTMLIFrameElement | null) => {
+    if (mutedRef.current) return;
+    sendCommand(frame, "unMute");
+    sendCommand(frame, "setVolume", [100]);
+  };
+  const toggleSound = () => {
+    mutedRef.current = !mutedRef.current;
+    setMuted(mutedRef.current);
+    playerRef.current?.querySelectorAll("iframe").forEach((frame) => {
+      if (mutedRef.current) sendCommand(frame, "mute");
+      else applySound(frame);
+    });
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -104,12 +138,17 @@ export function HeroReel() {
     <div className="flex items-stretch gap-4 2xl:gap-5">
       {/* Portrait player */}
       <div className="relative w-[16rem] 2xl:w-[19rem] shrink-0 border-[10px] border-ivory bg-ivory shadow-2xl">
-        <div className="relative aspect-[9/16] overflow-hidden bg-navy">
+        <div ref={playerRef} className="relative aspect-[9/16] overflow-hidden bg-navy">
           {mounted && autoplay
             ? slots.map((id, i) =>
                 id ? (
                   <iframe
                     key={i}
+                    onLoad={(e) => {
+                      // A clip loaded after sound was switched on starts muted; the player needs a moment before it takes commands.
+                      const frame = e.currentTarget;
+                      [800, 2000].forEach((ms) => window.setTimeout(() => applySound(frame), ms));
+                    }}
                     title={`${active.name} (Skin Talks)`}
                     src={embed(CLIP_BY_ID[id])}
                     allow="autoplay; encrypted-media; picture-in-picture"
@@ -120,13 +159,14 @@ export function HeroReel() {
                   />
                 ) : null,
               )
-            : (
-              <img src={`https://i.ytimg.com/vi/${active.id}/hqdefault.jpg`} alt="" className="absolute inset-0 size-full object-cover" />
-            )}
-          <span
+            : <Poster key={active.id} clip={active} />}
+          {/* While the first player loads (and hides its own buttons) show the clip's still frame instead of a blank panel. */}
+          <div
             aria-hidden
-            className={`pointer-events-none absolute inset-0 bg-gradient-to-b from-navy to-navy/90 transition-opacity duration-1000 ${covered && autoplay ? "opacity-100" : "opacity-0"}`}
-          />
+            className={`pointer-events-none absolute inset-0 transition-opacity duration-1000 ${covered && autoplay ? "opacity-100" : "opacity-0"}`}
+          >
+            <Poster clip={REEL_CLIPS[0]} />
+          </div>
           {mounted && !autoplay && (
             <span className="absolute inset-0 flex items-center justify-center bg-navy/30">
               <span className="flex size-14 items-center justify-center rounded-full bg-ivory text-navy shadow-xl">
@@ -135,10 +175,22 @@ export function HeroReel() {
             </span>
           )}
           <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 p-4 text-ivory">
+          <div className="absolute inset-x-0 bottom-0 p-4 pr-16 text-ivory">
             <p className="text-[10px] uppercase tracking-[0.3em] opacity-75">Skin Talks</p>
             <p className="mt-1 font-display text-xl leading-tight">{active.name}</p>
           </div>
+          {mounted && autoplay && (
+            <button
+              type="button"
+              onClick={toggleSound}
+              aria-label={muted ? "Turn sound on" : "Turn sound off"}
+              aria-pressed={!muted}
+              title={muted ? "Turn sound on" : "Turn sound off"}
+              className="absolute bottom-3 right-3 z-10 flex size-10 items-center justify-center rounded-full bg-ivory/90 text-navy shadow-lg transition-colors hover:bg-ivory"
+            >
+              {muted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+            </button>
+          )}
         </div>
       </div>
 
@@ -173,9 +225,11 @@ export function HeroReel() {
           href={YOUTUBE_CHANNEL}
           target="_blank"
           rel="noreferrer"
-          className="mt-3 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] hover:text-sage transition-colors"
+          className="mt-3 inline-flex items-center justify-center gap-2 bg-sage-dark px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-ivory transition-colors hover:bg-navy"
         >
-          Watch more treatment videos <ArrowUpRight className="size-3.5" />
+          <Youtube className="size-4 shrink-0" />
+          More on YouTube
+          <ArrowUpRight className="size-3.5 shrink-0" />
         </a>
       </div>
     </div>
