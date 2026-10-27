@@ -7,6 +7,8 @@ export interface HeroSlide {
   caption: string;
   /** Lower-resolution photos: shown sharp at a modest size over a blurred copy of themselves. */
   framed?: boolean;
+  /** CSS object-position for full-bleed slides, to keep the subject in view when cropped. */
+  position?: string;
 }
 
 const INTERVAL_MS = 6000;
@@ -56,6 +58,7 @@ export function HeroSlideshow({ slides }: { slides: HeroSlide[] }) {
             fetchPriority={i === 0 ? "high" : "auto"}
             loading={i === 0 ? "eager" : "lazy"}
             aria-hidden={!active}
+            style={s.position ? { objectPosition: s.position } : undefined}
             className={`absolute inset-0 size-full object-cover ${fade} ${active ? "hero-kenburns" : ""}`}
           />
         );
