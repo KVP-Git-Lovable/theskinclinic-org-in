@@ -157,7 +157,7 @@
 
 @keyframes hero-kenburns {
   from { transform: scale(1.02); }
-  to { transform: scale(1.12); }
+  to { transform: scale(1.05); }
 }
 @keyframes hero-progress {
   from { width: 0%; }

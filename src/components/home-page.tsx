@@ -35,7 +35,7 @@ const HIGHLIGHTS = [
 ];
 
 const HERO_SLIDES: HeroSlide[] = [
-  { src: hero, position: "88% center", alt: "A multi-generation Indian family smiling together", eyebrow: "For the whole family", caption: "Healthy skin for every generation." },
+  { src: hero, position: "50% center", alt: "A multi-generation Indian family smiling together", eyebrow: "For the whole family", caption: "Healthy skin for every generation." },
   { src: tourExterior, framed: true, alt: "The Skin Clinic building surrounded by greenery on Kadri Kambla Road, Mangaluru", eyebrow: "Visit us", caption: "A calm clinic in the heart of Mangaluru." },
   { src: tourReception, framed: true, alt: "The welcoming reception area at The Skin Clinic", eyebrow: "A warm welcome", caption: "No rush. No pressure. Just thoughtful care." },
   { src: tourLobby, framed: true, alt: "The Skin Clinic reception and waiting area", eyebrow: "Step inside", caption: "Comfortable, confidential, considered." },
