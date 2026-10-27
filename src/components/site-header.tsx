@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Clock, Phone } from "lucide-react";
+import { Clock, Phone } from "lucide-react";
 import { WhatsAppIcon } from "./whatsapp";
 import { CLINIC } from "@/lib/clinic";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -80,15 +80,6 @@ export function SiteHeader() {
                 </Link>
               ))}
             </div>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link
-              to="/portal"
-              className="group/pp relative hidden sm:inline-flex items-center gap-2 overflow-hidden px-6 py-3 border border-navy/30 text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:text-ivory hover:shadow-lg hover:-translate-y-0.5 before:absolute before:inset-0 before:origin-bottom before:scale-y-0 before:bg-navy before:transition-transform before:duration-300 hover:before:scale-y-100 [&>*]:relative [&>*]:z-10"
-            >
-              <span>Patient Portal</span>
-              <ArrowRight className="size-3.5 -ml-4 opacity-0 transition-all duration-300 group-hover/pp:ml-0 group-hover/pp:opacity-100" />
-            </Link>
           </div>
         </div>
       </nav>

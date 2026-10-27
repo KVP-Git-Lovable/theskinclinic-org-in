@@ -10,7 +10,6 @@ const EXPLORE = [
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
   { to: "/contact", hash: "careers", label: "Careers" },
-  { to: "/portal", label: "Patient Portal" },
 ] as const;
 
 const SOCIALS = [
