@@ -167,7 +167,7 @@
   animation: hero-kenburns 8s ease-out both;
 }
 @utility hero-progress {
-  animation: hero-progress 6s linear both;
+  animation: hero-progress 4s linear both;
 }
 @keyframes hero-float {
   from { transform: translateY(8px) rotate(-0.6deg); }

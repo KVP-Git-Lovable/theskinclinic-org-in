@@ -11,7 +11,7 @@ export interface HeroSlide {
   position?: string;
 }
 
-const INTERVAL_MS = 6000;
+const INTERVAL_MS = 4000;
 
 /** Auto-advancing crossfade slideshow with a slow zoom and a progress indicator. */
 export function HeroSlideshow({ slides }: { slides: HeroSlide[] }) {

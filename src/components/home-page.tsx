@@ -78,10 +78,10 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
                 <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/treatments"
+                to="/skin-ai"
                 className="px-10 py-4 text-[11px] uppercase tracking-[0.25em] border border-navy/20 hover:bg-navy hover:text-ivory transition-all"
               >
-                Explore treatments
+                Try Skin AI
               </Link>
             </div>
           </div>
