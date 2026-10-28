@@ -1,10 +1,12 @@
 export const comparisonGroups = [
-  { id: "breakouts", name: "Breakouts & scars", ids: ["acne", "chemical-peels", "microneedling", "acne-light", "laser-resurfacing"] },
-  { id: "tone", name: "Uneven tone", ids: ["melasma", "chemical-peels", "laser-resurfacing", "microdermabrasion"] },
-  { id: "hair", name: "Hair & scalp", ids: ["hair-loss", "dandruff", "hair-rejuvenation", "laser-hair"] },
-  { id: "sensitive", name: "Itching & sensitive skin", ids: ["eczema", "rosacea", "psoriasis", "phototherapy"] },
-  { id: "ageing", name: "Lines & skin quality", ids: ["botox", "fillers", "biostimulators", "skin-boosters", "microneedling"] },
-  { id: "light", name: "Light treatments", ids: ["phototherapy", "red-light", "acne-light", "laser-resurfacing"] },
+  { id: "acne", name: "Acne & Pimples", ids: ["acne", "acne-light", "chemical-peels", "microneedling"] },
+  { id: "ageing", name: "Aging & Wrinkles", ids: ["botox", "fillers", "biostimulators", "skin-boosters", "microneedling", "red-light"] },
+  { id: "sensitive", name: "Dry & Sensitive Skin", ids: ["eczema", "rosacea", "psoriasis", "phototherapy"] },
+  { id: "hair", name: "Hair Loss & Thinning", ids: ["hair-loss", "hair-rejuvenation", "dandruff"] },
+  { id: "oily", name: "Oily Skin & Open Pores", ids: ["acne", "chemical-peels", "microdermabrasion", "microneedling"] },
+  { id: "pigmentation", name: "Pigmentation & Dark Spots", ids: ["melasma", "chemical-peels", "laser-resurfacing", "microdermabrasion"] },
+  { id: "scars", name: "Scars & Stretch Marks", ids: ["microneedling", "laser-resurfacing", "chemical-peels"] },
+  { id: "sun", name: "Tan & Sun Damage", ids: ["chemical-peels", "laser-resurfacing", "microdermabrasion"] },
 ];
 
 export const comparisonNotes: Record<string, { purpose: string; expect: string; consult: string }> = {

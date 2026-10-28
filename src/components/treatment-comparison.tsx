@@ -8,9 +8,9 @@ const allGuides = [...medicalTreatments, ...cosmeticTreatments];
 const selectClass = "w-full bg-background border border-border px-3 py-3 text-sm rounded-none focus:outline-none focus:ring-2 focus:ring-sage";
 
 export function TreatmentComparison() {
-  const [groupId, setGroupId] = useState("breakouts");
-  const [left, setLeft] = useState("acne");
-  const [right, setRight] = useState("microneedling");
+  const [groupId, setGroupId] = useState(comparisonGroups[0].id);
+  const [left, setLeft] = useState(comparisonGroups[0].ids[0]);
+  const [right, setRight] = useState(comparisonGroups[0].ids[1]);
   const group = comparisonGroups.find(g => g.id === groupId)!;
   const changeGroup = (id: string) => {
     const next = comparisonGroups.find(g => g.id === id)!;
@@ -23,8 +23,8 @@ export function TreatmentComparison() {
         <h2 id="compare-heading" className="font-display text-4xl md:text-5xl">Two options. <em className="text-sage">A clearer picture.</em></h2>
         <p className="mt-5 text-muted-foreground max-w-2xl leading-relaxed">Medical care addresses skin health. Cosmetic care may improve appearance. Related options are not necessarily alternatives—and you may not need a procedure at all.</p>
         <div className="grid md:grid-cols-3 gap-5 mt-8">
-          <label className="text-sm">Your area of interest<select value={groupId} onChange={e => changeGroup(e.target.value)} className={`${selectClass} mt-2`}>{comparisonGroups.map(g => <option key={g.id} value={g.id}>{g.name}</option>)}</select></label>
-          <label className="text-sm">First guide<select value={left} onChange={e => setLeft(e.target.value)} className={`${selectClass} mt-2`}>{group.ids.filter(id => id !== right).map(id => <option key={id} value={id}>{allGuides.find(g => g.id === id)?.name}</option>)}</select></label>
+          <label className="text-sm">Your skin concern<select value={groupId} onChange={e => changeGroup(e.target.value)} className={`${selectClass} mt-2`}>{comparisonGroups.map(g => <option key={g.id} value={g.id}>{g.name}</option>)}</select></label>
+          <label className="text-sm">Choose a treatment<select value={left} onChange={e => setLeft(e.target.value)} className={`${selectClass} mt-2`}>{group.ids.filter(id => id !== right).map(id => <option key={id} value={id}>{allGuides.find(g => g.id === id)?.name}</option>)}</select></label>
           <label className="text-sm">Compare with<select value={right} onChange={e => setRight(e.target.value)} className={`${selectClass} mt-2`}>{group.ids.filter(id => id !== left).map(id => <option key={id} value={id}>{allGuides.find(g => g.id === id)?.name}</option>)}</select></label>
         </div>
         <div aria-live="polite" className="grid md:grid-cols-2 mt-8 gap-5">
