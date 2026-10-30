@@ -27,6 +27,11 @@ export const Route = createFileRoute("/treatments/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    // Open the video connections early so the reel starts sooner.
+    links: [
+      { rel: "preconnect", href: "https://www.youtube-nocookie.com" },
+      { rel: "preconnect", href: "https://i.ytimg.com" },
+    ],
   }),
   component: Treatments,
 });
