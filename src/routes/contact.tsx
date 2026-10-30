@@ -81,22 +81,28 @@ function Contact() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-16">
-        <div aria-hidden className="pointer-events-none absolute -top-16 right-0 size-[26rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
-        <p className="relative text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Contact us</p>
-        <h1 className="relative font-display text-6xl md:text-8xl leading-[0.95] animate-fade-up">
-          Let's talk about
-          <br />
-          <em className="text-sage">your skin.</em>
-        </h1>
-        <div className="relative h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.5s" }} />
-        <img
-          src={clinicSignboard}
-          alt="The Skin Clinic signboard on Kadri Kambla Road, Mangaluru"
-          style={{ objectPosition: "50% 35%" }}
-          className="absolute right-6 top-28 hidden xl:block w-[26rem] aspect-[4/3] object-cover border-[10px] border-ivory shadow-2xl"
-          loading="eager"
-        />
+      <section className="relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 pt-28 pb-16 xl:min-h-[30rem]">
+          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Contact us</p>
+          <h1 className="font-display text-6xl md:text-8xl leading-[0.95] animate-fade-up">
+            Let's talk about
+            <br />
+            <em className="text-sage">your skin.</em>
+          </h1>
+          <div className="h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.5s" }} />
+        </div>
+        {/* Full-bleed photo: a banner under the heading on smaller screens, the right 38% of the hero on wide ones. */}
+        <div className="relative aspect-[16/9] overflow-hidden xl:absolute xl:inset-y-0 xl:right-0 xl:aspect-auto xl:w-[38%]">
+          <img
+            src={clinicSignboard}
+            alt="The Skin Clinic signboard on Kadri Kambla Road, Mangaluru"
+            style={{ objectPosition: "35% 40%" }}
+            className="hero-kenburns absolute inset-0 size-full origin-[35%_45%] scale-[1.3] object-cover"
+            fetchPriority="high"
+          />
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
+          <p className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.35em] text-ivory/90">Find us · Kadri Kambla Road</p>
+        </div>
       </section>
 
       {/* Quick actions */}

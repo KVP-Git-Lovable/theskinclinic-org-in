@@ -7,6 +7,7 @@ import drPunyaAsset from "@/assets/dr-punya.png.asset.json";
 import drSurakshaAsset from "@/assets/dr-suraksha.jpg.asset.json";
 import drAshwiniAsset from "@/assets/dr-ashwini.jpg.asset.json";
 import clinicReception from "@/assets/clinic/clinic-reception.jpg";
+import clinicWaiting from "@/assets/clinic/clinic-waiting-area.jpg";
 
 
 export const Route = createFileRoute("/about")({
@@ -86,19 +87,34 @@ function About() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-28 pb-20 grid md:grid-cols-12 gap-12 items-end">
-        <div className="md:col-span-8">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">About · Est. 2018</p>
-          <h1 className="font-display text-6xl md:text-8xl leading-[0.95]">
-            Simply. Better.
-            <br />
-            <em className="text-sage">Skin.</em>
-          </h1>
+      <section className="relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[36rem] xl:flex xl:flex-col xl:justify-center">
+          <div className="xl:max-w-[44rem]">
+            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">About · Est. 2018</p>
+            <h1 className="font-display text-6xl md:text-8xl leading-[0.95] animate-fade-up">
+              Simply. Better.
+              <br />
+              <em className="text-sage">Skin.</em>
+            </h1>
+            <div className="h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.5s" }} />
+            <p className="mt-10 max-w-md text-lg leading-relaxed opacity-75">
+              Mangaluru's most-loved family skin clinic — a full-spectrum dermatology practice for every age, from
+              everyday concerns to advanced laser and aesthetic care.
+            </p>
+          </div>
         </div>
-        <p className="md:col-span-4 text-lg leading-relaxed opacity-75">
-          Mangaluru's most-loved family skin clinic — a full-spectrum dermatology practice for every age, from
-          everyday concerns to advanced laser and aesthetic care.
-        </p>
+        {/* Full-bleed photo: a banner under the text on smaller screens, the right 40% of the hero on wide ones. */}
+        <div className="relative aspect-[16/10] overflow-hidden xl:absolute xl:inset-y-0 xl:right-0 xl:aspect-auto xl:w-[40%]">
+          <img
+            src={clinicWaiting}
+            alt="The calm, light-filled waiting lounge at The Skin Clinic"
+            style={{ objectPosition: "55% center" }}
+            className="hero-kenburns absolute inset-0 size-full object-cover"
+            fetchPriority="high"
+          />
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
+          <p className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.35em] text-ivory/90">Kadri Kambla Road · Mangaluru</p>
+        </div>
       </section>
 
       {/* Stats */}
