@@ -6,7 +6,7 @@ import drVindhya from "@/assets/dr-vindhya-pai.jpg";
 import drPunyaAsset from "@/assets/dr-punya.png.asset.json";
 import drSurakshaAsset from "@/assets/dr-suraksha.jpg.asset.json";
 import drAshwiniAsset from "@/assets/dr-ashwini.jpg.asset.json";
-import clinic from "@/assets/clinic-interior.jpg";
+import clinicReception from "@/assets/clinic/clinic-reception.jpg";
 
 
 export const Route = createFileRoute("/about")({
@@ -214,7 +214,7 @@ function About() {
               Book a consultation <ArrowRight className="size-3" />
             </Link>
           </div>
-          <img src={clinic} alt="The Skin Clinic interior" className="w-full aspect-square object-cover" loading="lazy" />
+          <img src={clinicReception} alt="The welcoming reception at The Skin Clinic" style={{ objectPosition: "30% center" }} className="w-full aspect-square object-cover" loading="lazy" />
         </div>
       </section>
 

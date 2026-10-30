@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { CLINIC } from "@/lib/clinic";
 import { supabase } from "@/integrations/supabase/client";
+import clinicSignboard from "@/assets/clinic/clinic-signboard.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -89,6 +90,13 @@ function Contact() {
           <em className="text-sage">your skin.</em>
         </h1>
         <div className="relative h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.5s" }} />
+        <img
+          src={clinicSignboard}
+          alt="The Skin Clinic signboard on Kadri Kambla Road, Mangaluru"
+          style={{ objectPosition: "50% 35%" }}
+          className="absolute right-6 top-28 hidden xl:block w-[26rem] aspect-[4/3] object-cover border-[10px] border-ivory shadow-2xl"
+          loading="eager"
+        />
       </section>
 
       {/* Quick actions */}

@@ -14,9 +14,9 @@ import hero from "@/assets/hero-family.jpg";
 import clinic from "@/assets/clinic-interior.jpg";
 import ig1 from "@/assets/ig-1.jpg";
 import tourTreatmentRoom from "@/assets/tour/tour-15.jpg";
-import tourExterior from "@/assets/tour/tour-13.jpg";
-import tourReception from "@/assets/tour/tour-11.jpg";
-import tourLobby from "@/assets/tour/tour-16.jpg";
+import clinicExterior from "@/assets/clinic/clinic-exterior.jpg";
+import clinicLounge from "@/assets/clinic/clinic-lounge.jpg";
+import clinicTreatmentRoom from "@/assets/clinic/clinic-treatment-room.jpg";
 
 
 const SERVICES = [
@@ -36,9 +36,9 @@ const HIGHLIGHTS = [
 
 const HERO_SLIDES: HeroSlide[] = [
   { src: hero, position: "50% center", alt: "A multi-generation Indian family smiling together", eyebrow: "For the whole family", caption: "Healthy skin for every generation." },
-  { src: tourExterior, framed: true, alt: "The Skin Clinic building surrounded by greenery on Kadri Kambla Road, Mangaluru", eyebrow: "Visit us", caption: "A calm clinic in the heart of Mangaluru." },
-  { src: tourReception, framed: true, alt: "The welcoming reception area at The Skin Clinic", eyebrow: "A warm welcome", caption: "No rush. No pressure. Just thoughtful care." },
-  { src: tourLobby, framed: true, alt: "The Skin Clinic reception and waiting area", eyebrow: "Step inside", caption: "Comfortable, confidential, considered." },
+  { src: clinicExterior, position: "40% center", alt: "The glass-fronted Skin Clinic building surrounded by greenery on Kadri Kambla Road, Mangaluru", eyebrow: "Visit us", caption: "A calm clinic in the heart of Mangaluru." },
+  { src: clinicLounge, position: "45% center", alt: "The waiting lounge at The Skin Clinic", eyebrow: "Step inside", caption: "Comfortable, confidential, considered." },
+  { src: clinicTreatmentRoom, position: "55% center", alt: "A treatment room with medical-grade lasers at The Skin Clinic", eyebrow: "Modern care", caption: "Clinical technology, calmly delivered." },
 ];
 
 export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
