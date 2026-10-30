@@ -29,7 +29,7 @@ const CLIP_MS = 9000;
 const SWAP_LEAD_MS = 6000; // the next clip loads this long before it fades in, so the player's own buttons have gone
 
 const embed = (clip: ReelClip) =>
-  `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=1&controls=0&start=${clip.start}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
+  `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=1&controls=0&start=${clip.start}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1&enablejsapi=1`;
 
 // Sound is switched with YouTube's postMessage commands, so the iframes never reload.
 const sendCommand = (frame: HTMLIFrameElement | null, func: string, args: unknown[] = []) =>
