@@ -5,7 +5,7 @@ import { medicalTreatments, cosmeticTreatments } from "@/lib/treatments";
 import { comparisonGroups, comparisonNotes } from "@/lib/treatment-comparisons";
 
 const allGuides = [...medicalTreatments, ...cosmeticTreatments];
-const selectClass = "w-full bg-background border border-border px-3 py-3 text-sm rounded-none focus:outline-none focus:ring-2 focus:ring-sage";
+const selectClass = "w-full bg-background border border-border px-3 py-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-sage transition-shadow hover:border-sage/60";
 
 export function TreatmentComparison() {
   const [groupId, setGroupId] = useState(comparisonGroups[0].id);
@@ -31,7 +31,7 @@ export function TreatmentComparison() {
           {[left, right].map(id => {
             const guide = allGuides.find(g => g.id === id)!;
             const notes = comparisonNotes[id];
-            return <article key={id} className="bg-background border border-border p-6 md:p-8 min-w-0">
+            return <article key={id} className="ai-rise bg-background border border-border rounded-2xl p-6 md:p-8 min-w-0 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-sage/15">
               <p className="text-xs text-sage-dark mb-3">{medicalTreatments.some(g => g.id === id) ? "MEDICAL DERMATOLOGY" : "COSMETIC CARE"}</p>
               <h3 className="font-display text-3xl leading-tight min-h-16">{guide.name}</h3>
               <dl className="mt-6 divide-y divide-border">

@@ -179,3 +179,43 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-kenburns, .hero-progress, .hero-float { animation: none; }
 }
+
+/* Skin AI: floating orb, shimmer, staggered reveal */
+@keyframes ai-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+@keyframes ai-spin { to { transform: rotate(360deg); } }
+@keyframes ai-ring {
+  0% { transform: scale(0.85); opacity: 0.55; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+@keyframes ai-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+@keyframes ai-rise {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ai-dot {
+  0%, 80%, 100% { transform: scale(0.55); opacity: 0.35; }
+  40% { transform: scale(1); opacity: 1; }
+}
+@keyframes ai-blink { 50% { opacity: 0; } }
+
+@utility ai-float { animation: ai-float 7s ease-in-out infinite; }
+@utility ai-float-slow { animation: ai-float 10s ease-in-out infinite; }
+@utility ai-spin-slow { animation: ai-spin 14s linear infinite; }
+@utility ai-ring { animation: ai-ring 2.8s ease-out infinite; }
+@utility ai-shimmer {
+  background-size: 200% 100%;
+  animation: ai-shimmer 1.8s linear infinite;
+}
+@utility ai-rise { animation: ai-rise 0.7s var(--ease-out-expo) both; animation-delay: var(--ai-delay, 0ms); }
+@utility ai-dot { animation: ai-dot 1.2s ease-in-out infinite; animation-delay: var(--ai-delay, 0ms); }
+@utility ai-blink { animation: ai-blink 1s steps(2) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-float, .ai-float-slow, .ai-spin-slow, .ai-ring, .ai-shimmer, .ai-rise, .ai-dot, .ai-blink { animation: none; }
+}
