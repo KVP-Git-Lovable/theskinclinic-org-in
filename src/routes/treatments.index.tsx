@@ -48,7 +48,7 @@ function Treatments() {
       <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-14">
         <div aria-hidden className="pointer-events-none absolute -top-16 right-0 size-[26rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
         {/* Muted reel of short treatment clips from the clinic's Skin Talks channel; plays by itself */}
-        <div className="hidden xl:block absolute right-6 top-12 2xl:-right-16 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+        <div className="hidden xl:block absolute right-6 top-12 z-10 2xl:-right-16 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <HeroReel />
         </div>
         <p className="relative text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Treatments</p>
