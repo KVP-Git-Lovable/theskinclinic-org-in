@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { CLINIC } from "@/lib/clinic";
 import { supabase } from "@/integrations/supabase/client";
-import clinicSignboard from "@/assets/clinic/clinic-signboard.jpg";
+import clinicStreet from "@/assets/clinic/clinic-street.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -94,10 +94,10 @@ function Contact() {
         {/* Full-bleed photo: a banner under the heading on smaller screens, the right 38% of the hero on wide ones. */}
         <div className="relative aspect-[16/9] overflow-hidden xl:absolute xl:inset-y-0 xl:right-0 xl:aspect-auto xl:w-[38%]">
           <img
-            src={clinicSignboard}
-            alt="The Skin Clinic signboard on Kadri Kambla Road, Mangaluru"
-            style={{ objectPosition: "35% 40%" }}
-            className="hero-kenburns absolute inset-0 size-full origin-[35%_45%] scale-[1.3] object-cover"
+            src={clinicStreet}
+            alt="The Skin Clinic and its signboard on Kadri Kambla Road, Mangaluru"
+            style={{ objectPosition: "52% center" }}
+            className="hero-kenburns absolute inset-0 size-full object-cover"
             fetchPriority="high"
           />
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />

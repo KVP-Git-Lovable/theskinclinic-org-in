@@ -7,7 +7,7 @@ import drPunyaAsset from "@/assets/dr-punya.png.asset.json";
 import drSurakshaAsset from "@/assets/dr-suraksha.jpg.asset.json";
 import drAshwiniAsset from "@/assets/dr-ashwini.jpg.asset.json";
 import clinicReception from "@/assets/clinic/clinic-reception.jpg";
-import clinicWaiting from "@/assets/clinic/clinic-waiting-area.jpg";
+import clinicHall from "@/assets/clinic/clinic-hall.jpg";
 
 
 export const Route = createFileRoute("/about")({
@@ -106,9 +106,9 @@ function About() {
         {/* Full-bleed photo: a banner under the text on smaller screens, the right 40% of the hero on wide ones. */}
         <div className="relative aspect-[16/10] overflow-hidden xl:absolute xl:inset-y-0 xl:right-0 xl:aspect-auto xl:w-[40%]">
           <img
-            src={clinicWaiting}
-            alt="The calm, light-filled waiting lounge at The Skin Clinic"
-            style={{ objectPosition: "55% center" }}
+            src={clinicHall}
+            alt="The bright, airy interior of The Skin Clinic"
+            style={{ objectPosition: "60% center" }}
             className="hero-kenburns absolute inset-0 size-full object-cover"
             fetchPriority="high"
           />
