@@ -36,8 +36,8 @@ export function TestimonialSlider() {
         </blockquote>
         <figcaption className="mt-8 flex items-center gap-4">
           <span className="h-px w-10 bg-sage" />
-          <span className="text-[11px] uppercase tracking-[0.3em]">{t.name}</span>
-          <span className="text-[10px] uppercase tracking-[0.25em] opacity-50">Patient review</span>
+          <span className="text-[12.5px] uppercase tracking-[0.3em]">{t.name}</span>
+          <span className="text-[11.5px] uppercase tracking-[0.25em] opacity-50">Patient review</span>
         </figcaption>
       </figure>
 

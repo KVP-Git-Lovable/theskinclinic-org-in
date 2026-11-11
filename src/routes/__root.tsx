@@ -20,7 +20,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-ivory px-4">
       <div className="max-w-md text-center">
-        <p className="text-[11px] uppercase tracking-[0.3em] opacity-50">Error 404</p>
+        <p className="text-[12.5px] uppercase tracking-[0.3em] opacity-50">Error 404</p>
         <h1 className="font-display text-6xl mt-6 text-navy">Not found</h1>
         <p className="mt-4 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
@@ -28,7 +28,7 @@ function NotFoundComponent() {
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center bg-navy px-8 py-3 text-[11px] uppercase tracking-[0.2em] text-ivory hover:bg-sage transition-colors"
+            className="inline-flex items-center justify-center bg-navy px-8 py-3 text-[12.5px] uppercase tracking-[0.2em] text-ivory hover:bg-sage transition-colors"
           >
             Return home
           </Link>
@@ -58,13 +58,13 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
               router.invalidate();
               reset();
             }}
-            className="bg-navy px-6 py-2 text-[11px] uppercase tracking-widest text-ivory hover:bg-sage transition-colors"
+            className="bg-navy px-6 py-2 text-[12.5px] uppercase tracking-widest text-ivory hover:bg-sage transition-colors"
           >
             Try again
           </button>
           <a
             href="/"
-            className="border border-navy/20 px-6 py-2 text-[11px] uppercase tracking-widest hover:bg-navy hover:text-ivory transition-colors"
+            className="border border-navy/20 px-6 py-2 text-[12.5px] uppercase tracking-widest hover:bg-navy hover:text-ivory transition-colors"
           >
             Go home
           </a>

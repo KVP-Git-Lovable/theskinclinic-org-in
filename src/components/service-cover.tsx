@@ -73,7 +73,7 @@ export function ServiceCover({
           className="absolute inset-0 size-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
         />
         {showLabel && categoryLabel && (
-          <span className={`absolute left-4 top-4 px-3 py-1 text-[10px] uppercase tracking-[0.2em] backdrop-blur-sm ${t.chip}`}>
+          <span className={`absolute left-4 top-4 px-3 py-1 text-[11.5px] uppercase tracking-[0.2em] backdrop-blur-sm ${t.chip}`}>
             {categoryLabel}
           </span>
         )}
@@ -88,7 +88,7 @@ export function ServiceCover({
         </span>
       </div>
       {showLabel && categoryLabel && (
-        <span className={`absolute left-4 top-4 px-3 py-1 text-[10px] uppercase tracking-[0.2em] backdrop-blur-sm ${t.chip}`}>
+        <span className={`absolute left-4 top-4 px-3 py-1 text-[11.5px] uppercase tracking-[0.2em] backdrop-blur-sm ${t.chip}`}>
           {categoryLabel}
         </span>
       )}

@@ -39,7 +39,7 @@ const FIND_US = ["Google search", "Instagram", "Facebook", "YouTube", "Friend or
 const field =
   "peer w-full bg-transparent border-b border-navy/25 pt-6 pb-2 outline-none transition-colors focus:border-sage placeholder-transparent";
 const floating =
-  "pointer-events-none absolute left-0 top-1.5 text-[10px] uppercase tracking-widest opacity-60 transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:top-1.5 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-sage peer-focus:opacity-100";
+  "pointer-events-none absolute left-0 top-1.5 text-[11.5px] uppercase tracking-widest opacity-60 transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:top-1.5 peer-focus:text-[11.5px] peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-sage peer-focus:opacity-100";
 
 function Contact() {
   const [sent, setSent] = useState(false);
@@ -83,7 +83,7 @@ function Contact() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-16 xl:min-h-[30rem]">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Contact us</p>
+          <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Contact us</p>
           <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] animate-fade-up">
             Let's talk about
             <br />
@@ -101,7 +101,7 @@ function Contact() {
             fetchPriority="high"
           />
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
-          <p className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.35em] text-ivory/90">Find us · Kadri Kambla Road</p>
+          <p className="absolute bottom-6 left-6 text-[11.5px] uppercase tracking-[0.35em] text-ivory/90">Find us · Kadri Kambla Road</p>
         </div>
       </section>
 
@@ -118,7 +118,7 @@ function Contact() {
               >
                 <span className="relative z-10 block">
                   <q.icon className="size-7 text-sage mb-8 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.25} />
-                  <span className="block text-[10px] uppercase tracking-[0.25em] opacity-60 mb-2">{q.label}</span>
+                  <span className="block text-[11.5px] uppercase tracking-[0.25em] opacity-60 mb-2">{q.label}</span>
                   <span className="flex items-center justify-between gap-2 font-display text-xl break-all">
                     {q.value}
                     <ArrowUpRight className="size-4 shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
@@ -133,8 +133,8 @@ function Contact() {
       {/* Form + map */}
       <section className="max-w-7xl mx-auto px-6 pb-28 grid lg:grid-cols-12 gap-14">
         <Reveal className="lg:col-span-6">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-4">Drop a line</p>
-          <h2 className="font-display text-4xl md:text-5xl mb-10">Book a consultation</h2>
+          <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-4">Drop a line</p>
+          <h2 className="font-display text-4xl md:text-[3.5rem] mb-10">Book a consultation</h2>
           <form onSubmit={handleSubmit} className="space-y-7">
             <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             <div className="relative">
@@ -153,7 +153,7 @@ function Contact() {
             </div>
             <div className="grid sm:grid-cols-2 gap-7">
               <div>
-                <label htmlFor="interest" className="text-[10px] uppercase tracking-widest opacity-60 block">Interested in</label>
+                <label htmlFor="interest" className="text-[11.5px] uppercase tracking-widest opacity-60 block">Interested in</label>
                 <select id="interest" name="interest" className="w-full bg-transparent border-b border-navy/25 py-3 outline-none transition-colors focus:border-sage">
                   <option>Skin consultation</option>
                   <option>Laser hair reduction</option>
@@ -163,7 +163,7 @@ function Contact() {
                 </select>
               </div>
               <div>
-                <label htmlFor="source" className="text-[10px] uppercase tracking-widest opacity-60 block">How did you find us?</label>
+                <label htmlFor="source" className="text-[11.5px] uppercase tracking-widest opacity-60 block">How did you find us?</label>
                 <select id="source" name="source" className="w-full bg-transparent border-b border-navy/25 py-3 outline-none transition-colors focus:border-sage">
                   {FIND_US.map((o) => (
                     <option key={o}>{o}</option>
@@ -178,7 +178,7 @@ function Contact() {
             <button
               type="submit"
               disabled={sent || submitting}
-              className="group relative inline-flex items-center gap-3 overflow-hidden bg-navy text-ivory px-12 py-4 text-[11px] uppercase tracking-[0.25em] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-60 before:absolute before:inset-0 before:origin-left before:scale-x-0 before:bg-sage-dark before:transition-transform before:duration-500 hover:before:scale-x-100 [&>*]:relative [&>*]:z-10"
+              className="group relative inline-flex items-center gap-3 overflow-hidden bg-navy text-ivory px-12 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-60 before:absolute before:inset-0 before:origin-left before:scale-x-0 before:bg-sage-dark before:transition-transform before:duration-500 hover:before:scale-x-100 [&>*]:relative [&>*]:z-10"
             >
               {submitting ? (
                 <>Sending…</>
@@ -209,17 +209,17 @@ function Contact() {
           <div className="mt-6 grid sm:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
             <div className="bg-ivory p-7">
               <MapPin className="size-5 text-sage mb-4" strokeWidth={1.25} />
-              <p className="text-[10px] uppercase tracking-[0.25em] opacity-50 mb-3">Visit us</p>
+              <p className="text-[11.5px] uppercase tracking-[0.25em] opacity-50 mb-3">Visit us</p>
               {CLINIC.addressLines.map((l) => (
                 <p key={l} className="leading-relaxed">{l}</p>
               ))}
-              <a href={CLINIC.mapHref} target="_blank" rel="noreferrer" className="mt-3 inline-block text-[11px] uppercase tracking-[0.2em] text-sage-dark hover:text-navy transition-colors">
+              <a href={CLINIC.mapHref} target="_blank" rel="noreferrer" className="mt-3 inline-block text-[12.5px] uppercase tracking-[0.2em] text-sage-dark hover:text-navy transition-colors">
                 Get directions →
               </a>
             </div>
             <div className="bg-ivory p-7">
               <Clock className="size-5 text-sage mb-4" strokeWidth={1.25} />
-              <p className="text-[10px] uppercase tracking-[0.25em] opacity-50 mb-3">Hours</p>
+              <p className="text-[11.5px] uppercase tracking-[0.25em] opacity-50 mb-3">Hours</p>
               <p className="leading-relaxed">{CLINIC.hoursDay}</p>
               <p className="leading-relaxed">{CLINIC.hoursTime}</p>
               <p className="mt-3 text-sm opacity-60">{CLINIC.phoneDisplay} · {CLINIC.phone2Display}</p>
@@ -233,8 +233,8 @@ function Contact() {
         <div aria-hidden className="pointer-events-none absolute -bottom-32 -left-24 size-[30rem] rounded-full bg-sage/10 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-14">
           <Reveal className="lg:col-span-5">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Careers</p>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1.05]">
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Careers</p>
+            <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05]">
               Join our <em className="text-sage">team.</em>
             </h2>
             <div className="h-px w-16 bg-sage my-8" />
@@ -246,13 +246,13 @@ function Contact() {
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href={`mailto:${CLINIC.careersEmail}?subject=Application%20-%20The%20Skin%20Clinic`}
-                className="group inline-flex items-center gap-3 bg-ivory text-navy px-8 py-4 text-[11px] uppercase tracking-[0.25em] transition-all duration-300 hover:bg-sage hover:text-ivory hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-3 bg-ivory text-navy px-8 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-all duration-300 hover:bg-sage hover:text-ivory hover:-translate-y-0.5"
               >
                 <Mail className="size-4" /> Email your CV
               </a>
               <a
                 href={CLINIC.phoneHref}
-                className="inline-flex items-center gap-3 border border-ivory/30 px-8 py-4 text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-ivory hover:text-navy"
+                className="inline-flex items-center gap-3 border border-ivory/30 px-8 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:bg-ivory hover:text-navy"
               >
                 <Phone className="size-4" /> {CLINIC.phoneDisplay}
               </a>
@@ -261,7 +261,7 @@ function Contact() {
           </Reveal>
 
           <Reveal className="lg:col-span-7" delay={150}>
-            <p className="text-[10px] uppercase tracking-[0.3em] opacity-50 mb-5">Current openings</p>
+            <p className="text-[11.5px] uppercase tracking-[0.3em] opacity-50 mb-5">Current openings</p>
             <article className="group border border-ivory/15 p-8 md:p-10 transition-all duration-500 hover:border-sage hover:bg-ivory/5">
               <div className="flex items-start justify-between gap-6">
                 <div className="flex items-center gap-4">
@@ -270,11 +270,11 @@ function Contact() {
                   </span>
                   <div>
                     <h3 className="font-display text-3xl">Dermatosurgeon</h3>
-                    <p className="text-[10px] uppercase tracking-[0.25em] opacity-50 mt-1">Mangaluru · Full time</p>
+                    <p className="text-[11.5px] uppercase tracking-[0.25em] opacity-50 mt-1">Mangaluru · Full time</p>
                   </div>
                 </div>
               </div>
-              <p className="mt-8 text-[11px] uppercase tracking-[0.25em] opacity-60 mb-4">Requirements</p>
+              <p className="mt-8 text-[12.5px] uppercase tracking-[0.25em] opacity-60 mb-4">Requirements</p>
               <ul className="space-y-3">
                 {[
                   "MD in Dermatology, Venereology and Leprology",
@@ -291,7 +291,7 @@ function Contact() {
               </ul>
               <a
                 href={`mailto:${CLINIC.careersEmail}?subject=Application%20-%20Dermatosurgeon`}
-                className="mt-9 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] border-b border-ivory/60 pb-1 transition-colors hover:text-sage hover:border-sage"
+                className="mt-9 inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em] border-b border-ivory/60 pb-1 transition-colors hover:text-sage hover:border-sage"
               >
                 Apply for this role <ArrowUpRight className="size-3.5" />
               </a>

@@ -22,7 +22,7 @@ export function WhatsAppButton({
       href={CLINIC.whatsappHref}
       target="_blank"
       rel="noreferrer"
-      className={`inline-flex items-center gap-3 bg-sage text-ivory px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors ${className}`}
+      className={`inline-flex items-center gap-3 bg-sage text-ivory px-8 py-4 text-[12.5px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors ${className}`}
     >
       <WhatsAppIcon className={iconClassName} />
       {label}
@@ -40,7 +40,7 @@ export function WhatsAppFab() {
       className="group fixed bottom-6 right-6 z-40 flex items-center gap-3 rounded-full bg-sage-dark text-ivory p-4 shadow-xl shadow-navy/25 hover:bg-navy transition-colors"
     >
       <WhatsAppIcon className="size-6 shrink-0" />
-      <span className="hidden sm:inline text-[10px] uppercase tracking-[0.25em] max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-[12rem] group-hover:opacity-100 transition-all duration-500">
+      <span className="hidden sm:inline text-[11.5px] uppercase tracking-[0.25em] max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-[12rem] group-hover:opacity-100 transition-all duration-500">
         Chat with us
       </span>
     </a>

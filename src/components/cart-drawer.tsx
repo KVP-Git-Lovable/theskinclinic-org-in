@@ -36,13 +36,13 @@ export function CartDrawer() {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <button
-          className="relative flex items-center gap-2 text-[11px] uppercase tracking-widest font-medium hover:opacity-70 transition-opacity"
+          className="relative flex items-center gap-2 text-[12.5px] uppercase tracking-widest font-medium hover:opacity-70 transition-opacity"
           aria-label="Open cart"
         >
           <ShoppingBag className="size-4" />
           <span className="hidden sm:inline">Cart</span>
           {totalItems > 0 && (
-            <Badge className="absolute -top-2 -right-3 h-4 min-w-4 rounded-full px-1 flex items-center justify-center text-[9px] bg-accent text-accent-foreground border-0">
+            <Badge className="absolute -top-2 -right-3 h-4 min-w-4 rounded-full px-1 flex items-center justify-center text-[12.5px] bg-accent text-accent-foreground border-0">
               {totalItems}
             </Badge>
           )}
@@ -120,12 +120,12 @@ export function CartDrawer() {
                   <span className="text-xs uppercase tracking-widest opacity-60">Subtotal</span>
                   <span className="font-display text-2xl">{formatINR(totalPrice)}</span>
                 </div>
-                <p className="text-[10px] uppercase tracking-widest opacity-40">
+                <p className="text-[11.5px] uppercase tracking-widest opacity-40">
                   Shipping calculated at checkout
                 </p>
                 <Button
                   onClick={handleCheckout}
-                  className="w-full rounded-none h-12 text-[11px] uppercase tracking-[0.2em] bg-navy hover:bg-navy/90 text-ivory"
+                  className="w-full rounded-none h-12 text-[12.5px] uppercase tracking-[0.2em] bg-navy hover:bg-navy/90 text-ivory"
                   disabled={items.length === 0 || isLoading || isSyncing}
                 >
                   {isLoading || isSyncing ? (

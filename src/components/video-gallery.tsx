@@ -43,7 +43,7 @@ export function VideoGallery({ dark = false }: { dark?: boolean }) {
                 </span>
               </span>
               <span className="absolute bottom-0 left-0 p-6 text-left text-ivory">
-                <span className="block text-[10px] uppercase tracking-[0.3em] opacity-80 mb-2">{current.tag}</span>
+                <span className="block text-[11.5px] uppercase tracking-[0.3em] opacity-80 mb-2">{current.tag}</span>
                 <span className="block font-display text-2xl md:text-3xl leading-tight max-w-xl">{current.title}</span>
               </span>
             </button>
@@ -75,7 +75,7 @@ export function VideoGallery({ dark = false }: { dark?: boolean }) {
                 <Play className="absolute inset-0 m-auto size-5 text-ivory drop-shadow" fill="currentColor" />
               </span>
               <span className="min-w-0">
-                <span className="block text-[10px] uppercase tracking-[0.2em] opacity-60">{v.tag}</span>
+                <span className="block text-[11.5px] uppercase tracking-[0.2em] opacity-60">{v.tag}</span>
                 <span className="block text-sm leading-snug line-clamp-2 mt-1">{v.title}</span>
               </span>
             </button>
@@ -85,7 +85,7 @@ export function VideoGallery({ dark = false }: { dark?: boolean }) {
           href={YOUTUBE_CHANNEL}
           target="_blank"
           rel="noreferrer"
-          className="mt-2 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] hover:text-sage transition-colors"
+          className="mt-2 inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em] hover:text-sage transition-colors"
         >
           More on our YouTube channel <ArrowUpRight className="size-3.5" />
         </a>

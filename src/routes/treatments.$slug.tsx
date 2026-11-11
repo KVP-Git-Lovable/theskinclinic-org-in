@@ -31,7 +31,7 @@ export const Route = createFileRoute("/treatments/$slug")({
       <SiteHeader />
       <div className="max-w-3xl mx-auto px-6 py-40 text-center">
         <h1 className="font-display text-5xl mb-6">Treatment not found</h1>
-        <Link to="/treatments" className="text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1">
+        <Link to="/treatments" className="text-[12.5px] uppercase tracking-[0.25em] border-b border-navy pb-1">
           See all treatments
         </Link>
       </div>
@@ -61,10 +61,10 @@ function ServicePage() {
       <header className="relative overflow-hidden bg-gradient-to-br from-mist via-mist/60 to-ivory">
         <s.icon aria-hidden className="absolute -right-10 -bottom-12 size-[26rem] text-sage-dark/10 animate-soft-zoom" strokeWidth={0.5} />
         <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-20">
-          <Link to="/treatments" className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] opacity-70 hover:opacity-100 mb-10">
+          <Link to="/treatments" className="inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em] opacity-70 hover:opacity-100 mb-10">
             <ArrowLeft className="size-3" /> All treatments
           </Link>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-5 animate-fade-up">{cat.label}</p>
+          <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage-dark mb-5 animate-fade-up">{cat.label}</p>
           <h1 className="font-display text-5xl md:text-7xl leading-[1] max-w-4xl animate-fade-up">{s.name}</h1>
           <p className="mt-6 text-xl md:text-2xl max-w-2xl leading-snug opacity-75 animate-fade-up" style={{ animationDelay: "0.2s" }}>{s.tagline}</p>
         </div>
@@ -84,7 +84,7 @@ function ServicePage() {
                 <div key={f.label} className="flex gap-4 border border-navy/15 p-6 transition-colors hover:border-sage">
                   <f.icon className="size-6 shrink-0 text-sage" strokeWidth={1.25} />
                   <div>
-                    <dt className="text-[10px] uppercase tracking-[0.25em] opacity-55">{f.label}</dt>
+                    <dt className="text-[11.5px] uppercase tracking-[0.25em] opacity-55">{f.label}</dt>
                     <dd className="mt-1.5 text-lg leading-snug">{f.value}</dd>
                   </div>
                 </div>
@@ -93,13 +93,13 @@ function ServicePage() {
           </Reveal>
 
           <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl mb-4">What it is</h2>
+            <h2 className="font-display text-3xl md:text-[2.5rem] mb-4">What it is</h2>
             <p className="text-lg leading-[1.75] opacity-80">{s.whatItIs}</p>
             {s.device && <p className="mt-3 text-sm opacity-55">Technology: {s.device}</p>}
           </Reveal>
 
           <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl mb-5">Who it's for</h2>
+            <h2 className="font-display text-3xl md:text-[2.5rem] mb-5">Who it's for</h2>
             <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
               {s.bestFor.map((b) => (
                 <li key={b} className="flex gap-3 text-lg leading-snug">
@@ -111,7 +111,7 @@ function ServicePage() {
           </Reveal>
 
           <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl mb-5">How it works</h2>
+            <h2 className="font-display text-3xl md:text-[2.5rem] mb-5">How it works</h2>
             <ol className="space-y-5">
               {s.howItWorks.map((h, i) => (
                 <li key={h} className="flex gap-5">
@@ -138,7 +138,7 @@ function ServicePage() {
             <p className="mt-3 text-sm opacity-70">Consult first, commit later. Your doctor will explain your options.</p>
             <Link
               to="/contact"
-              className="mt-7 flex items-center justify-between bg-ivory text-navy px-6 py-4 text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-sage hover:text-ivory"
+              className="mt-7 flex items-center justify-between bg-ivory text-navy px-6 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:bg-sage hover:text-ivory"
             >
               Book a consultation <ArrowRight className="size-3.5" />
             </Link>
@@ -156,7 +156,7 @@ function ServicePage() {
       {related.length > 0 && (
         <section className="bg-mist/40 py-20">
           <div className="max-w-7xl mx-auto px-6">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">More in {cat.label.toLowerCase()}</p>
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8">More in {cat.label.toLowerCase()}</p>
             <div className="grid md:grid-cols-3 gap-6">
               {related.map((r) => (
                 <Link
@@ -168,7 +168,7 @@ function ServicePage() {
                   <r.icon className="size-6 text-sage mb-5" strokeWidth={1.25} />
                   <h3 className="font-display text-2xl leading-tight">{r.name}</h3>
                   <p className="mt-2 text-sm opacity-65 leading-relaxed">{r.tagline}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em]">
+                  <span className="mt-5 inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em]">
                     Learn more <ArrowRight className="size-3 transition-transform group-hover:translate-x-2" />
                   </span>
                 </Link>

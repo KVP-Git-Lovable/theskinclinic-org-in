@@ -82,7 +82,7 @@ function About() {
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[36rem] xl:flex xl:flex-col xl:justify-center">
           <div className="xl:max-w-[44rem]">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">About · Est. 2018</p>
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">About · Est. 2018</p>
             <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] animate-fade-up">
               Simply. Better.
               <br />
@@ -105,7 +105,7 @@ function About() {
             fetchPriority="high"
           />
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
-          <p className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.35em] text-ivory/90">Kadri Kambla Road · Mangaluru</p>
+          <p className="absolute bottom-6 left-6 text-[11.5px] uppercase tracking-[0.35em] text-ivory/90">Kadri Kambla Road · Mangaluru</p>
         </div>
       </section>
 
@@ -114,8 +114,8 @@ function About() {
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-navy/10">
           {STATS.map((s) => (
             <div key={s.label} className="bg-mist/60 px-6 py-10">
-              <p className="font-display text-4xl md:text-5xl leading-none">{s.value}</p>
-              <p className="mt-3 text-[10px] uppercase tracking-[0.16em] opacity-70 leading-relaxed">{s.label}</p>
+              <p className="font-display text-4xl md:text-[3.5rem] leading-none">{s.value}</p>
+              <p className="mt-3 text-[11.5px] uppercase tracking-[0.16em] opacity-70 leading-relaxed">{s.label}</p>
             </div>
           ))}
         </div>
@@ -127,8 +127,8 @@ function About() {
           <img src={drVindhya} alt="Dr. Vindhya A. Pai, founder" className="w-full aspect-[4/5] object-cover object-top" loading="lazy" />
         </div>
         <div className="md:col-span-7">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Our story</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-[1.1] mb-8">
+          <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Our story</p>
+          <h2 className="font-display text-4xl md:text-[3.5rem] leading-[1.1] mb-8">
             "The best dermatology is often the least visible."
           </h2>
           <p className="text-lg leading-relaxed opacity-80 mb-6">
@@ -155,8 +155,8 @@ function About() {
       {/* Values */}
       <section className="bg-navy text-ivory py-28">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Why patients choose us</p>
-          <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-16 max-w-3xl">
+          <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Why patients choose us</p>
+          <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05] mb-16 max-w-3xl">
             Considered care, <em className="text-sage">without the rush.</em>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-ivory/10">
@@ -173,8 +173,8 @@ function About() {
 
       {/* Team */}
       <section className="max-w-7xl mx-auto px-6 py-28">
-        <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">The team</p>
-        <h2 className="font-display text-5xl md:text-6xl mb-16">
+        <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">The team</p>
+        <h2 className="font-display text-5xl md:text-[4.25rem] mb-16">
           Three dermatologists.
           <br />
           <em className="text-sage">One promise.</em>
@@ -192,7 +192,7 @@ function About() {
               </div>
               <div className="col-span-3 flex flex-col justify-center">
                 <h3 className="font-display text-2xl leading-tight">{d.name}</h3>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-sage-dark mt-2">{d.role}</p>
+                <p className="text-[11.5px] uppercase tracking-[0.18em] text-sage-dark mt-2">{d.role}</p>
                 <p className="text-xs opacity-60 mt-1">{d.quals}</p>
                 <p className="text-sm opacity-75 leading-relaxed mt-4">{d.bio}</p>
               </div>
@@ -205,7 +205,7 @@ function About() {
       <section className="bg-mist/40 py-28">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Inside the clinic</p>
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Inside the clinic</p>
             <h2 className="font-display text-5xl leading-[1.05] mb-8">
               Designed as a
               <br />
@@ -217,7 +217,7 @@ function About() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 bg-navy text-ivory px-10 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
+              className="inline-flex items-center gap-3 bg-navy text-ivory px-10 py-4 text-[12.5px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
             >
               Book a consultation <ArrowRight className="size-3" />
             </Link>

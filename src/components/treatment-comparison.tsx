@@ -20,7 +20,7 @@ export function TreatmentComparison() {
     <section id="compare" aria-labelledby="compare-heading" className="scroll-mt-24 bg-mist/30 border-y border-border">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="flex items-center gap-3 text-sage-dark text-xs mb-5"><Columns2 size={18} strokeWidth={1.5} /> UNDERSTAND THE DIFFERENCE</div>
-        <h2 id="compare-heading" className="font-display text-4xl md:text-5xl">Two options. <em className="text-sage">A clearer picture.</em></h2>
+        <h2 id="compare-heading" className="font-display text-4xl md:text-[3.5rem]">Two options. <em className="text-sage">A clearer picture.</em></h2>
         <p className="mt-5 text-muted-foreground max-w-2xl leading-relaxed">Medical care addresses skin health. Cosmetic care may improve appearance. Related options are not necessarily alternatives—and you may not need a procedure at all.</p>
         <div className="grid md:grid-cols-3 gap-5 mt-8">
           <label className="text-sm">Your skin concern<select value={groupId} onChange={e => changeGroup(e.target.value)} className={`${selectClass} mt-2`}>{comparisonGroups.map(g => <option key={g.id} value={g.id}>{g.name}</option>)}</select></label>

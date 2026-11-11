@@ -28,7 +28,7 @@ export function SiteFooter() {
           <Link to="/" aria-label="Tha Skin Clinic — home" className="mb-6 block">
             <img src={logoAsset.url} alt="The Skin Clinic" className="h-16 w-auto" />
           </Link>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-sage mb-5">{CLINIC.tagline}</p>
+          <p className="text-[12.5px] uppercase tracking-[0.3em] text-sage mb-5">{CLINIC.tagline}</p>
           <p className="max-w-sm opacity-60 text-sm leading-relaxed">
             A family dermatology practice in Mangaluru offering medical dermatology, laser and aesthetic
             medicine — led by Dr. Vindhya A. Pai since 2018.
@@ -51,7 +51,7 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-2">
-          <h5 className="text-[11px] uppercase tracking-[0.25em] font-semibold mb-7">Explore</h5>
+          <h5 className="text-[12.5px] uppercase tracking-[0.25em] font-semibold mb-7">Explore</h5>
           <ul className="space-y-4 text-sm">
             {EXPLORE.map((l) => (
               <li key={l.label}>
@@ -64,7 +64,7 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-5">
-          <h5 className="text-[11px] uppercase tracking-[0.25em] font-semibold mb-7">Visit & contact</h5>
+          <h5 className="text-[12.5px] uppercase tracking-[0.25em] font-semibold mb-7">Visit & contact</h5>
           <ul className="space-y-5 text-sm">
             <li className="flex gap-4">
               <MapPin className="size-4 mt-0.5 shrink-0 text-sage" strokeWidth={1.5} />
@@ -78,7 +78,7 @@ export function SiteFooter() {
                   href={CLINIC.mapHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block mt-2 text-[11px] uppercase tracking-[0.2em] text-sage hover:text-ivory transition-colors"
+                  className="inline-block mt-2 text-[12.5px] uppercase tracking-[0.2em] text-sage hover:text-ivory transition-colors"
                 >
                   Get directions →
                 </a>
@@ -121,7 +121,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-ivory/10">
-        <div className="max-w-7xl mx-auto px-6 pr-24 py-6 flex flex-wrap items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] opacity-50">
+        <div className="max-w-7xl mx-auto px-6 pr-24 py-6 flex flex-wrap items-center justify-between gap-4 text-[11.5px] uppercase tracking-[0.25em] opacity-50">
           <span>© {new Date().getFullYear()} The Skin Clinic, Mangaluru. All rights reserved.</span>
           <nav aria-label="Homepage design previews" className="flex items-center gap-5 normal-case tracking-normal text-xs">
             <span>Preview homepage:</span>

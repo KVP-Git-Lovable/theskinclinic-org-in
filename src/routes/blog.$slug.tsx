@@ -31,7 +31,7 @@ export const Route = createFileRoute("/blog/$slug")({
       <SiteHeader />
       <div className="max-w-3xl mx-auto px-6 py-40 text-center">
         <h1 className="font-display text-5xl mb-6">Article not found</h1>
-        <Link to="/blog" className="text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1">
+        <Link to="/blog" className="text-[12.5px] uppercase tracking-[0.25em] border-b border-navy pb-1">
           Back to the journal
         </Link>
       </div>
@@ -66,7 +66,7 @@ function PostBody({ post }: { post: BlogPost }) {
         if (b.type === "h")
           return (
             <Reveal key={i}>
-              <h2 className="font-display text-3xl md:text-4xl text-navy pt-6">{b.text}</h2>
+              <h2 className="font-display text-3xl md:text-[2.5rem] text-navy pt-6">{b.text}</h2>
             </Reveal>
           );
         if (b.type === "ul")
@@ -99,7 +99,7 @@ function VideoStory({ post, related }: { post: BlogPost; related: BlogPost[] }) 
       <section className={`relative overflow-hidden bg-gradient-to-br ${post.cover}`}>
         <post.icon aria-hidden className="pointer-events-none absolute -right-16 top-10 size-[30rem] text-sage-dark/10 animate-soft-zoom" strokeWidth={0.5} />
         <div className="relative max-w-6xl mx-auto px-6 pt-14 pb-24">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] opacity-70 hover:opacity-100 mb-10">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em] opacity-70 hover:opacity-100 mb-10">
             <ArrowLeft className="size-3" /> The journal
           </Link>
 
@@ -126,8 +126,8 @@ function VideoStory({ post, related }: { post: BlogPost; related: BlogPost[] }) 
 
             {/* Story */}
             <div className="lg:col-span-7">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-5 animate-fade-up">{post.category} · Video</p>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] animate-fade-up">{post.title}</h1>
+              <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage-dark mb-5 animate-fade-up">{post.category} · Video</p>
+              <h1 className="font-display text-4xl md:text-[3.5rem] lg:text-6xl leading-[1.05] animate-fade-up">{post.title}</h1>
               <p className="mt-6 flex flex-wrap items-center gap-x-3 text-sm opacity-70 animate-fade-up" style={{ animationDelay: "0.2s" }}>
                 {post.author} · {formatPostDate(post.date)} · <Clock className="size-3.5" /> {post.video!.duration} video
               </p>
@@ -141,7 +141,7 @@ function VideoStory({ post, related }: { post: BlogPost; related: BlogPost[] }) 
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-3 bg-navy text-ivory px-8 py-4 text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-sage-dark"
+                    className="inline-flex items-center gap-3 bg-navy text-ivory px-8 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:bg-sage-dark"
                   >
                     Book a consultation <ArrowRight className="size-3" />
                   </Link>
@@ -149,7 +149,7 @@ function VideoStory({ post, related }: { post: BlogPost; related: BlogPost[] }) 
                     <Link
                       to="/treatments/$slug"
                       params={{ slug: post.treatmentSlug }}
-                      className="inline-flex items-center gap-2 border-b border-navy pb-1 text-[11px] uppercase tracking-[0.25em] transition-colors hover:border-sage hover:text-sage-dark"
+                      className="inline-flex items-center gap-2 border-b border-navy pb-1 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:border-sage hover:text-sage-dark"
                     >
                       Treatment details <ArrowUpRight className="size-3.5" />
                     </Link>
@@ -164,13 +164,13 @@ function VideoStory({ post, related }: { post: BlogPost; related: BlogPost[] }) 
       {related.length > 0 && (
         <section className="bg-navy text-ivory py-24">
           <div className="max-w-6xl mx-auto px-6">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-10">More to watch &amp; read</p>
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-10">More to watch &amp; read</p>
             <div className="grid md:grid-cols-3 gap-8">
               {related.map((p) => (
                 <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group block border border-ivory/15 p-7 transition-colors hover:border-sage">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-sage mb-3">{p.video ? "Video · " : ""}{p.category}</p>
+                  <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage mb-3">{p.video ? "Video · " : ""}{p.category}</p>
                   <h3 className="font-display text-2xl leading-tight">{p.title}</h3>
-                  <span className="mt-5 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em]">
+                  <span className="mt-5 inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em]">
                     {p.video ? "Watch" : "Read"} <ArrowRight className="size-3 transition-transform group-hover:translate-x-2" />
                   </span>
                 </Link>
@@ -203,10 +203,10 @@ function BlogPostPage() {
       <header className={`bg-gradient-to-br ${post.cover} relative overflow-hidden`}>
         <post.icon aria-hidden className="absolute -right-10 -bottom-10 size-96 text-sage-dark/15 animate-soft-zoom" strokeWidth={0.5} />
         <div className="relative max-w-3xl mx-auto px-6 pt-20 pb-20">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] opacity-70 hover:opacity-100 mb-12">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em] opacity-70 hover:opacity-100 mb-12">
             <ArrowLeft className="size-3" /> The journal
           </Link>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-5 animate-fade-up">{post.category}</p>
+          <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage-dark mb-5 animate-fade-up">{post.category}</p>
           <h1 className="font-display text-4xl md:text-6xl leading-[1.05] animate-fade-up">{post.title}</h1>
           <p className="mt-8 flex flex-wrap items-center gap-x-3 text-sm opacity-70 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             {post.author} · {formatPostDate(post.date)} · <Clock className="size-3.5" /> {post.readingMinutes} min read
@@ -227,7 +227,7 @@ function BlogPostPage() {
             if (b.type === "h")
               return (
                 <Reveal key={i}>
-                  <h2 className="font-display text-3xl md:text-4xl text-navy pt-6">{b.text}</h2>
+                  <h2 className="font-display text-3xl md:text-[2.5rem] text-navy pt-6">{b.text}</h2>
                 </Reveal>
               );
             if (b.type === "ul")
@@ -250,11 +250,11 @@ function BlogPostPage() {
 
         <Reveal>
           <div className="mt-20 bg-navy text-ivory p-10 md:p-14 text-center">
-            <p className="font-display text-3xl md:text-4xl leading-tight">Have a skin concern on your mind?</p>
+            <p className="font-display text-3xl md:text-[2.5rem] leading-tight">Have a skin concern on your mind?</p>
             <p className="mt-3 opacity-70">Consult first, commit later. No rush, no pressure.</p>
             <Link
               to="/contact"
-              className="mt-8 inline-flex items-center gap-3 bg-ivory text-navy px-10 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-sage hover:text-ivory transition-colors"
+              className="mt-8 inline-flex items-center gap-3 bg-ivory text-navy px-10 py-4 text-[12.5px] uppercase tracking-[0.25em] hover:bg-sage hover:text-ivory transition-colors"
             >
               Book a consultation <ArrowRight className="size-3" />
             </Link>
@@ -265,13 +265,13 @@ function BlogPostPage() {
       {related.length > 0 && (
         <section className="bg-mist/40 py-24">
           <div className="max-w-5xl mx-auto px-6">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-10">Keep reading</p>
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-10">Keep reading</p>
             <div className="grid md:grid-cols-2 gap-10">
               {related.map((p) => (
                 <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group block">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-3">{p.category}</p>
+                  <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage-dark mb-3">{p.category}</p>
                   <h3 className="font-display text-2xl leading-tight group-hover:text-sage-dark transition-colors">{p.title}</h3>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em]">
+                  <span className="mt-4 inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em]">
                     Read <ArrowRight className="size-3 group-hover:translate-x-2 transition-transform" />
                   </span>
                 </Link>

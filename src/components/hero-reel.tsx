@@ -191,7 +191,7 @@ export function HeroReel() {
           )}
           <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-4 pr-16 text-ivory">
-            <p className="text-[10px] uppercase tracking-[0.3em] opacity-75">Skin Talks</p>
+            <p className="text-[11.5px] uppercase tracking-[0.3em] opacity-75">Skin Talks</p>
             <p className="mt-1 font-display text-xl leading-tight">{active.name}</p>
           </div>
           {mounted && autoplay && (
@@ -223,7 +223,7 @@ export function HeroReel() {
                 }`}
               >
                 <span className="block text-sm leading-tight">{c.name}</span>
-                <span className={`block text-[11px] leading-tight ${i === index ? "opacity-70" : "opacity-50"}`}>{c.topic}</span>
+                <span className={`block text-[12.5px] leading-tight ${i === index ? "opacity-70" : "opacity-50"}`}>{c.topic}</span>
                 {i === index && mounted && autoplay && muted && (
                   <span
                     key={index}
@@ -240,7 +240,7 @@ export function HeroReel() {
           href={YOUTUBE_CHANNEL}
           target="_blank"
           rel="noreferrer"
-          className="mt-3 inline-flex items-center justify-center gap-2 bg-sage-dark px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-ivory transition-colors hover:bg-navy"
+          className="mt-3 inline-flex items-center justify-center gap-2 bg-sage-dark px-4 py-3 text-[12.5px] uppercase tracking-[0.2em] text-ivory transition-colors hover:bg-navy"
         >
           <Youtube className="size-4 shrink-0" />
           More on YouTube

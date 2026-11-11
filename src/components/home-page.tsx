@@ -60,7 +60,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
         </div>
         <div className="relative order-1 w-full max-w-7xl mx-auto px-6 grid md:order-none md:w-auto md:grid-cols-2 gap-8 py-14 md:py-32">
           <div className="animate-fade-up">
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-80 mb-8">
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-80 mb-8">
               Since 2018 — Mangalore
             </p>
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
@@ -76,14 +76,14 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
             <div className="mt-12 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="group bg-navy text-ivory px-10 py-4 text-[11px] uppercase tracking-[0.25em] flex items-center gap-3 hover:bg-sage-dark transition-colors"
+                className="group bg-navy text-ivory px-10 py-4 text-[12.5px] uppercase tracking-[0.25em] flex items-center gap-3 hover:bg-sage-dark transition-colors"
               >
                 Book a consultation
                 <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/skin-ai"
-                className="px-10 py-4 text-[11px] uppercase tracking-[0.25em] border border-navy/20 hover:bg-navy hover:text-ivory transition-all"
+                className="px-10 py-4 text-[12.5px] uppercase tracking-[0.25em] border border-navy/20 hover:bg-navy hover:text-ivory transition-all"
               >
                 Try Skin AI
               </Link>
@@ -99,7 +99,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
             <div key={h.value} className="bg-mist/60 px-6 py-9 flex flex-col gap-3">
               <h.icon className="size-5 text-sage" strokeWidth={1.25} />
               <p className="font-display text-2xl md:text-[1.75rem] leading-none">{h.value}</p>
-              <p className="text-[10px] uppercase tracking-[0.14em] leading-relaxed opacity-85 max-w-[15rem]">
+              <p className="text-[11.5px] uppercase tracking-[0.14em] leading-relaxed opacity-85 max-w-[15rem]">
                 {h.label}
               </p>
             </div>
@@ -113,7 +113,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
           <div className="flex items-center gap-4">
             <Clock className="size-8 text-sage shrink-0" strokeWidth={1} />
             <div>
-              <p className="text-[10px] uppercase tracking-[0.22em] opacity-75 mb-2">Clinic hours</p>
+              <p className="text-[11.5px] uppercase tracking-[0.22em] opacity-75 mb-2">Clinic hours</p>
               <p className="font-display text-2xl md:text-3xl leading-none">
                 {CLINIC.hoursDay} · {CLINIC.hoursTime}
               </p>
@@ -126,7 +126,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
             >
               <Phone className="size-4 text-sage shrink-0" strokeWidth={1.5} />
               <span className="text-left leading-tight">
-                <span className="block text-[10px] uppercase tracking-[0.2em] opacity-75 group-hover:opacity-90">
+                <span className="block text-[11.5px] uppercase tracking-[0.2em] opacity-75 group-hover:opacity-90">
                   Call the clinic
                 </span>
                 <span className="block font-display text-xl md:text-2xl">{CLINIC.phoneDisplay}</span>
@@ -142,12 +142,12 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-end justify-between mb-20 flex-wrap gap-6">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">What we do</p>
-              <h2 className="font-display text-5xl md:text-6xl max-w-xl leading-[1.05]">
+              <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">What we do</p>
+              <h2 className="font-display text-5xl md:text-[4.25rem] max-w-xl leading-[1.05]">
                 A quieter, more considered approach to skin.
               </h2>
             </div>
-            <Link to="/treatments" className="text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors">
+            <Link to="/treatments" className="text-[12.5px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors">
               All treatments →
             </Link>
           </div>
@@ -162,7 +162,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
                 <s.icon className="size-6 mb-8 text-sage group-hover:text-ivory transition-colors" strokeWidth={1} />
                 <h3 className="font-display text-2xl mb-4">{s.title}</h3>
                 <p className="text-sm opacity-70 leading-relaxed">{s.body}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] opacity-60 group-hover:opacity-100">
+                <span className="mt-6 inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em] opacity-60 group-hover:opacity-100">
                   Learn more <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>
@@ -178,8 +178,8 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
             <img src={tourTreatmentRoom} alt="A treatment room at The Skin Clinic" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div>
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin, understood</p>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-10">
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin, understood</p>
+            <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05] mb-10">
               Knowledge, generously shared.
             </h2>
             <div className="space-y-8">
@@ -196,12 +196,12 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
         <Reveal>
           <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin Talks</p>
-              <h2 className="font-display text-5xl md:text-6xl leading-[1.05] max-w-2xl">
+              <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Skin Talks</p>
+              <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05] max-w-2xl">
                 Watch, learn, <em className="text-sage">then decide.</em>
               </h2>
             </div>
-            <Link to="/blog" className="text-[11px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors">
+            <Link to="/blog" className="text-[12.5px] uppercase tracking-[0.25em] border-b border-navy pb-1 hover:text-sage hover:border-sage transition-colors">
               Read the journal →
             </Link>
           </div>
@@ -213,8 +213,8 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
       <section className="bg-sage-dark text-ivory py-28">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-70 mb-6">Testimonials</p>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-14">
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-70 mb-6">Testimonials</p>
+            <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05] mb-14">
               In our patients' <em>own words.</em>
             </h2>
           </Reveal>
@@ -233,7 +233,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
           >
             <Instagram className="size-6 text-sage" strokeWidth={1.25} />
             <span className="font-display text-2xl md:text-3xl">Follow us on Instagram</span>
-            <span className="text-[11px] uppercase tracking-[0.25em] opacity-60 group-hover:opacity-100 group-hover:text-sage transition-colors">
+            <span className="text-[12.5px] uppercase tracking-[0.25em] opacity-60 group-hover:opacity-100 group-hover:text-sage transition-colors">
               @theskinclinic_mangalore →
             </span>
           </a>
@@ -242,7 +242,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
 
       {/* CTA */}
       <section className="max-w-4xl mx-auto px-6 py-28 text-center">
-        <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">Begin</p>
+        <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8">Begin</p>
         <h2 className="font-display text-5xl md:text-7xl leading-[1.05]">
           Skin that feels
           <br />
@@ -253,7 +253,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-3 bg-navy text-ivory px-12 py-4 mt-12 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
+          className="inline-flex items-center gap-3 bg-navy text-ivory px-12 py-4 mt-12 text-[12.5px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors"
         >
           Book a consultation
           <ArrowRight className="size-3" />

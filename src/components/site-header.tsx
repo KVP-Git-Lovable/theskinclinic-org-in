@@ -131,7 +131,7 @@ export function SiteHeader() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-3 bg-navy py-4 text-[11px] uppercase tracking-[0.25em] text-ivory"
+                className="flex items-center justify-center gap-3 bg-navy py-4 text-[12.5px] uppercase tracking-[0.25em] text-ivory"
               >
                 Book a consultation <ArrowRight className="size-3" />
               </Link>

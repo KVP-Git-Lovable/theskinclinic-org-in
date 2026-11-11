@@ -42,14 +42,14 @@ export function BlogVideoCard({ post }: { post: BlogPost }) {
           className="absolute inset-0 size-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
         />
         <span aria-hidden className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-navy/50 to-transparent" />
-        <span className="absolute left-3 top-3 bg-ivory/90 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-navy">{post.category}</span>
-        <span className="absolute right-3 top-3 flex items-center gap-1.5 bg-navy/60 px-2.5 py-1 text-[11px] text-ivory backdrop-blur-sm">
+        <span className="absolute left-3 top-3 bg-ivory/90 px-2.5 py-1 text-[11.5px] uppercase tracking-[0.2em] text-navy">{post.category}</span>
+        <span className="absolute right-3 top-3 flex items-center gap-1.5 bg-navy/60 px-2.5 py-1 text-[12.5px] text-ivory backdrop-blur-sm">
           <Play className="size-3" fill="currentColor" /> {post.video.duration}
         </span>
       </span>
       <span className="mt-4 block text-ivory">
         <span className="block font-display text-xl leading-tight md:text-2xl">{post.title}</span>
-        <span className="mt-3 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] opacity-70 transition-all duration-300 group-hover:gap-3 group-hover:text-sage group-hover:opacity-100">
+        <span className="mt-3 inline-flex items-center gap-2 text-[11.5px] uppercase tracking-[0.25em] opacity-70 transition-all duration-300 group-hover:gap-3 group-hover:text-sage group-hover:opacity-100">
           Watch &amp; read <ArrowUpRight className="size-3.5" />
         </span>
       </span>

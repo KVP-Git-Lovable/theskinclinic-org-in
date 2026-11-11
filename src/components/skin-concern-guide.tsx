@@ -52,7 +52,7 @@ export function SkinConcernGuide() {
       <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
         <div className="lg:sticky lg:top-28">
           <p className="flex items-center gap-2 text-xs text-sage-dark mb-5"><Sparkles size={18} strokeWidth={1.5} /> YOUR SKIN, IN YOUR WORDS</p>
-          <h2 id="skin-guide-heading" className="font-display text-4xl md:text-5xl leading-tight">Not sure where<br />to begin?<br /><em className="bg-gradient-to-r from-sage via-sage-dark to-sage bg-clip-text text-transparent">Start with a concern.</em></h2>
+          <h2 id="skin-guide-heading" className="font-display text-4xl md:text-[3.5rem] leading-tight">Not sure where<br />to begin?<br /><em className="bg-gradient-to-r from-sage via-sage-dark to-sage bg-clip-text text-transparent">Start with a concern.</em></h2>
           <p className="mt-6 leading-relaxed text-muted-foreground max-w-md">Describe what's on your mind. Our AI guide finder suggests useful reading and questions for your appointment—not a diagnosis or a treatment plan.</p>
           <div className="mt-6 flex gap-3 rounded-xl border border-sage/20 bg-mist/40 p-4"><ShieldCheck className="text-sage shrink-0" size={20} /><p className="text-sm leading-relaxed text-muted-foreground">A dermatologist's assessment comes first. AI can make mistakes; don't use it to decide which treatment to have.</p></div>
           <p className="mt-5 text-xs text-muted-foreground leading-relaxed">For breathing trouble, facial swelling, severe blistering, a fast-spreading rash with fever or sudden vision changes, seek urgent medical care. Call 112 in an emergency—don't wait for this tool.</p>

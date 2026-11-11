@@ -51,7 +51,7 @@ function BlogIndex() {
       {/* Hero */}
       <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20">
         <div aria-hidden className="pointer-events-none absolute -top-10 right-0 size-[28rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
-        <p className="relative text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">The journal</p>
+        <p className="relative text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">The journal</p>
         <h1 className="relative font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] max-w-4xl animate-fade-up">
           Skin, <em className="text-sage">understood.</em>
         </h1>
@@ -67,9 +67,9 @@ function BlogIndex() {
           <div aria-hidden className="pointer-events-none absolute -left-24 top-10 size-[28rem] rounded-full bg-sage/15 blur-3xl" />
           <div className="relative max-w-7xl mx-auto px-6">
             <Reveal>
-              <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-5">Watch</p>
+              <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-5">Watch</p>
               <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-                <h2 className="font-display text-5xl md:text-6xl leading-[1.05] max-w-2xl">
+                <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05] max-w-2xl">
                   Treatments, <em className="text-sage">in motion.</em>
                 </h2>
                 <p className="max-w-sm text-sm leading-relaxed opacity-65">
@@ -91,7 +91,7 @@ function BlogIndex() {
       {/* Posts: one large featured story beside two compact ones, then a grid for any more */}
       <section className="max-w-7xl mx-auto px-6 pt-24 pb-28">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-10">Read</p>
+          <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-10">Read</p>
         </Reveal>
         <div className="grid lg:grid-cols-12 gap-8">
           <Reveal className="lg:col-span-7">
@@ -102,10 +102,10 @@ function BlogIndex() {
             >
               <PostCover post={featured} className="aspect-[16/10]" eager />
               <div className="flex flex-1 flex-col justify-center p-8 md:p-10">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-4">Featured · {featured.category}</p>
-                <h2 className="font-display text-3xl md:text-4xl leading-[1.1] group-hover:text-sage-dark transition-colors">{featured.title}</h2>
+                <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage-dark mb-4">Featured · {featured.category}</p>
+                <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1] group-hover:text-sage-dark transition-colors">{featured.title}</h2>
                 <p className="mt-4 opacity-70 leading-relaxed">{featured.excerpt}</p>
-                <span className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em]">
+                <span className="mt-6 inline-flex items-center gap-3 text-[12.5px] uppercase tracking-[0.25em]">
                   Read article <ArrowRight className="size-3 group-hover:translate-x-2 transition-transform" />
                 </span>
               </div>
@@ -122,7 +122,7 @@ function BlogIndex() {
                 >
                   <PostCover post={p} className="col-span-2 min-h-[11rem]" />
                   <div className="col-span-3 flex flex-col justify-center p-6">
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-2">{p.category}</p>
+                    <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage-dark mb-2">{p.category}</p>
                     <h3 className="font-display text-xl leading-tight group-hover:text-sage-dark transition-colors">{p.title}</h3>
                     <p className="mt-3 flex items-center gap-2 text-xs opacity-50">
                       <Clock className="size-3" /> {p.readingMinutes} min read
@@ -140,7 +140,7 @@ function BlogIndex() {
               <Reveal key={p.slug} delay={i * 120}>
                 <Link to="/blog/$slug" params={{ slug: p.slug }} className="group block h-full">
                   <PostCover post={p} className="aspect-[16/10] mb-6" />
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-sage-dark mb-3">{p.category}</p>
+                  <p className="text-[11.5px] uppercase tracking-[0.3em] text-sage-dark mb-3">{p.category}</p>
                   <h3 className="font-display text-2xl leading-tight group-hover:text-sage-dark transition-colors">{p.title}</h3>
                   <p className="mt-3 text-sm opacity-65 leading-relaxed line-clamp-3">{p.excerpt}</p>
                   <p className="mt-4 flex items-center gap-2 text-xs opacity-50">

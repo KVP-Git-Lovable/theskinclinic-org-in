@@ -51,7 +51,7 @@ function Treatments() {
         <div className="hidden xl:block absolute right-6 top-12 z-10 2xl:-right-16 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <HeroReel />
         </div>
-        <p className="relative text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Treatments</p>
+        <p className="relative text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Treatments</p>
         <h1 className="relative font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] animate-fade-up">
           Care for your skin,
           <br />
@@ -109,15 +109,15 @@ function Treatments() {
                 <p className="mt-3 flex-1 text-[15px] leading-relaxed opacity-70">{s.tagline}</p>
                 <dl className="mt-7 grid grid-cols-2 gap-4 border-t border-navy/10 pt-5 text-sm">
                   <div>
-                    <dt className="text-[10px] uppercase tracking-[0.2em] opacity-50">Sessions</dt>
+                    <dt className="text-[11.5px] uppercase tracking-[0.2em] opacity-50">Sessions</dt>
                     <dd className="mt-1 leading-snug">{s.sessions.split(",")[0]}</dd>
                   </div>
                   <div>
-                    <dt className="text-[10px] uppercase tracking-[0.2em] opacity-50">Downtime</dt>
+                    <dt className="text-[11.5px] uppercase tracking-[0.2em] opacity-50">Downtime</dt>
                     <dd className="mt-1 leading-snug">{s.downtime.split(":")[0].split(";")[0]}</dd>
                   </div>
                 </dl>
-                <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em]">
+                <span className="mt-6 inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em]">
                   Learn more <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-2" />
                 </span>
                 </div>
@@ -131,8 +131,8 @@ function Treatments() {
       <section className="bg-mist/40 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Conditions we care for</p>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-14 max-w-3xl">
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Conditions we care for</p>
+            <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05] mb-14 max-w-3xl">
               From everyday concerns to <em className="text-sage">complex skin conditions.</em>
             </h2>
           </Reveal>
@@ -160,8 +160,8 @@ function Treatments() {
       {/* Technology */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Technology</p>
-          <h2 className="font-display text-5xl md:text-6xl leading-[1.05] mb-14 max-w-3xl">
+          <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Technology</p>
+          <h2 className="font-display text-5xl md:text-[4.25rem] leading-[1.05] mb-14 max-w-3xl">
             Advanced equipment, <em className="text-sage">chosen with care.</em>
           </h2>
         </Reveal>
@@ -178,13 +178,13 @@ function Treatments() {
           </h2>
           <p className="mt-6 opacity-70 max-w-xl mx-auto">Consult first, commit later. Your doctor will listen, examine your skin and explain your options.</p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="inline-flex items-center gap-3 bg-ivory text-navy px-10 py-4 text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-sage hover:text-ivory">
+            <Link to="/contact" className="inline-flex items-center gap-3 bg-ivory text-navy px-10 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:bg-sage hover:text-ivory">
               Book a consultation <ArrowRight className="size-3" />
             </Link>
-            <a href={CLINIC.phoneHref} className="inline-flex items-center gap-3 border border-ivory/30 px-10 py-4 text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-ivory hover:text-navy">
+            <a href={CLINIC.phoneHref} className="inline-flex items-center gap-3 border border-ivory/30 px-10 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:bg-ivory hover:text-navy">
               Call {CLINIC.phoneDisplay}
             </a>
-            <Link to="/skin-ai" className="inline-flex items-center gap-3 border border-ivory/30 px-10 py-4 text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-ivory hover:text-navy">
+            <Link to="/skin-ai" className="inline-flex items-center gap-3 border border-ivory/30 px-10 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:bg-ivory hover:text-navy">
               Try Skin AI
             </Link>
           </div>

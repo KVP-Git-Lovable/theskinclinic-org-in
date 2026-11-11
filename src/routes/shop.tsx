@@ -45,7 +45,7 @@ function Shop() {
       <SiteHeader />
 
       <section className="max-w-7xl mx-auto px-6 pt-32 pb-16">
-        <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">
+        <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8">
           The Apothecary
         </p>
         <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95]">
@@ -89,7 +89,7 @@ function Shop() {
                   />
                 )}
               </div>
-              <p className="text-[10px] uppercase tracking-widest opacity-50 mb-1">
+              <p className="text-[11.5px] uppercase tracking-widest opacity-50 mb-1">
                 {p.node.options[0]?.values[0] ?? "Formula V"}
               </p>
               <h4 className="font-display text-xl leading-tight">{p.node.title}</h4>

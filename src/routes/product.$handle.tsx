@@ -70,7 +70,7 @@ function ProductPage() {
       <div className="max-w-7xl mx-auto px-6 pt-12">
         <Link
           to="/shop"
-          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] opacity-60 hover:opacity-100"
+          className="inline-flex items-center gap-2 text-[12.5px] uppercase tracking-[0.25em] opacity-60 hover:opacity-100"
         >
           <ArrowLeft className="size-3" /> Back to Formula V
         </Link>
@@ -100,8 +100,8 @@ function ProductPage() {
             )}
           </div>
           <div>
-            <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">Formula V</p>
-            <h1 className="font-display text-5xl md:text-6xl leading-[1.05]">{data.title}</h1>
+            <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Formula V</p>
+            <h1 className="font-display text-5xl md:text-[4.25rem] leading-[1.05]">{data.title}</h1>
             <p className="mt-6 font-display text-3xl text-sage">
               {formatINR(data.priceRange.minVariantPrice.amount)}
             </p>
@@ -113,7 +113,7 @@ function ProductPage() {
             <button
               onClick={handleAdd}
               disabled={isLoading}
-              className="mt-12 w-full bg-navy text-ivory h-14 text-[11px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors flex items-center justify-center gap-3 disabled:opacity-50"
+              className="mt-12 w-full bg-navy text-ivory h-14 text-[12.5px] uppercase tracking-[0.25em] hover:bg-sage-dark transition-colors flex items-center justify-center gap-3 disabled:opacity-50"
             >
               {isLoading ? (
                 <Loader2 className="size-4 animate-spin" />
