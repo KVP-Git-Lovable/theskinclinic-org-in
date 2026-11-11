@@ -2,9 +2,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { EQUIPMENT } from "@/lib/equipment";
 
-/** A swipeable row of tall photo cards: compact on the page, with the device's use revealed on hover (always shown on touch screens). */
+const AUTOPLAY_MS = 3000;
+const HOLD_MS = 8000;
+
+/** A swipeable row of tall photo cards that glides along by itself: compact on the page, with the device's use revealed on hover (always shown on touch screens). */
 export function EquipmentShowcase() {
   const rail = useRef<HTMLUListElement>(null);
+  const pausedRef = useRef(false);
+  const holdUntilRef = useRef(0);
   const [progress, setProgress] = useState(0);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
@@ -31,6 +36,29 @@ export function EquipmentShowcase() {
     el.scrollBy({ left: direction * ((card?.clientWidth ?? 240) + 16) * 2, behavior: "smooth" });
   };
 
+  // Glide to the next card every few seconds, back to the start after the last one.
+  // It pauses while the visitor hovers, focuses, touches or scrolls the row, and while the row is off screen.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = rail.current;
+    if (!el) return;
+    let visible = false;
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }, { threshold: 0.3 });
+    observer.observe(el);
+    const id = window.setInterval(() => {
+      if (!visible || pausedRef.current || Date.now() < holdUntilRef.current) return;
+      const max = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= max - 8) el.scrollTo({ left: 0, behavior: "smooth" });
+      else el.scrollBy({ left: (el.querySelector("li")?.clientWidth ?? 240) + 16, behavior: "smooth" });
+    }, AUTOPLAY_MS);
+    return () => { window.clearInterval(id); observer.disconnect(); };
+  }, []);
+
+  const pause = () => { pausedRef.current = true; };
+  const resume = () => { pausedRef.current = false; };
+  // After a touch or a button press, leave the row alone for a while.
+  const hold = () => { holdUntilRef.current = Date.now() + HOLD_MS; };
+
   const arrow = "flex size-11 items-center justify-center rounded-full border border-navy/20 transition-all duration-300 hover:bg-navy hover:text-ivory disabled:pointer-events-none disabled:opacity-30";
 
   return (
@@ -38,6 +66,12 @@ export function EquipmentShowcase() {
       <ul
         ref={rail}
         onScroll={update}
+        onMouseEnter={pause}
+        onMouseLeave={resume}
+        onFocus={pause}
+        onBlur={resume}
+        onTouchStart={() => { pause(); hold(); }}
+        onTouchEnd={() => { resume(); hold(); }}
         tabIndex={0}
         aria-label="Equipment at The Skin Clinic"
         className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sage"
@@ -73,8 +107,8 @@ export function EquipmentShowcase() {
         </div>
         <p className="text-xs tabular-nums tracking-[0.2em] opacity-60">{EQUIPMENT.length} DEVICES</p>
         <div className="flex gap-2">
-          <button type="button" onClick={() => scrollCards(-1)} disabled={!canPrev} aria-label="Previous equipment" className={arrow}><ChevronLeft className="size-5" /></button>
-          <button type="button" onClick={() => scrollCards(1)} disabled={!canNext} aria-label="Next equipment" className={arrow}><ChevronRight className="size-5" /></button>
+          <button type="button" onClick={() => { hold(); scrollCards(-1); }} disabled={!canPrev} aria-label="Previous equipment" className={arrow}><ChevronLeft className="size-5" /></button>
+          <button type="button" onClick={() => { hold(); scrollCards(1); }} disabled={!canNext} aria-label="Next equipment" className={arrow}><ChevronRight className="size-5" /></button>
         </div>
       </div>
     </div>
