@@ -53,19 +53,17 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
       <SiteHeader />
 
       {/* HERO */}
-      {option !== 1 ? <HomeOpening option={option} /> : <section className="relative min-h-[92vh] flex items-center">
-        <div className="absolute inset-0 grid md:grid-cols-2">
-          <div className="bg-mist/30" />
-          <div className="relative overflow-hidden hidden md:block">
-            <HeroSlideshow slides={HERO_SLIDES} />
-          </div>
+      {option !== 1 ? <HomeOpening option={option} /> : <section className="relative flex flex-col bg-mist/30 md:min-h-[92vh] md:flex-row md:items-center">
+        {/* One slideshow: a photo banner under the text on phones, the right half of the hero from tablet width up. */}
+        <div className="relative order-2 aspect-[4/5] w-full overflow-hidden md:absolute md:inset-y-0 md:right-0 md:order-none md:aspect-auto md:w-1/2">
+          <HeroSlideshow slides={HERO_SLIDES} />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 py-32">
+        <div className="relative order-1 w-full max-w-7xl mx-auto px-6 grid md:order-none md:w-auto md:grid-cols-2 gap-8 py-14 md:py-32">
           <div className="animate-fade-up">
             <p className="text-[11px] uppercase tracking-[0.4em] opacity-80 mb-8">
               Since 2018 — Mangalore
             </p>
-            <h1 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
               Quiet confidence,<br />
               <em className="text-sage">worn as skin.</em>
             </h1>

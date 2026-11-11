@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Clock, Phone } from "lucide-react";
+import { ArrowRight, Clock, Menu, Phone, X } from "lucide-react";
 import { WhatsAppIcon } from "./whatsapp";
 import { CLINIC } from "@/lib/clinic";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -15,6 +15,7 @@ const NAV = [
 
 export function SiteHeader() {
   const [compact, setCompact] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setCompact(window.scrollY > 40);
@@ -32,7 +33,7 @@ export function SiteHeader() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-11 flex items-center justify-between gap-4 text-xs uppercase tracking-[0.14em]">
-          <span className="flex items-center gap-2 opacity-90 whitespace-nowrap">
+          <span className="hidden sm:flex items-center gap-2 opacity-90 whitespace-nowrap">
             <Clock className="size-4 text-sage shrink-0" strokeWidth={1.5} />
             <span className="hidden sm:inline">Open {CLINIC.hoursDay}</span>
             <span className="sm:hidden">Open Mon–Sat</span>
@@ -40,7 +41,7 @@ export function SiteHeader() {
             <span className="hidden sm:inline">{CLINIC.hoursTime}</span>
             <span className="sm:hidden">{CLINIC.hoursTimeCompact}</span>
           </span>
-          <span className="flex items-center gap-4">
+          <span className="ml-auto flex items-center gap-4">
             <a
               href={CLINIC.phoneHref}
               className="group flex items-center gap-2 hover:text-sage transition-colors whitespace-nowrap"
@@ -81,7 +82,45 @@ export function SiteHeader() {
               ))}
             </div>
           </div>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="md:hidden flex size-11 items-center justify-center border border-navy/20 transition-colors hover:bg-navy hover:text-ivory"
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
         </div>
+        {open && (
+          <div id="mobile-menu" className="md:hidden max-h-[calc(100svh-8rem)] overflow-y-auto border-t border-border bg-ivory">
+            <ul className="px-6 py-2">
+              {NAV.map((n) => (
+                <li key={n.to} className="border-b border-border last:border-0">
+                  <Link
+                    to={n.to}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-between py-4 font-display text-2xl"
+                    activeProps={{ className: "text-sage" }}
+                  >
+                    {n.label}
+                    <ArrowRight className="size-4 opacity-40" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="px-6 pb-6">
+              <Link
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-3 bg-navy py-4 text-[11px] uppercase tracking-[0.25em] text-ivory"
+              >
+                Book a consultation <ArrowRight className="size-3" />
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );

@@ -67,13 +67,13 @@ export function HeroSlideshow({ slides }: { slides: HeroSlide[] }) {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent" />
 
       {/* Caption that re-animates on each slide */}
-      <div key={index} className="absolute bottom-24 left-10 right-10 text-ivory animate-fade-up">
+      <div key={index} className="absolute bottom-20 left-6 right-6 sm:bottom-24 sm:left-10 sm:right-10 text-ivory animate-fade-up">
         <p className="text-[10px] uppercase tracking-[0.35em] opacity-80 mb-3">{slides[index].eyebrow}</p>
-        <p className="font-display text-3xl lg:text-4xl leading-tight max-w-md">{slides[index].caption}</p>
+        <p className="font-display text-2xl sm:text-3xl lg:text-4xl leading-tight max-w-md">{slides[index].caption}</p>
       </div>
 
       {/* Progress indicators */}
-      <div className="absolute bottom-8 left-10 right-10 flex gap-3">
+      <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-10 sm:right-10 flex gap-3">
         {slides.map((s, i) => (
           <button
             key={s.src}

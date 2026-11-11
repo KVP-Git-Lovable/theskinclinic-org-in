@@ -48,7 +48,7 @@ function Shop() {
         <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-8">
           The Apothecary
         </p>
-        <h1 className="font-display text-6xl md:text-8xl leading-[0.95]">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95]">
           Formula <em className="text-sage">V</em>
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed opacity-75">
