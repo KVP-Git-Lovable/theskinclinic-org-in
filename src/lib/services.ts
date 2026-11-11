@@ -332,16 +332,3 @@ export const AESTHETIC_CONCERNS = [
   "Body contouring", "Stubborn fat & cellulite reduction",
 ];
 
-export const TECHNOLOGY: { device: string; usedFor: string }[] = [
-  { device: "Revlite", usedFor: "Pigmentation, toning, birthmark reduction" },
-  { device: "PicoCare", usedFor: "Scars, pores, tattoo removal, toning" },
-  { device: "Ultrapulse CO₂", usedFor: "Mole removal, skin rejuvenation" },
-  { device: "Ellman RF", usedFor: "Mole and skin tag removal" },
-  { device: "LightSheer Duet", usedFor: "Hair reduction" },
-  { device: "Deka Again", usedFor: "Hair reduction, vein treatment" },
-  { device: "HydraFacial MD", usedFor: "Cleansing, exfoliation, hydration" },
-  { device: "Lumenis M22", usedFor: "Skin rejuvenation, stretch marks, photofacial" },
-  { device: "Deka Onda, Emsculpt Neo & Exion body", usedFor: "Body sculpting" },
-  { device: "Excimer", usedFor: "Light therapy for vitiligo, psoriasis, alopecia areata" },
-  { device: "Emface, Lumenis Legend Pro & Viora V10", usedFor: "Anti-ageing" },
-];

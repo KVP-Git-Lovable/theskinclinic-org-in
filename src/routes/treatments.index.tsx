@@ -7,12 +7,12 @@ import { Reveal } from "@/components/reveal";
 import { ServiceCover } from "@/components/service-cover";
 import { CLINIC } from "@/lib/clinic";
 import { HeroReel } from "@/components/hero-reel";
+import { EquipmentShowcase } from "@/components/equipment-showcase";
 import {
   AESTHETIC_CONCERNS,
   MEDICAL_CONDITIONS,
   SERVICES,
   SERVICE_CATEGORIES,
-  TECHNOLOGY,
   getCategory,
   type ServiceCategoryId,
 } from "@/lib/services";
@@ -165,16 +165,9 @@ function Treatments() {
             Advanced equipment, <em className="text-sage">chosen with care.</em>
           </h2>
         </Reveal>
-        <div className="grid md:grid-cols-2 gap-x-14">
-          {TECHNOLOGY.map((t, i) => (
-            <Reveal key={t.device} delay={(i % 2) * 80}>
-              <div className="flex items-baseline justify-between gap-6 border-b border-navy/10 py-5">
-                <span className="font-display text-2xl leading-tight">{t.device}</span>
-                <span className="text-sm text-right opacity-65 max-w-[16rem]">{t.usedFor}</span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal>
+          <EquipmentShowcase />
+        </Reveal>
       </section>
 
       {/* CTA */}
