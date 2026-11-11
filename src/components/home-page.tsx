@@ -16,7 +16,8 @@ import ig1 from "@/assets/ig-1.jpg";
 import tourTreatmentRoom from "@/assets/tour/tour-15.jpg";
 import clinicExterior from "@/assets/clinic/clinic-exterior.jpg";
 import clinicLounge from "@/assets/clinic/clinic-lounge.jpg";
-import clinicTreatmentRoom from "@/assets/clinic/clinic-treatment-room.jpg";
+import clinicWaitingArea from "@/assets/clinic/clinic-waiting-area.jpg";
+import clinicFrontDesk from "@/assets/clinic/clinic-front-desk.jpg";
 
 
 const SERVICES = [
@@ -37,8 +38,9 @@ const HIGHLIGHTS = [
 const HERO_SLIDES: HeroSlide[] = [
   { src: hero, position: "50% center", alt: "A multi-generation Indian family smiling together", eyebrow: "For the whole family", caption: "Healthy skin for every generation." },
   { src: clinicExterior, position: "40% center", alt: "The glass-fronted Skin Clinic building surrounded by greenery on Kadri Kambla Road, Mangaluru", eyebrow: "Visit us", caption: "A calm clinic in the heart of Mangaluru." },
-  { src: clinicLounge, position: "45% center", alt: "The waiting lounge at The Skin Clinic", eyebrow: "Step inside", caption: "Comfortable, confidential, considered." },
-  { src: clinicTreatmentRoom, position: "55% center", alt: "A treatment room with medical-grade lasers at The Skin Clinic", eyebrow: "Modern care", caption: "Clinical technology, calmly delivered." },
+  { src: clinicWaitingArea, position: "55% center", alt: "The waiting area at The Skin Clinic, with the clinic logo on the glass wall", eyebrow: "A warm welcome", caption: "No rush. No pressure. Just thoughtful care." },
+  { src: clinicFrontDesk, position: "50% center", alt: "The front desk at The Skin Clinic", eyebrow: "Step inside", caption: "Comfortable, confidential, considered." },
+  { src: clinicLounge, position: "35% center", alt: "The lounge with comfortable seating at The Skin Clinic", eyebrow: "Take a moment", caption: "A quiet space before your visit." },
 ];
 
 export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
