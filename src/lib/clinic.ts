@@ -7,7 +7,7 @@ export const CLINIC = {
   phone2Href: "tel:+916360753030",
   email: "theskinclinic30@gmail.com",
   email2: "vindhyapai@hotmail.com",
-  careersEmail: "jobs@theskinclinic.org.in",
+  careersEmail: "theskinclinic30@gmail.com",
   mapEmbed:
     "https://www.google.com/maps?q=The+Skin+Clinic+Vyasa+Rao+Road+Kadri+Kambla+Road+Mangaluru&output=embed",
   whatsappHref:

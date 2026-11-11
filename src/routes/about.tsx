@@ -4,7 +4,6 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import drVindhya from "@/assets/dr-vindhya-pai.jpg";
 import drPunyaAsset from "@/assets/dr-punya.png.asset.json";
-import drSurakshaAsset from "@/assets/dr-suraksha.jpg.asset.json";
 import drAshwiniAsset from "@/assets/dr-ashwini.jpg.asset.json";
 import clinicReception from "@/assets/clinic/clinic-reception.jpg";
 import clinicHall from "@/assets/clinic/clinic-hall.jpg";
@@ -17,10 +16,10 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "The Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. A family dermatology practice in Mangaluru with a team of four dermatologists.",
+          "The Skin Clinic was founded in 2018 by Dr. Vindhya A. Pai. A family dermatology practice in Mangaluru with a team of three dermatologists.",
       },
       { property: "og:title", content: "About — Dr. Vindhya A. Pai & Team | The Skin Clinic Mangaluru" },
-      { property: "og:description", content: "A family dermatology practice in Mangaluru, founded in 2018 by Dr. Vindhya A. Pai, with a team of four dermatologists." },
+      { property: "og:description", content: "A family dermatology practice in Mangaluru, founded in 2018 by Dr. Vindhya A. Pai, with a team of three dermatologists." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -30,7 +29,7 @@ export const Route = createFileRoute("/about")({
 
 const STATS = [
   { value: "2018", label: "Founded in Mangaluru" },
-  { value: "4", label: "Consultant dermatologists" },
+  { value: "3", label: "Consultant dermatologists" },
   { value: "27,000+", label: "Patients cared for" },
   { value: "IADVL", label: "Recognised observership centre, 2023" },
 ];
@@ -56,13 +55,6 @@ const TEAM = [
     quals: "MBBS, MD (DVL)",
     photo: drPunyaAsset.url,
     bio: "MD from KMC Manipal and a published researcher. Treats acne, fungal infections, psoriasis, dermatitis and vitiligo, with a current focus on pigmentation and acne scars.",
-  },
-  {
-    name: "Dr. P. Suraksha",
-    role: "Consultant Dermatologist",
-    quals: "MBBS, MD (DVL)",
-    photo: drSurakshaAsset.url,
-    bio: "Expertise in acne, pigmentary and hair conditions. Performs chemical peels, PRP, cryotherapy, electrocautery, biopsies and laser procedures.",
   },
   {
     name: "Dr. Ashwini Ashokan",
@@ -145,7 +137,7 @@ function About() {
           </p>
           <p className="leading-relaxed opacity-70 mb-10">
             Founded in 2018 by Dr. Vindhya A. Pai after years in academic dermatology and aesthetic medicine, the
-            clinic brings evidence-based medicine together with genuine listening. Today four dermatologists care
+            clinic brings evidence-based medicine together with genuine listening. Today three dermatologists care
             for families across Mangaluru and the coast.
           </p>
           <ol className="border-l border-navy/15 space-y-6 pl-8">
@@ -183,13 +175,13 @@ function About() {
       <section className="max-w-7xl mx-auto px-6 py-28">
         <p className="text-[11px] uppercase tracking-[0.4em] opacity-50 mb-6">The team</p>
         <h2 className="font-display text-5xl md:text-6xl mb-16">
-          Four dermatologists.
+          Three dermatologists.
           <br />
           <em className="text-sage">One promise.</em>
         </h2>
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-14">
-          {TEAM.map((d) => (
-            <article key={d.name} className="grid grid-cols-5 gap-6 group">
+          {TEAM.map((d, i) => (
+            <article key={d.name} className={`grid grid-cols-5 gap-6 group ${TEAM.length % 2 === 1 && i === TEAM.length - 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-1.25rem)]" : ""}`}>
               <div className="col-span-2 aspect-[4/5] bg-mist/60 overflow-hidden">
                 <img
                   src={d.photo}

@@ -50,6 +50,13 @@ export function SiteHeader() {
               {CLINIC.phoneDisplay}
             </a>
             <a
+              href={CLINIC.phone2Href}
+              className="group hidden lg:flex items-center gap-2 hover:text-sage transition-colors whitespace-nowrap"
+            >
+              <Phone className="size-4 text-sage shrink-0" strokeWidth={1.5} />
+              {CLINIC.phone2Display}
+            </a>
+            <a
               href={CLINIC.whatsappHref}
               target="_blank"
               rel="noreferrer"
@@ -111,6 +118,16 @@ export function SiteHeader() {
               ))}
             </ul>
             <div className="px-6 pb-6">
+              <div className="mb-4 flex flex-col gap-3 text-sm">
+                {[
+                  { href: CLINIC.phoneHref, label: CLINIC.phoneDisplay },
+                  { href: CLINIC.phone2Href, label: CLINIC.phone2Display },
+                ].map((p) => (
+                  <a key={p.href} href={p.href} className="flex items-center gap-3 tracking-[0.08em]">
+                    <Phone className="size-4 text-sage" strokeWidth={1.5} /> {p.label}
+                  </a>
+                ))}
+              </div>
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
