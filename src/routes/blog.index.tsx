@@ -50,11 +50,11 @@ function BlogIndex() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[39rem]">
+      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[44rem]">
         <div aria-hidden className="pointer-events-none absolute -top-10 right-0 size-[28rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
         <p className="relative text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">The journal</p>
         {/* Something that is not repeated further down the page: a small interactive daily-routine card. */}
-        <div className="hidden xl:block absolute right-6 top-16">
+        <div className="hidden xl:block absolute right-6 top-8">
           <CoastalDay />
         </div>
         <h1 className="relative font-display text-5xl sm:text-6xl md:text-8xl xl:text-7xl leading-[0.95] max-w-4xl animate-fade-up">
