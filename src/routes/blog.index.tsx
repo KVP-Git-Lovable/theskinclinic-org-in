@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { BlogVideoCard } from "@/components/blog-video-card";
 import { CoastalDay } from "@/components/coastal-day";
+import { TopicRows } from "@/components/topic-rows";
 import { BLOG_POSTS, formatPostDate, type BlogPost } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/")({
@@ -50,7 +51,7 @@ function BlogIndex() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[44rem]">
+      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[41rem]">
         <div aria-hidden className="pointer-events-none absolute -top-10 right-0 size-[28rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
         <p className="relative text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">The journal</p>
         {/* Something that is not repeated further down the page: a small interactive daily-routine card. */}
@@ -64,11 +65,22 @@ function BlogIndex() {
         <p className="relative mt-8 max-w-xl text-lg leading-relaxed opacity-75 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           Practical skin care advice and honest treatment guides from our dermatologists, written for how skin really behaves on the coast.
         </p>
+        <div className="relative mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <a href="#read" className="group inline-flex items-center gap-3 bg-navy px-8 py-4 text-[12.5px] uppercase tracking-[0.25em] text-ivory transition-colors hover:bg-sage-dark">
+            Read the articles <ArrowRight className="size-3 rotate-90 transition-transform group-hover:translate-y-1" />
+          </a>
+          {videoPosts.length > 0 && (
+            <a href="#watch" className="group inline-flex items-center gap-3 border border-navy/25 px-8 py-4 text-[12.5px] uppercase tracking-[0.25em] transition-colors hover:bg-navy hover:text-ivory">
+              Watch the stories <ArrowRight className="size-3 rotate-90 transition-transform group-hover:translate-y-1" />
+            </a>
+          )}
+        </div>
+        <TopicRows className="relative mt-14 xl:max-w-[44rem] animate-fade-up" />
       </section>
 
       {/* Video stories: vertical clips that play on their own while on screen */}
       {videoPosts.length > 0 && (
-        <section className="relative overflow-hidden bg-navy text-ivory py-24">
+        <section id="watch" className="relative overflow-hidden bg-navy text-ivory py-24 scroll-mt-24">
           <div aria-hidden className="pointer-events-none absolute -left-24 top-10 size-[28rem] rounded-full bg-sage/15 blur-3xl" />
           <div className="relative max-w-7xl mx-auto px-6">
             <Reveal>
@@ -94,7 +106,7 @@ function BlogIndex() {
       )}
 
       {/* Posts: one large featured story beside two compact ones, then a grid for any more */}
-      <section className="max-w-7xl mx-auto px-6 pt-24 pb-28">
+      <section id="read" className="max-w-7xl mx-auto px-6 pt-24 pb-28 scroll-mt-24">
         <Reveal>
           <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-10">Read</p>
         </Reveal>
