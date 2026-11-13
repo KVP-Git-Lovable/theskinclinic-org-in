@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { BlogVideoCard } from "@/components/blog-video-card";
+import { CoastalDay } from "@/components/coastal-day";
 import { BLOG_POSTS, formatPostDate, type BlogPost } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/")({
@@ -49,28 +50,12 @@ function BlogIndex() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20">
+      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[39rem]">
         <div aria-hidden className="pointer-events-none absolute -top-10 right-0 size-[28rem] rounded-full bg-sage/20 blur-3xl animate-pulse motion-reduce:animate-none" />
         <p className="relative text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">The journal</p>
-        {/* A fan of the journal's photo stories: tilted cards that straighten and lift on hover. */}
-        <div className="hidden xl:block absolute right-6 top-20 h-[28rem] w-[28rem]">
-          {BLOG_POSTS.filter((p) => p.image).slice(0, 3).map((p, i) => (
-            <Link
-              key={p.slug}
-              to="/blog/$slug"
-              params={{ slug: p.slug }}
-              className={`group absolute aspect-[3/4] w-[13rem] overflow-hidden border-[6px] border-ivory bg-ivory shadow-2xl shadow-navy/20 transition-all duration-500 hover:z-20 hover:-translate-y-3 hover:rotate-0 hover:scale-105 ${
-                ["left-0 top-14 -rotate-6 ai-float-slow", "left-[7.5rem] top-0 z-10 ai-float", "right-0 top-20 rotate-6 ai-float-slow"][i]
-              }`}
-            >
-              <PostCover post={p} className="absolute inset-0" eager />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/10 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-4 text-ivory">
-                <p className="text-[11.5px] uppercase tracking-[0.25em] opacity-80">{p.category}</p>
-                <p className="mt-2 font-display text-lg leading-tight">{p.title}</p>
-              </div>
-            </Link>
-          ))}
+        {/* Something that is not repeated further down the page: a small interactive daily-routine card. */}
+        <div className="hidden xl:block absolute right-6 top-16">
+          <CoastalDay />
         </div>
         <h1 className="relative font-display text-5xl sm:text-6xl md:text-8xl xl:text-7xl leading-[0.95] max-w-4xl animate-fade-up">
           Skin, <em className="text-sage">understood.</em>
