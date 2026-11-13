@@ -84,7 +84,7 @@ function Contact() {
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-16 xl:min-h-[30rem]">
           <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Contact us</p>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] animate-fade-up">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-8xl xl:text-7xl 2xl:text-8xl leading-[0.95] animate-fade-up">
             Let's talk about
             <br />
             <em className="text-sage">your skin.</em>

@@ -83,7 +83,7 @@ function About() {
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-20 xl:min-h-[36rem] xl:flex xl:flex-col xl:justify-center">
           <div className="xl:max-w-[44rem]">
             <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">About · Est. 2018</p>
-            <h1 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] animate-fade-up">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-8xl xl:text-7xl 2xl:text-8xl leading-[0.95] animate-fade-up">
               Simply. Better.
               <br />
               <em className="text-sage">Skin.</em>

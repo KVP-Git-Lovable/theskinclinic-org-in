@@ -52,7 +52,7 @@ function Treatments() {
           <HeroReel />
         </div>
         <p className="relative text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-8 animate-fade-up">Treatments</p>
-        <h1 className="relative font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] animate-fade-up">
+        <h1 className="relative font-display text-5xl sm:text-6xl md:text-8xl xl:text-7xl leading-[0.95] animate-fade-up">
           Care for your skin,
           <br />
           <em className="text-sage">explained simply.</em>
