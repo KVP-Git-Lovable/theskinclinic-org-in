@@ -123,18 +123,6 @@ export function SiteFooter() {
       <div className="border-t border-ivory/10">
         <div className="max-w-7xl mx-auto px-6 pr-24 py-6 flex flex-wrap items-center justify-between gap-4 text-[11.5px] uppercase tracking-[0.25em] opacity-50">
           <span>© {new Date().getFullYear()} The Skin Clinic, Mangaluru. All rights reserved.</span>
-          <nav aria-label="Homepage design previews" className="flex items-center gap-5 normal-case tracking-normal text-xs">
-            <span>Preview homepage:</span>
-            <Link to="/" activeOptions={{ exact: true }} className="hover:opacity-100 underline-offset-4 hover:underline" activeProps={{ className: "underline" }}>
-              Original
-            </Link>
-            <Link to="/home-option-2" className="hover:opacity-100 underline-offset-4 hover:underline" activeProps={{ className: "underline" }}>
-              Option 2
-            </Link>
-            <Link to="/home-option-3" className="hover:opacity-100 underline-offset-4 hover:underline" activeProps={{ className: "underline" }}>
-              Option 3
-            </Link>
-          </nav>
         </div>
       </div>
     </footer>

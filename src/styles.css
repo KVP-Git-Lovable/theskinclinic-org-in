@@ -230,3 +230,14 @@
 @media (prefers-reduced-motion: reduce) {
   .ai-marquee, .ai-marquee-reverse { animation: none; }
 }
+
+/* Blog hero scenes: slow drifting of clouds and waves */
+@keyframes ai-drift {
+  0%, 100% { transform: translateX(-14px); }
+  50% { transform: translateX(14px); }
+}
+@utility ai-drift { animation: ai-drift 9s ease-in-out infinite; }
+@utility ai-drift-slow { animation: ai-drift 15s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ai-drift, .ai-drift-slow { animation: none; }
+}

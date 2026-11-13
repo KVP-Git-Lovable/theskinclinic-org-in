@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Moon, Sparkles, Sun, Sunrise, Sunset } from "lucide-react";
+import { CoastalScene } from "@/components/coastal-scene";
 
 const STEPS = [
-  { time: "Morning", icon: Sunrise, glow: "from-amber-200/70 to-rose-100/40", text: "Cleanse gently, moisturise, and apply a broad-spectrum sunscreen." },
-  { time: "Midday", icon: Sun, glow: "from-yellow-100/80 to-sky-100/60", text: "Hot and humid? Reapply sunscreen about every two hours when you're outdoors." },
-  { time: "Evening", icon: Sunset, glow: "from-orange-200/70 to-fuchsia-100/40", text: "Wash off sweat, sunscreen and the day's pollution with a gentle cleanser." },
-  { time: "Night", icon: Moon, glow: "from-indigo-200/60 to-slate-300/40", text: "Moisturise, and use only the treatments your dermatologist has advised." },
+  { time: "Morning", icon: Sunrise, text: "Cleanse gently, moisturise, and apply a broad-spectrum sunscreen." },
+  { time: "Midday", icon: Sun, text: "Hot and humid? Reapply sunscreen about every two hours when you're outdoors." },
+  { time: "Evening", icon: Sunset, text: "Wash off sweat, sunscreen and the day's pollution with a gentle cleanser." },
+  { time: "Night", icon: Moon, text: "Moisturise, and use only the treatments your dermatologist has advised." },
 ];
 
 /**
@@ -27,13 +28,15 @@ export function CoastalDay() {
     <div
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      className="relative w-[28rem] overflow-hidden rounded-2xl border border-sage/25 bg-background/85 p-7 shadow-2xl shadow-sage/15 backdrop-blur"
+      className="relative w-[28rem] overflow-hidden rounded-2xl border border-sage/25 bg-background p-7 shadow-2xl shadow-sage/15 backdrop-blur"
     >
-      {/* The glow behind the card follows the time of day. */}
+      {/* A light coastal scene behind the card that changes with the time of day, softened so the text stays easy to read. */}
       {STEPS.map((s, i) => (
-        <div key={s.time} aria-hidden className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${s.glow} transition-opacity duration-[1500ms] ${i === active ? "opacity-100" : "opacity-0"}`} />
+        <div key={s.time} aria-hidden className={`pointer-events-none absolute inset-0 transition-opacity duration-[1600ms] ${i === active ? "opacity-100" : "opacity-0"}`}>
+          <CoastalScene index={i} />
+        </div>
       ))}
-      <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-sage/25 blur-3xl ai-float-slow" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/30 via-background/55 to-background/70" />
 
       <p className="relative flex items-center gap-2 text-[11.5px] uppercase tracking-[0.3em] text-sage-dark">
         <Sparkles className="size-3.5" /> A coastal skin day
