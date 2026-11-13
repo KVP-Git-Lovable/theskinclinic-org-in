@@ -3,8 +3,8 @@ import { ArrowRight, HeartHandshake, MessagesSquare, Microscope, ShieldCheck } f
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import drVindhya from "@/assets/dr-vindhya-pai.jpg";
-import drPunyaAsset from "@/assets/dr-punya.png.asset.json";
-import drAshwiniAsset from "@/assets/dr-ashwini.jpg.asset.json";
+import drPunya from "@/assets/team/dr-punya.jpg";
+import drAshwini from "@/assets/team/dr-ashwini.jpg";
 import clinicReception from "@/assets/clinic/clinic-reception.jpg";
 import clinicHall from "@/assets/clinic/clinic-hall.jpg";
 
@@ -53,14 +53,14 @@ const TEAM = [
     name: "Dr. Punya Suvarna",
     role: "Consultant Dermatologist",
     quals: "MBBS, MD (DVL)",
-    photo: drPunyaAsset.url,
+    photo: drPunya,
     bio: "MD from KMC Manipal and a published researcher. Treats acne, fungal infections, psoriasis, dermatitis and vitiligo, with a current focus on pigmentation and acne scars.",
   },
   {
     name: "Dr. Ashwini Ashokan",
     role: "Consultant Dermatologist",
     quals: "MBBS, MD (DVL)",
-    photo: drAshwiniAsset.url,
+    photo: drAshwini,
     bio: "Trained at Amrita Institute of Medical Sciences, Kochi. Interests include pigmentary disorders, hair and scalp disease, infections and autoimmune skin conditions.",
   },
 ];
