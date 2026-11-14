@@ -30,3 +30,8 @@
 - [x] Preserve the current homepage and add Options 2 and 3 without a lady's portrait in the opening.
 - [x] Add footer links to switch between all three homepages.
 - [x] Verify both options, footer navigation and phone layouts.
+
+# SEO finding corrections
+- [x] Remove conflicting root search and sharing metadata; give alternate homepages visitor-facing titles.
+- [x] Use the public clinic domain for absolute sitemap addresses and the crawler sitemap reference.
+- [x] Verify rendered page metadata and crawler endpoints, then record completed finding corrections.

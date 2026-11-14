@@ -79,19 +79,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Tha Skin Clinic — Dermatology & Aesthetics in Mangalore" },
-      {
-        name: "description",
-        content:
-          "Board-certified dermatology, laser aesthetics and medical skincare, led by Dr. Vindhya A. Pai in Mangalore since 2018.",
-      },
       { name: "author", content: "Tha Skin Clinic" },
-      { property: "og:title", content: "Tha Skin Clinic — Dermatology & Aesthetics in Mangalore" },
-      {
-        property: "og:description",
-        content:
-          "Board-certified dermatology, laser aesthetics and medical skincare in Mangalore.",
-      },
+      { property: "og:site_name", content: "Tha Skin Clinic" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
