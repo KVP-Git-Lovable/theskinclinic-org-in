@@ -58,7 +58,7 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
         <div className="relative order-2 aspect-[4/5] w-full overflow-hidden md:absolute md:inset-y-0 md:right-0 md:order-none md:aspect-auto md:w-1/2">
           <HeroSlideshow slides={HERO_SLIDES} />
         </div>
-        <div className="relative order-1 w-full max-w-7xl mx-auto px-6 grid md:order-none md:w-auto md:grid-cols-2 gap-8 py-14 md:py-32">
+        <div className="relative order-1 w-full max-w-7xl mx-auto px-6 grid md:order-none md:grid-cols-2 gap-8 py-14 md:py-32">
           <div className="animate-fade-up">
             <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-80 mb-8">
               Since 2018 — Mangalore
