@@ -73,7 +73,7 @@ export function SiteHeader() {
       <nav className="w-full bg-ivory/85 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-12">
-            <Link to="/" aria-label="Tha Skin Clinic — home" className="block">
+            <Link to="/" aria-label="The Skin Clinic — home" className="block">
               <img src={logoAsset.url} alt="The Skin Clinic" className="h-16 w-auto" />
             </Link>
             <div className="hidden md:flex items-center gap-9 text-[13px] uppercase tracking-[0.18em] font-medium">

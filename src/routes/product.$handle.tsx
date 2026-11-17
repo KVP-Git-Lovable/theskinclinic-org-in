@@ -19,8 +19,8 @@ export const Route = createFileRoute("/product/$handle")({
   },
   head: ({ params }) => {
     const productName = params.handle.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-    const title = `${productName} — Formula V | Tha Skin Clinic`;
-    const description = `Explore ${productName} from Formula V at Tha Skin Clinic. View product details and shopping options.`;
+    const title = `${productName} — Formula V | The Skin Clinic`;
+    const description = `Explore ${productName} from Formula V at The Skin Clinic. View product details and shopping options.`;
     return { meta: [
       { title },
       { name: "description", content: description },

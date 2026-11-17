@@ -16,14 +16,14 @@ export const Route = createFileRoute("/shop")({
   },
   head: () => ({
     meta: [
-      { title: "Formula V — Clinical Skincare | Tha Skin Clinic" },
+      { title: "Formula V — Clinical Skincare | The Skin Clinic" },
       {
         name: "description",
         content:
-          "Formula V — dermatologist-formulated skincare designed at Tha Skin Clinic for coastal Indian skin. Serums, moisturizers, brightening cream & more.",
+          "Formula V — dermatologist-formulated skincare designed at The Skin Clinic for coastal Indian skin. Serums, moisturizers, brightening cream & more.",
       },
       { property: "og:title", content: "Formula V — Clinical Skincare" },
-      { property: "og:description", content: "Formula V — dermatologist-formulated skincare designed at Tha Skin Clinic for coastal Indian skin. Serums, moisturizers, brightening cream & more." },
+      { property: "og:description", content: "Formula V — dermatologist-formulated skincare designed at The Skin Clinic for coastal Indian skin. Serums, moisturizers, brightening cream & more." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -52,7 +52,7 @@ function Shop() {
           Formula <em className="text-sage">V</em>
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed opacity-75">
-          Each formula is developed alongside real patient outcomes at Tha Skin Clinic.
+          Each formula is developed alongside real patient outcomes at The Skin Clinic.
           Ingredients chosen for evidence. Textures chosen for you.
         </p>
       </section>

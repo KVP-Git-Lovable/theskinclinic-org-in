@@ -54,7 +54,7 @@ export function CartDrawer() {
           <SheetDescription>
             {totalItems === 0
               ? "Your cart is empty."
-              : `${totalItems} item${totalItems !== 1 ? "s" : ""} — Formula V by Tha Skin Clinic.`}
+              : `${totalItems} item${totalItems !== 1 ? "s" : ""} — Formula V by The Skin Clinic.`}
           </SheetDescription>
         </SheetHeader>
         <div className="flex flex-col flex-1 pt-6 min-h-0">

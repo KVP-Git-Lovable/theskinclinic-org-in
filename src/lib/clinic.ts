@@ -1,5 +1,5 @@
 export const CLINIC = {
-  name: "Tha Skin Clinic",
+  name: "The Skin Clinic",
   tagline: "Simply. Better. Skin.",
   phoneDisplay: "+91 96201 23030",
   phoneHref: "tel:+919620123030",

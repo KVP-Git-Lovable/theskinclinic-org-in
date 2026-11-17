@@ -79,8 +79,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Tha Skin Clinic" },
-      { property: "og:site_name", content: "Tha Skin Clinic" },
+      { name: "author", content: "The Skin Clinic" },
+      { property: "og:site_name", content: "The Skin Clinic" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

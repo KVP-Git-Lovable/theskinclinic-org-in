@@ -72,7 +72,7 @@ export const medicalTreatments: TreatmentInfo[] = [
   {
     id: "skin-cancer-surgery", name: "Skin cancer surgery & specialist referral", summary: "Understanding excision and when Mohs surgery is considered.",
     overview: "When a biopsy confirms skin cancer, surgery may be recommended to remove it. Standard excision removes the growth with a margin of surrounding skin. Mohs surgery examines tissue in stages and is used for selected cancers where preserving healthy tissue is especially important.",
-    care: "The right approach depends on the cancer type, size and location, as well as your health. A dermatologist can explain the diagnosis and coordinate specialist care. These are educational options, not a claim that Mohs or every surgical procedure is performed at Tha Skin Clinic.",
+    care: "The right approach depends on the cancer type, size and location, as well as your health. A dermatologist can explain the diagnosis and coordinate specialist care. These are educational options, not a claim that Mohs or every surgical procedure is performed at The Skin Clinic.",
     expectations: "Surgery can leave a scar and may require stitches, dressings and follow-up. Recovery and recurrence risk vary. Confirm the treating specialist, procedure location and aftercare plan before scheduling.",
   },
 ];
@@ -123,7 +123,7 @@ export const cosmeticTreatments: TreatmentInfo[] = [
   {
     id: "acne-light", name: "Light & laser options for acne", summary: "Additional options when selected breakouts need more support.",
     overview: "Some light-based treatments target acne-associated bacteria, while selected lasers act on other acne-related skin structures. They are usually considered alongside a medical acne plan rather than as a universal replacement for prescriptions.",
-    care: "Your dermatologist reviews acne severity, skin tone and previous treatment response. Chicago Skin Clinic describes named systems such as CLEARLight and Smoothbeam; those names do not establish their availability at Tha Skin Clinic. Ask which device, if any, is appropriate and available.",
+    care: "Your dermatologist reviews acne severity, skin tone and previous treatment response. Chicago Skin Clinic describes named systems such as CLEARLight and Smoothbeam; those names do not establish their availability at The Skin Clinic. Ask which device, if any, is appropriate and available.",
     expectations: "A course may require repeated sessions, and response varies. Light sensitivity, irritation, burns or pigment changes depend on the treatment. Active acne should be controlled before planning many scar procedures.",
   },
   {

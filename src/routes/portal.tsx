@@ -7,13 +7,13 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/portal")({
   head: () => ({
     meta: [
-      { title: "Patient Portal | Tha Skin Clinic" },
+      { title: "Patient Portal | The Skin Clinic" },
       {
         name: "description",
         content:
           "Sign in to your patient portal to view visit history, prescriptions, and treatment plans.",
       },
-      { property: "og:title", content: "Patient Portal | Tha Skin Clinic" },
+      { property: "og:title", content: "Patient Portal | The Skin Clinic" },
       { property: "og:description", content: "Sign in to your patient portal to view visit history, prescriptions, and treatment plans." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

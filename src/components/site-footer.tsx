@@ -25,7 +25,7 @@ export function SiteFooter() {
     <footer className="bg-navy text-ivory border-t border-ivory/10">
       <div className="max-w-7xl mx-auto px-6 py-20 grid gap-14 md:grid-cols-12">
         <div className="md:col-span-5">
-          <Link to="/" aria-label="Tha Skin Clinic — home" className="mb-6 block">
+          <Link to="/" aria-label="The Skin Clinic — home" className="mb-6 block">
             <img src={logoAsset.url} alt="The Skin Clinic" className="h-16 w-auto" />
           </Link>
           <p className="text-[12.5px] uppercase tracking-[0.3em] text-sage mb-5">{CLINIC.tagline}</p>

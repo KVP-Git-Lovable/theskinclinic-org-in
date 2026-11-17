@@ -20,7 +20,7 @@ export function HomeOpening({ option }: { option: 2 | 3 }) {
       <div className={`mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20 ${clinicOpening ? "text-center" : ""}`}>
         <div className={clinicOpening ? "mx-auto max-w-3xl" : "max-w-xl"}>
           <p className="mb-7 text-xs font-semibold text-sage-dark">Mangalore · Dermatologist-led care since 2018</p>
-          <h1 className="text-4xl font-medium leading-[1.14] md:text-6xl">Tha Skin Clinic</h1>
+          <h1 className="text-4xl font-medium leading-[1.14] md:text-6xl">The Skin Clinic</h1>
           <p className="mt-6 text-2xl leading-snug text-sage-dark md:text-3xl">
             {clinicOpening ? "Expert care. A calmer kind of confidence." : "Thoughtful care, for the skin you’re in."}
           </p>

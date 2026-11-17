@@ -10,9 +10,9 @@ import { TreatmentComparison } from "@/components/treatment-comparison";
 export const Route = createFileRoute("/skin-ai")({
   head: () => ({
     meta: [
-      { title: "Skin AI — Concern Guide & Treatment Comparisons | Tha Skin Clinic" },
+      { title: "Skin AI — Concern Guide & Treatment Comparisons | The Skin Clinic" },
       { name: "description", content: "Describe your skin concern in your own words and let Skin AI suggest helpful guides and questions for your visit — plus plain-language comparisons of related treatments. Educational only, never a diagnosis." },
-      { property: "og:title", content: "Skin AI — Concern Guide & Treatment Comparisons | Tha Skin Clinic" },
+      { property: "og:title", content: "Skin AI — Concern Guide & Treatment Comparisons | The Skin Clinic" },
       { property: "og:description", content: "Describe your skin concern and get suggested reading and questions for your appointment — educational guidance, never a diagnosis." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -33,7 +33,7 @@ function SkinAI() {
           <div className="relative max-w-7xl mx-auto px-6 pt-14 md:pt-20 pb-12 md:pb-16 grid lg:grid-cols-[1fr_22rem] gap-10 items-center">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-sage/30 bg-background/70 px-4 py-1.5 text-xs text-sage-dark backdrop-blur mb-6 animate-fade-up">
-                <Sparkles size={14} strokeWidth={1.75} /> Tha Skin Clinic · Mangalore
+                <Sparkles size={14} strokeWidth={1.75} /> The Skin Clinic · Mangalore
               </p>
               <h1 className="font-display text-5xl md:text-7xl leading-[1.05] max-w-4xl animate-fade-up">
                 Skin AI.<br />

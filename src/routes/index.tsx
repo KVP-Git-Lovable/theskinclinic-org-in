@@ -4,13 +4,13 @@ import { HomePage } from "@/components/home-page";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tha Skin Clinic — Dermatology | Mangalore" },
+      { title: "The Skin Clinic — Dermatology | Mangalore" },
       {
         name: "description",
         content:
           "Skin, hair and laser care for the whole family in Mangaluru. Qualified dermatologists, led by Dr. Vindhya A. Pai since 2018.",
       },
-      { property: "og:title", content: "Tha Skin Clinic — Dermatology | Mangalore" },
+      { property: "og:title", content: "The Skin Clinic — Dermatology | Mangalore" },
       { property: "og:description", content: "Skin, hair and laser care for the whole family in Mangaluru. Qualified dermatologists, led by Dr. Vindhya A. Pai since 2018." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

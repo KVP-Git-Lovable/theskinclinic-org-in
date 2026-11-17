@@ -36,7 +36,7 @@ export function WhatsAppFab() {
       href={CLINIC.whatsappHref}
       target="_blank"
       rel="noreferrer"
-      aria-label="Chat with Tha Skin Clinic on WhatsApp"
+      aria-label="Chat with The Skin Clinic on WhatsApp"
       className="group fixed bottom-6 right-6 z-40 flex items-center gap-3 rounded-full bg-sage-dark text-ivory p-4 shadow-xl shadow-navy/25 hover:bg-navy transition-colors"
     >
       <WhatsAppIcon className="size-6 shrink-0" />
