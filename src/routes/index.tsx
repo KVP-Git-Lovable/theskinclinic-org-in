@@ -8,10 +8,10 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Quiet confidence in your skin. Advanced dermatology, laser and medical skincare, led by Dr. Vindhya A. Pai in Mangalore since 2018.",
+          "Skin, hair and laser care for the whole family in Mangaluru. Qualified dermatologists, led by Dr. Vindhya A. Pai since 2018.",
       },
       { property: "og:title", content: "Tha Skin Clinic — Dermatology | Mangalore" },
-      { property: "og:description", content: "Quiet confidence in your skin. Advanced dermatology, laser and medical skincare, led by Dr. Vindhya A. Pai in Mangalore since 2018." },
+      { property: "og:description", content: "Skin, hair and laser care for the whole family in Mangaluru. Qualified dermatologists, led by Dr. Vindhya A. Pai since 2018." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

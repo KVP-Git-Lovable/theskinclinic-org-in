@@ -64,14 +64,13 @@ export function HomePage({ option = 1 }: { option?: 1 | 2 | 3 }) {
               Since 2018 — Mangalore
             </p>
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
-              Quiet confidence,<br />
-              <em className="text-sage">worn as skin.</em>
+              Healthy skin,<br />
+              <em className="text-sage">made simple.</em>
             </h1>
             <div className="h-px w-24 bg-sage mt-10 origin-left animate-line-draw" style={{ animationDelay: "0.6s" }} />
             <p className="mt-10 text-lg max-w-md leading-relaxed opacity-75">
-              A dermatology practice for people who prefer results that whisper —
-              not shout. Board-certified care, medical-grade lasers, and
-              considered aesthetic medicine.
+              Skin, hair and laser care from qualified dermatologists in Mangaluru, for every age.
+              We listen first, explain clearly, and suggest only what you need.
             </p>
             <div className="mt-12 flex flex-wrap gap-4">
               <Link

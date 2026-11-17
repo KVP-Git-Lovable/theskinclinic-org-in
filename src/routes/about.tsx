@@ -47,21 +47,30 @@ const TEAM = [
     role: "Founder · Consultant Dermatologist",
     quals: "MBBS, MD (DVL)",
     photo: drVindhya,
-    bio: "Trained at Kasturba Medical College, Mangalore, with a dermoscopy fellowship at Cardiff University and laser training in New Jersey and Milan. Interests include acne, pigmentation, ageing skin, body contouring, paediatric dermatology and scar care.",
+    bio: [
+      "Dr Vindhya Pai is a Dermatologist at KMC Hospital, Dr B R Ambedkar Circle, Mangalore. She is a specialist in the field of Dermatology (Skin, Laser and Surgery). She earned her MBBS degree from Kasturba Medical College, Mangalore in 2010, and then did a preceptorship course at Skin, Laser and Surgery Specialists of New Jersey. Dr Vindhya has done her Masters of Doctorate from Kasturba Medical College, Mangalore.",
+      "She worked in the USA under the world-renowned laser surgeon and Dermatologist Dr David J Goldberg in the speciality field of Cosmetic Dermatology. Dr Vindhya Pai has also done a fellowship on the Dermatoscope, in the study of moles, from Cardiff University, United Kingdom.",
+    ],
   },
   {
     name: "Dr. Punya Suvarna",
     role: "Consultant Dermatologist",
     quals: "MBBS, MD (DVL)",
     photo: drPunya,
-    bio: "MD from KMC Manipal and a published researcher. Treats acne, fungal infections, psoriasis, dermatitis and vitiligo, with a current focus on pigmentation and acne scars.",
+    bio: [
+      "Dr Punya Suvarna is a skilled dermatologist with great clinical acumen. She was awarded the Best Outgoing Student for the year 2021 from KMC Manipal, from where she completed her MD in Dermatology, Venereology and Leprosy. She specialises in pigmentary disorders, acne and hair-related issues, and is trained in advanced laser and aesthetic injectable treatments.",
+      "She also attained her MRCP SCE (UK) in 2022 and is continuously updating herself on the latest advancements in Dermatology.",
+    ],
   },
   {
     name: "Dr. Ashwini Ashokan",
     role: "Consultant Dermatologist",
     quals: "MBBS, MD (DVL)",
     photo: drAshwini,
-    bio: "Trained at Amrita Institute of Medical Sciences, Kochi. Interests include pigmentary disorders, hair and scalp disease, infections and autoimmune skin conditions.",
+    bio: [
+      "Dr. Ashwini Ashokan is a qualified dermatologist with formal training in Dermatology, Venereology, and Leprosy, having completed her MD from Amrita Institute of Medical Sciences, Kochi, in 2025. Her training involved extensive exposure to both outpatient and inpatient dermatological care, following comprehensive training across diverse dermatological subspecialties.",
+      "Her areas of interest include core clinical dermatology, with emphasis on papulosquamous disorders, infections and infestations, pigmentary disorders, hair and scalp diseases, and autoimmune dermatoses. She is also experienced in performing dermatological procedures with a focus on precision and safety.",
+    ],
   },
 ];
 
@@ -129,16 +138,16 @@ function About() {
         <div className="md:col-span-7">
           <p className="text-[12.5px] uppercase tracking-[0.4em] opacity-50 mb-6">Our story</p>
           <h2 className="font-display text-4xl md:text-[3.5rem] leading-[1.1] mb-8">
-            "The best dermatology is often the least visible."
+            Skin care made for <em className="text-sage">our skin and our climate.</em>
           </h2>
           <p className="text-lg leading-relaxed opacity-80 mb-6">
-            The Skin Clinic began with a simple observation: Indian skin, and coastal monsoon skin especially,
-            needs care shaped for its climate, its melanin and its rhythms, not imported protocols.
+            The Skin Clinic began with a simple idea: Indian skin needs care that suits it, especially in the humid,
+            rainy weather of the coast, and not treatments copied from other countries.
           </p>
           <p className="leading-relaxed opacity-70 mb-10">
-            Founded in 2018 by Dr. Vindhya A. Pai after years in academic dermatology and aesthetic medicine, the
-            clinic brings evidence-based medicine together with genuine listening. Today three dermatologists care
-            for families across Mangaluru and the coast.
+            Dr. Vindhya A. Pai started the clinic in 2018, after years of work in skin care and cosmetic medicine.
+            We combine proven medical treatment with real listening. Today three dermatologists care for families
+            across Mangaluru and the coast.
           </p>
           <ol className="border-l border-navy/15 space-y-6 pl-8">
             {MILESTONES.map((m) => (
@@ -194,7 +203,9 @@ function About() {
                 <h3 className="font-display text-2xl leading-tight">{d.name}</h3>
                 <p className="text-[11.5px] uppercase tracking-[0.18em] text-sage-dark mt-2">{d.role}</p>
                 <p className="text-xs opacity-60 mt-1">{d.quals}</p>
-                <p className="text-sm opacity-75 leading-relaxed mt-4">{d.bio}</p>
+                {d.bio.map((p) => (
+                  <p key={p.slice(0, 24)} className="text-sm opacity-75 leading-relaxed mt-4">{p}</p>
+                ))}
               </div>
             </article>
           ))}
